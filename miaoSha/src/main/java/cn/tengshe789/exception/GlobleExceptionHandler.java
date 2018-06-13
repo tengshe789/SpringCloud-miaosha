@@ -14,7 +14,7 @@ import java.net.BindException;
 public class GlobleExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public Result<String> exceptionHandler(HttpServletRequest request,Exception e){
-//        e.printStackTrace();
+        e.printStackTrace();
         if (e instanceof BindException){
             BindException exception=(BindException) e;
             String message = exception.getMessage();

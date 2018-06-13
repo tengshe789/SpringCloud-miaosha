@@ -22,6 +22,8 @@ public class CodeMsg {
     //订单模块 5004XX
 
     //秒杀模块 5005XX
+    public static CodeMsg MIAO_SHA_OVER = new CodeMsg(500500, "商品秒杀完了");
+    public static CodeMsg CHONG_FU_MIAOSHA = new CodeMsg(500501, "不能重复秒杀商品啊大兄弟");
 
     private CodeMsg( ) {
     }
