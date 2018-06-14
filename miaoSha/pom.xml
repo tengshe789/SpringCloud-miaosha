@@ -6,6 +6,7 @@
 
   <groupId>cn.tengshe789</groupId>
   <artifactId>miaoSha</artifactId>
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
 
   <name>miaoSha</name>
@@ -15,7 +16,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.2.RELEASE</version>
+    <version>1.5.13.RELEASE</version>
   </parent>
 
   <properties>
@@ -25,6 +26,20 @@
   </properties>
 
   <dependencies>
+      <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin &ndash;&gt;-->
+      <!--<dependency>-->
+          <!--<groupId>org.apache.maven.plugins</groupId>-->
+          <!--<artifactId>maven-war-plugin</artifactId>-->
+          <!--<version>3.2.2</version>-->
+      <!--</dependency>-->
+
+      <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <version>2.0.2.RELEASE</version>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>

@@ -50,13 +50,13 @@ public class MiaoshaController {
         Integer stock = goods.getStockCount();
         if (stock<=0){
             model.addAttribute("errmsg",CodeMsg.MIAO_SHA_OVER.getMsg());
-            return "miaosha-fail";
+            return "miaosha_fail";
         }
         //判断是否秒杀到了，防止一个人秒杀到多个产品
         MiaoshaOrder order=orderService.getMiaoshaUserByUserIdGoodsId(user.getId(),goodsId);
         if (order!=null){
             model.addAttribute("errmsg",CodeMsg.CHONG_FU_MIAOSHA.getMsg());
-            return "miaosha-fail";
+            return "miaosha_fail";
         }
 
         //秒杀到了，减库存，下订单。写入秒杀订单
