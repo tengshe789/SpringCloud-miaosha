@@ -20,13 +20,50 @@ import javax.servlet.http.HttpServletResponse;
 public class MiaoshaUserService {
 
     public static final String COOKIE_NAME_TOKEN="token";
+
     @Autowired
     MiaoshaUserDao miaoshaUserDao;
+
     @Autowired
     RedisService redisService;
 
     public MiaoshaUser getById(long id){
-        return miaoshaUserDao.getById(id);
+        //取缓存
+        MiaoshaUser user = redisService.get(MiaoshaUserKey.getById, "" + id, MiaoshaUser.class);
+        if (user !=null){
+            return user;
+        }
+        //缓存中查不着，就查数据库的
+        user = miaoshaUserDao.getById(id);
+        if (user !=null){
+            redisService.set(MiaoshaUserKey.getById, "" + id, user);
+        }
+        return user;
+    }
+    //csdn大神文章
+    // http://blog.csdn.net/tTU1EvLDeLFq5btqiK/article/details/78693323
+    public boolean updatePassword(String token,long id,String formPass){
+        /*
+        对象级缓存
+         */
+        //取user
+        MiaoshaUser user=getById(id);
+        if (user==null){
+            throw new GlobleException(CodeMsg.MOBILE_NOT_EXIST);
+        }
+        //更新数据库，修改哪个字段就更新哪个字段
+        MiaoshaUser toBeUpdate = new MiaoshaUser();
+        toBeUpdate.setId(id);
+        toBeUpdate.setPassword(MD5Util.formPassToDBPass(formPass,user.getSalt()));
+        miaoshaUserDao.update(toBeUpdate);
+
+        //更新完数据库，删除缓存
+        redisService.delete(MiaoshaUserKey.getById,""+id);
+        //token不能直接删除，要不更新不上。所以更新一下
+        user.setPassword(toBeUpdate.getPassword());
+        redisService.set(MiaoshaUserKey.token,token,user);
+
+        return true;
     }
 
     public MiaoshaUser getByToken(HttpServletResponse response,String token) {
@@ -57,11 +94,13 @@ public class MiaoshaUserService {
         if(!calcPass.equalsIgnoreCase(dbPass)){
             throw new GlobleException(CodeMsg.PASSWORD_ERROR);
         }
+        //分布式session
         //生成cookie
         String token	 = UUIDUtil.uuid();
         addCookie(response,token,user);
         return true;
     }
+
     //生成cookie
     private void addCookie(HttpServletResponse response, String token,MiaoshaUser user){
 

@@ -4,8 +4,10 @@ import cn.tengshe789.domain.Goods;
 import cn.tengshe789.domain.MiaoshaUser;
 import cn.tengshe789.redis.GoodsKey;
 import cn.tengshe789.redis.RedisService;
+import cn.tengshe789.result.Result;
 import cn.tengshe789.service.GoodsService;
 import cn.tengshe789.service.MiaoshaUserService;
+import cn.tengshe789.vo.GoodsDetailVo;
 import cn.tengshe789.vo.GoodsVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +59,7 @@ public class GoodsController {
 //        //从redis中取出token
 //        MiaoshaUser user=miaoshaUserService.getByToken(response,token);
 
-
+        //页面缓存
         /*
         取缓存
          */
@@ -84,7 +86,45 @@ public class GoodsController {
     }
 
 
-    //商品的详情页
+    //静态话的商品的详情页
+    @RequestMapping(value = "/detail/{goodsId}")
+    @ResponseBody
+    public Result<GoodsDetailVo> detail(Model model, HttpServletRequest request, HttpServletResponse response,
+                                        MiaoshaUser user,
+                                        @PathVariable("goodsId")long goodsId) {
+
+        GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
+
+        long startAt = goods.getStartDate().getTime();
+        long endAt = goods.getEndDate().getTime();
+        long now = System.currentTimeMillis();
+
+        int miaoshaStatus = 0;
+        int remainSeconds = 0;
+        if(now < startAt ) {//秒杀还没开始，倒计时
+            miaoshaStatus = 0;
+            remainSeconds = (int)((startAt - now )/1000);
+        }else  if(now > endAt){//秒杀已经结束
+            miaoshaStatus = 2;
+            remainSeconds = -1;
+        }else {//秒杀进行中
+            miaoshaStatus = 1;
+            remainSeconds = 0;
+        }
+
+        GoodsDetailVo vo =new GoodsDetailVo();
+        vo.setGoods(goods);
+        vo.setUser(user);
+        vo.setRemainSeconds(remainSeconds);
+        vo.setMiaoshaStatus(miaoshaStatus);
+        return Result.success(vo);
+
+    }
+
+
+
+   /*
+   //为静态化的商品的详情页
     @RequestMapping(value = "/to_detail/{goodsId}", produces="text/html")
     @ResponseBody
     public String detail(Model model, HttpServletRequest request, HttpServletResponse response,
@@ -92,18 +132,18 @@ public class GoodsController {
                          @PathVariable("goodsId")long goodsId) {
         model.addAttribute("user", user);
 
-        /*
+        *//*
         取缓存
-         */
+         *//*
         String html = redisService.get(GoodsKey.getGoodsDetail, ""+goodsId, String.class);
         //如果缓存中非空
         if(!StringUtils.isEmpty(html)){
             return html;
         }
 
-        /*
+        *//*
         *如果从redis中娶不到，就*手动渲染*
-        */
+        *//*
         GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
         model.addAttribute("goods", goods);
 
@@ -136,5 +176,6 @@ public class GoodsController {
         }
         //写到输出
         return html;
-    }
+    }*/
+
 }

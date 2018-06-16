@@ -4,6 +4,8 @@ import cn.tengshe789.dao.OrderDao;
 import cn.tengshe789.domain.MiaoshaOrder;
 import cn.tengshe789.domain.MiaoshaUser;
 import cn.tengshe789.domain.OrderInfo;
+import cn.tengshe789.redis.OrderKey;
+import cn.tengshe789.redis.RedisService;
 import cn.tengshe789.vo.GoodsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,8 +20,16 @@ public class OrderService {
     @Autowired
     OrderDao orderDao;
 
-    public MiaoshaOrder getMiaoshaUserByUserIdGoodsId(long id, long goodsId) {
-        return  orderDao.getMiaoshaUserByUserIdGoodsId(id,goodsId);
+    @Autowired
+    RedisService redisService;
+
+    public MiaoshaOrder getMiaoshaUserByUserIdGoodsId(long userId, long goodsId) {
+//        return  orderDao.getMiaoshaUserByUserIdGoodsId(userId,goodsId);
+        return redisService.get(OrderKey.getMiaoshaOrderByUidGid,""+userId+"_"+goodsId,MiaoshaOrder.class);
+    }
+
+    public OrderInfo getOrderById(long orderId) {
+        return orderDao.getOrderById(orderId);
     }
 
     @Transactional
@@ -41,6 +51,12 @@ public class OrderService {
         miaoshaOrder.setUserId(user.getId());
 
         orderDao.insertMiaoshaOrder(miaoshaOrder);
+        //秒杀成功后把信息写到缓存
+        redisService.set(OrderKey.getMiaoshaOrderByUidGid,""+user
+                .getId()+"_"+goods.getId(),miaoshaOrder);
+
         return orderInfo;
     }
+
+
 }

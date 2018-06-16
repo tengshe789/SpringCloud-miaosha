@@ -1,7 +1,6 @@
 package cn.tengshe789.redis;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
 @Component

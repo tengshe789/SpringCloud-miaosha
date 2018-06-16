@@ -18,7 +18,7 @@ public class ValidatorUtil {
     }
 
    /* public static void main(String[] args) {
-        System.out.println(isMoblie("18663945752"));
-        System.out.print(isMoblie("1866394575"));
+        System.out.println(isMoblie("15650592852"));
+        System.out.print(isMoblie("110"));
     }*/
 }
