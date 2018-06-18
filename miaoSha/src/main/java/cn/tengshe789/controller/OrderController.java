@@ -36,6 +36,9 @@ public class OrderController {
             return Result.error(CodeMsg.ORDER_NOT_EXIST);
         }
         Long goodsId = order.getGoodsId();
+//        if (goodsId==null){//断点
+//            return Result.error(CodeMsg.ORDER_GOODSID_NULL);
+//        }
         GoodsVo goods =goodsService.getGoodsVoByGoodsId(goodsId);
         OrderDetailVo detail=new OrderDetailVo();
         detail.setGoods(goods);

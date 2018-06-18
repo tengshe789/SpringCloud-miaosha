@@ -3,6 +3,9 @@ package cn.tengshe789.controller;
 import cn.tengshe789.domain.MiaoshaOrder;
 import cn.tengshe789.domain.MiaoshaUser;
 import cn.tengshe789.domain.OrderInfo;
+import cn.tengshe789.rabbitmq.MQSender;
+import cn.tengshe789.rabbitmq.MiaoshaMessage;
+import cn.tengshe789.redis.GoodsKey;
 import cn.tengshe789.redis.RedisService;
 import cn.tengshe789.result.CodeMsg;
 import cn.tengshe789.result.Result;
@@ -11,6 +14,8 @@ import cn.tengshe789.service.MiaoshaService;
 import cn.tengshe789.service.MiaoshaUserService;
 import cn.tengshe789.service.OrderService;
 import cn.tengshe789.vo.GoodsVo;
+import com.sun.org.apache.bcel.internal.classfile.Code;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +25,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/miaosha")
-public class MiaoshaController {
+public class MiaoshaController implements InitializingBean {
     @Autowired
     MiaoshaUserService miaoshaUserService;
 
@@ -36,18 +41,36 @@ public class MiaoshaController {
     @Autowired
     RedisService redisService;
 
+    @Autowired
+    MQSender sender;
+
+    /**
+     * 系统初始化时调用
+     * @throws Exception
+     */
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        List<GoodsVo> goodsList =goodsService.listGoodsVo();
+        if (goodsList == null){
+            return;
+        }
+        //将redis加载到缓存
+        for (GoodsVo goods:goodsList){
+            redisService.set(GoodsKey.getGoodsStock, ""+goods.getId(), goods.getStockCount());
+        }
+    }
+
     @RequestMapping(value = "/do_miaosha",method = RequestMethod.POST)
     @ResponseBody
-    public Result<OrderInfo> miaosha(Model model, MiaoshaUser user,
+    public Result<Integer> miaosha(Model model, MiaoshaUser user,
                          @RequestParam("goodsId")long goodsId){
         model.addAttribute("user",user);
         if (user==null){
             return Result.error(CodeMsg.SESSION_ERROR);
         }
-        //判断库存
-        GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
-        Integer stock = goods.getStockCount();
-        if (stock<=0){
+        //预先在redis中减库存
+        Long stock = redisService.decr(GoodsKey.getGoodsStock, "" + goodsId);
+        if (stock < 0){
             return Result.error(CodeMsg.MIAO_SHA_OVER);
         }
         //判断是否秒杀到了，防止一个人秒杀到多个产品
@@ -55,12 +78,46 @@ public class MiaoshaController {
         if (order!=null){
             return Result.error(CodeMsg.CHONG_FU_MIAOSHA);
         }
+        //入队
+        MiaoshaMessage miaoshaMessage=new MiaoshaMessage();
+        miaoshaMessage.setUser(user);
+        miaoshaMessage.setGoodsId(goodsId);
+        sender.sendMiaoshaMessage(miaoshaMessage);
+        return Result.success(0);//定义0代表排队中
 
-        //秒杀到了，减库存，下订单。写入秒杀订单
-        OrderInfo orderInfo=miaoshaService.miaosha(user,goods);
-        return Result.success(orderInfo);
     }
 
+
+    //第二次的代码
+//    @RequestMapping(value = "/do_miaosha",method = RequestMethod.POST)
+//    @ResponseBody
+//    public Result<OrderInfo> miaosha(Model model, MiaoshaUser user,
+//                         @RequestParam("goodsId")long goodsId){
+//        model.addAttribute("user",user);
+//        if (user==null){
+//            return Result.error(CodeMsg.SESSION_ERROR);
+//        }
+//        //判断库存
+//        GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
+//        Integer stock = goods.getStockCount();
+//        if (stock<0){
+//            return Result.error(CodeMsg.MIAO_SHA_OVER);
+//        }
+//        //判断是否秒杀到了，防止一个人秒杀到多个产品
+//        MiaoshaOrder order=orderService.getMiaoshaUserByUserIdGoodsId(user.getId(),goodsId);
+//        if (order!=null){
+//            return Result.error(CodeMsg.CHONG_FU_MIAOSHA);
+//        }
+//
+//        //秒杀到了，减库存，下订单。写入秒杀订单
+//        OrderInfo orderInfo=miaoshaService.miaosha(user,goods);
+//        return Result.success(orderInfo);
+//    }
+
+
+
+
+//第一次的代码
 //    @RequestMapping("/do_miaosha")
 //    public String toList(Model model,MiaoshaUser user,
 //                         @RequestParam("goodsId")long goodsId
@@ -90,4 +147,23 @@ public class MiaoshaController {
 //        return "order_detail";
 //    }
 
+    /**
+     * 秒杀成功：返回orderId
+     * 库存不足：-1
+     * 排队中：0
+     * @param model
+     * @param user
+     * @param goodsId
+     * @return
+     */
+    @RequestMapping(value = "/result",method = RequestMethod.GET)
+    @ResponseBody
+    public Result<Long> miaoshaResult(Model model, MiaoshaUser user,
+                                   @RequestParam("goodsId")long goodsId){
+        model.addAttribute("user",user);
+        if (user==null) {
+        }
+        long result = miaoshaService.getMiaoshaResult(user.getId(),goodsId);
+        return Result.success(result);
+    }
 }

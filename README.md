@@ -1,9 +1,9 @@
-﻿# miaosha秒杀商城
+# miaosha秒杀商城
 ### 项目名称：秒杀商城----miaosha
 一个简单的有秒杀功能的电子商城项目，适合新人阅读。可以作为学业答辩论文材料。
 A simple spike shopping mall project, suitable for new people to read. It can be used as a paper material for academic defense.
 ### 项目技术：
-SpringBoot 1.5.13、MyBatis 1.31、JDK 1.8、Druid 1.1.10、Redis 4.09、JSR303、Log4j、Thymeleaf 、Bootstrap、jQuery、Ajax
+SpringBoot 1.5.13、MyBatis 1.31、JDK 1.8、Druid 1.1.10、Redis 4.09、JSR303、Log4j、Lombok、Thymeleaf 、Bootstrap、jQuery、Ajax
 
 ### 开发工具：
 IntelliJ IDEA 2018.1 x64、MySQL 8.0、Tomcat、Linux、Maven、Git、Navicat、JMeter
@@ -22,6 +22,6 @@ IntelliJ IDEA 2018.1 x64、MySQL 8.0、Tomcat、Linux、Maven、Git、Navicat、
 暂不更新，等我优化好了在更新
 
 ### 联系我：
-微信：tengshe789
+微信：tengshe789(我手把手教你)
 
 项目地址：https://github.com/tengshe789/-miaosha

@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MySql8.0
+Source Server         : MySQL80
 Source Server Version : 80011
 Source Host           : localhost:3306
 Source Database       : miaosha
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80011
 File Encoding         : 65001
 
-Date: 2018-06-16 10:24:43
+Date: 2018-06-18 12:00:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,6 +35,8 @@ CREATE TABLE `goods` (
 -- ----------------------------
 INSERT INTO `goods` VALUES ('1', 'iphoneX', 'Apple/苹果iPhone X 全网通4G手机苹果X 10', '/img/iphonex.png', 'Apple/苹果iPhone X 全网通4G手机苹果X 10', '7788.00', '100');
 INSERT INTO `goods` VALUES ('2', '华为 P20 PRO', 'Huawei/华为 P20 PRO全网通4G智能手机', '/img/p20pro.png', 'Huawei/华为 P20 PRO 8G+256G 全网通4G智能手机', '5299.00', '50');
+INSERT INTO `goods` VALUES ('3', '荣耀9i', 'Huawei/荣耀9i', '/img/荣耀9i.jpg', 'Huawei/荣耀9i', '999.00', '9999');
+INSERT INTO `goods` VALUES ('4', '魅族PRO7', 'meizu/魅族PRO7', '/img/魅族PRO7.jpg', '魅族PRO7', '1599.00', '200');
 
 -- ----------------------------
 -- Table structure for miaosha_goods
@@ -47,14 +49,18 @@ CREATE TABLE `miaosha_goods` (
   `stock_count` int(11) DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
   `end_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `goods_id` (`goods_id`),
+  CONSTRAINT `miaosha_goods_ibfk_1` FOREIGN KEY (`goods_id`) REFERENCES `goods` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of miaosha_goods
 -- ----------------------------
 INSERT INTO `miaosha_goods` VALUES ('1', '1', '0.01', '6', '2018-06-13 11:05:50', '2018-06-13 11:08:00');
-INSERT INTO `miaosha_goods` VALUES ('2', '2', '0.01', '999997', '2018-06-01 00:00:00', '2022-10-01 22:56:15');
+INSERT INTO `miaosha_goods` VALUES ('2', '2', '0.01', '442', '2018-06-01 00:00:00', '2022-10-01 22:56:15');
+INSERT INTO `miaosha_goods` VALUES ('3', '3', '899.00', '553', '2018-06-17 23:05:28', '2018-12-01 23:05:34');
+INSERT INTO `miaosha_goods` VALUES ('4', '4', '1333.00', '22', '2018-06-17 23:05:31', '2021-08-17 23:05:42');
 
 -- ----------------------------
 -- Table structure for miaosha_order
@@ -67,14 +73,15 @@ CREATE TABLE `miaosha_order` (
   `goods_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `u_uid_gid` (`user_id`,`goods_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of miaosha_order
 -- ----------------------------
-INSERT INTO `miaosha_order` VALUES ('1', '15650592852', '1', '1');
-INSERT INTO `miaosha_order` VALUES ('6', '15650592852', '1', '2');
-INSERT INTO `miaosha_order` VALUES ('7', '11111111111', '1', '2');
+INSERT INTO `miaosha_order` VALUES ('15', '15650592852', '1', '2');
+INSERT INTO `miaosha_order` VALUES ('16', '11111111111', '1', '2');
+INSERT INTO `miaosha_order` VALUES ('17', '11111111111', '20', '3');
+INSERT INTO `miaosha_order` VALUES ('18', '11111111111', '21', '4');
 
 -- ----------------------------
 -- Table structure for miaosha_user
@@ -115,14 +122,15 @@ CREATE TABLE `order_info` (
   `create_date` datetime DEFAULT NULL,
   `pay_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of order_info
 -- ----------------------------
-INSERT INTO `order_info` VALUES ('1', '15650592852', null, null, 'iphoneX', '1', '0.01', '1', '0', '2018-06-13 11:05:51', null);
-INSERT INTO `order_info` VALUES ('9', '15650592852', null, null, '华为 P20 PRO', '1', '0.01', '1', '0', '2018-06-13 15:37:25', null);
-INSERT INTO `order_info` VALUES ('10', '11111111111', null, null, '华为 P20 PRO', '1', '0.01', '1', '0', '2018-06-13 15:46:11', null);
+INSERT INTO `order_info` VALUES ('18', '15650592852', null, null, '华为 P20 PRO', '1', '0.01', '1', '0', '2018-06-18 10:52:17', null);
+INSERT INTO `order_info` VALUES ('19', '11111111111', null, null, '华为 P20 PRO', '1', '0.01', '1', '0', '2018-06-18 10:59:34', null);
+INSERT INTO `order_info` VALUES ('20', '11111111111', '3', null, '荣耀9i', '1', '899.00', '1', '0', '2018-06-18 11:03:14', null);
+INSERT INTO `order_info` VALUES ('21', '11111111111', '4', null, '魅族PRO7', '1', '1333.00', '1', '0', '2018-06-18 11:05:29', null);
 
 -- ----------------------------
 -- Table structure for user
