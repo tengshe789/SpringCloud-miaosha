@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Component
 public class MiaoshaService {
@@ -66,5 +68,10 @@ public class MiaoshaService {
 
     private void setGoodsOver(Long goodsId) {
         redisService.set(MiaoshaKey.isOver, ""+goodsId, true);
+    }
+
+    public void reset(List<GoodsVo> goodsList) {
+        goodsService.resetStock(goodsList);
+        orderService.deleteOrders();
     }
 }

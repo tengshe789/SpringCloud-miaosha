@@ -3,7 +3,7 @@
 一个简单的有秒杀功能的电子商城项目，适合新人阅读。可以作为学业答辩论文材料。
 A simple spike shopping mall project, suitable for new people to read. It can be used as a paper material for academic defense.
 ### 项目技术：
-SpringBoot 1.5.13、MyBatis 1.31、JDK 1.8、Druid 1.1.10、Redis 4.09、JSR303、Log4j、Lombok、Thymeleaf 、Bootstrap、jQuery、Ajax
+SpringBoot 1.5.13、MyBatis 1.31、JDK 1.8、Druid 1.1.10、Redis 4.09、JSR303、Log4j、Lombok、Thymeleaf 、Bootstrap、jQuery、Ajax、RabbitMQ
 
 ### 开发工具：
 IntelliJ IDEA 2018.1 x64、MySQL 8.0、Tomcat、Linux、Maven、Git、Navicat、JMeter
@@ -19,9 +19,34 @@ IntelliJ IDEA 2018.1 x64、MySQL 8.0、Tomcat、Linux、Maven、Git、Navicat、
 暂不更新
 
 ### 怎么使用：
-暂不更新，等我优化好了在更新
+#### 数据库MySql
+默认用户名root
+密码123456
+#### redis
+启动程序必须开启redis，否则启动失败。我用的是windows版的redis，当然，使用远程服务连接linux的redis更好，配置文件都在resources中的application.properties里面，可以自行配制
+#### thymeleaf
+页面模板在resources/templates/中，可以自己配置
+#### redis
+启动程序必须开启RabbitMQ，否则启动失败。我用的是windows版的RabbitMQ，当然，使用远程服务连接linux的RabbitMQ更好，配置文件都在resources中的application.properties里面，连接的用户名和密码都是guest，剩下的可以自行配制
+#### 其他
+不懂问我👇
 
 ### 联系我：
 微信：tengshe789(我手把手教你)
+
+### 版本迭代Update content：
+#### 第6版version 0.81
+修复一大堆的bug
+#### 第5版version 0.8
+增加中间件rabbitMQ
+#### 第4版version 0.7
+解决无限刷单问题，将部分界面静态化，将reids缓存地址换回本地服务器
+#### 第3版version 0.6
+将Springboot版本更新成1.5.13，加入商品列表、商品详情的页面级缓存
+#### 第2版version 0.55
+还在全力建设ing，另外紧急修复看到商品列表以后，无法跳转对应商品详细信息的BUG。
+#### 第1版version 0.5
+登陆界面，简单列表界面，剩余主要功能还未完成
+
 
 项目地址：https://github.com/tengshe789/-miaosha

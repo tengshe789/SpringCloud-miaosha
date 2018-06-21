@@ -6,6 +6,8 @@ import cn.tengshe789.domain.OrderInfo;
 import cn.tengshe789.rabbitmq.MQSender;
 import cn.tengshe789.rabbitmq.MiaoshaMessage;
 import cn.tengshe789.redis.GoodsKey;
+import cn.tengshe789.redis.MiaoshaKey;
+import cn.tengshe789.redis.OrderKey;
 import cn.tengshe789.redis.RedisService;
 import cn.tengshe789.result.CodeMsg;
 import cn.tengshe789.result.Result;
@@ -21,6 +23,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -44,6 +47,8 @@ public class MiaoshaController implements InitializingBean {
     @Autowired
     MQSender sender;
 
+    private HashMap<Long, Boolean> localOverMap =  new HashMap<Long, Boolean>();
+
     /**
      * 系统初始化时调用
      * @throws Exception
@@ -57,7 +62,23 @@ public class MiaoshaController implements InitializingBean {
         //将redis加载到缓存
         for (GoodsVo goods:goodsList){
             redisService.set(GoodsKey.getGoodsStock, ""+goods.getId(), goods.getStockCount());
+            localOverMap.put(goods.getId(), false);
         }
+    }
+
+    @RequestMapping(value="/reset", method=RequestMethod.GET)
+    @ResponseBody
+    public Result<Boolean> reset(Model model) {
+        List<GoodsVo> goodsList = goodsService.listGoodsVo();
+        for(GoodsVo goods : goodsList) {
+            goods.setStockCount(10);
+            redisService.set(GoodsKey.getGoodsStock, ""+goods.getId(), 10);
+            localOverMap.put(goods.getId(), false);
+        }
+        redisService.delete(OrderKey.getMiaoshaOrderByUidGid);
+        redisService.delete(MiaoshaKey.isOver);
+        miaoshaService.reset(goodsList);
+        return Result.success(true);
     }
 
     @RequestMapping(value = "/do_miaosha",method = RequestMethod.POST)

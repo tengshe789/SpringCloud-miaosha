@@ -27,23 +27,23 @@
   	<span>没有收货地址的提示。。。</span>
   </div>
   <table class="table" id="goodslist">
-  	<tr>  
-        <td>商品名称</td>  
-        <td colspan="3" id="goodsName"></td> 
-     </tr>  
-     <tr>  
-        <td>商品图片</td>  
-        <td colspan="3"><img  id="goodsImg" width="200" height="200" /></td>  
+  	<tr>
+        <td>商品名称</td>
+        <td colspan="3" id="goodsName"></td>
      </tr>
-     <tr>  
-        <td>秒杀开始时间</td>  
+     <tr>
+        <td>商品图片</td>
+        <td colspan="3"><img  id="goodsImg" width="200" height="200" /></td>
+     </tr>
+     <tr>
+        <td>秒杀开始时间</td>
         <td id="startTime"></td>
-        <td >	
+        <td >
         	<input type="hidden" id="remainSeconds" />
         	<span id="miaoshaTip"></span>
         </td>
         <td>
-        <!--  
+        <!--
         	<form id="miaoshaForm" method="post" action="/miaosha/do_miaosha">
         		<button class="btn btn-primary btn-block" type="submit" id="buyButton">立即秒杀</button>
         		<input type="hidden" name="goodsId"  id="goodsId" />
@@ -52,17 +52,17 @@
         	<input type="hidden" name="goodsId"  id="goodsId" />
         </td>
      </tr>
-     <tr>  
-        <td>商品原价</td>  
-        <td colspan="3" id="goodsPrice"></td>  
+     <tr>
+        <td>商品原价</td>
+        <td colspan="3" id="goodsPrice"></td>
      </tr>
-      <tr>  
-        <td>秒杀价</td>  
-        <td colspan="3"  id="miaoshaPrice"></td>  
+      <tr>
+        <td>秒杀价</td>
+        <td colspan="3"  id="miaoshaPrice"></td>
      </tr>
-     <tr>  
-        <td>库存数量</td>  
-        <td colspan="3"  id="stockCount"></td>  
+     <tr>
+        <td>库存数量</td>
+        <td colspan="3"  id="stockCount"></td>
      </tr>
   </table>
 </div>
@@ -123,7 +123,7 @@ function doMiaosha(){
 			layer.msg("客户端请求有误");
 		}
 	});
-	
+
 }
 
 function render(detail){

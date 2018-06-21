@@ -45,60 +45,70 @@ public class GoodsController {
 
     @RequestMapping(value="/to_list", produces="text/html")
     @ResponseBody
-    public String toList(Model model, HttpServletRequest request, HttpServletResponse response,
-//                         @CookieValue(value = MiaoshaUserService.COOKIE_NAME_TOKEN,required = false)String cookieToken,
-//                            //为了兼容手机端，从RequestParam中取token
-//                         @RequestParam(value = MiaoshaUserService.COOKIE_NAME_TOKEN,required = false)String paramToken
-                         MiaoshaUser user){
-         model.addAttribute("user", user);
-//        if (StringUtils.isEmpty(cookieToken) && StringUtils.isEmpty(paramToken)){
-//            return "login";
-//        }
-//        //设置优先级。优先取paramToken
-//        String token=StringUtils.isEmpty(paramToken)?cookieToken:paramToken;
-//        //从redis中取出token
-//        MiaoshaUser user=miaoshaUserService.getByToken(response,token);
-
-        //页面缓存
-        /*
-        取缓存
-         */
-        String html = redisService.get(GoodsKey.getGoodsList, "", String.class);
-        //如果缓存中非空
-        if(!StringUtils.isEmpty(html)){
-            return html;
-        }
-
-        //查询商品列表
-        List<GoodsVo> goodsList=goodsService.listGoodsVo();
-        model.addAttribute("goodsList",goodsList);
-//        return "goods_list";
-
-        /*如果从redis中娶不到，就手动渲染*/
+    public String list(HttpServletRequest request, HttpServletResponse response, Model model,MiaoshaUser user) {
+        model.addAttribute("user", user);
+        List<GoodsVo> goodsList = goodsService.listGoodsVo();
+        model.addAttribute("goodsList", goodsList);
+//    	 return "goods_list";
         SpringWebContext ctx = new SpringWebContext(request,response,
                 request.getServletContext(),request.getLocale(), model.asMap(), applicationContext );
-        html = thymeleafViewResolver.getTemplateEngine().process("goods_list", ctx);
+        //手动渲染
+        String html = thymeleafViewResolver.getTemplateEngine().process("goods_list", ctx);
         if(!StringUtils.isEmpty(html)) {
             redisService.set(GoodsKey.getGoodsList, "", html);
         }
-        //写到输出
         return html;
     }
+//    public String toList(Model model, HttpServletRequest request, HttpServletResponse response,
+////                         @CookieValue(value = MiaoshaUserService.COOKIE_NAME_TOKEN,required = false)String cookieToken,
+////                            //为了兼容手机端，从RequestParam中取token
+////                         @RequestParam(value = MiaoshaUserService.COOKIE_NAME_TOKEN,required = false)String paramToken
+//                         MiaoshaUser user){
+//         model.addAttribute("user", user);
+////        if (StringUtils.isEmpty(cookieToken) && StringUtils.isEmpty(paramToken)){
+////            return "login";
+////        }
+////        //设置优先级。优先取paramToken
+////        String token=StringUtils.isEmpty(paramToken)?cookieToken:paramToken;
+////        //从redis中取出token
+////        MiaoshaUser user=miaoshaUserService.getByToken(response,token);
+//
+//        //页面缓存
+//        /*
+//        取缓存
+//         */
+//        String html = redisService.get(GoodsKey.getGoodsList, "", String.class);
+//        //如果缓存中非空
+//        if(!StringUtils.isEmpty(html)){
+//            return html;
+//        }
+//
+//        //查询商品列表
+//        List<GoodsVo> goodsList=goodsService.listGoodsVo();
+//        model.addAttribute("goodsList",goodsList);
+////        return "goods_list";
+//
+//        /*如果从redis中娶不到，就手动渲染*/
+//        SpringWebContext ctx = new SpringWebContext(request,response,
+//                request.getServletContext(),request.getLocale(), model.asMap(), applicationContext );
+//        html = thymeleafViewResolver.getTemplateEngine().process("goods_list", ctx);
+//        if(!StringUtils.isEmpty(html)) {
+//            redisService.set(GoodsKey.getGoodsList, "", html);
+//        }
+//        //写到输出
+//        return html;
+//    }
 
 
     //静态话的商品的详情页
-    @RequestMapping(value = "/detail/{goodsId}")
+    @RequestMapping(value="/detail/{goodsId}")
     @ResponseBody
-    public Result<GoodsDetailVo> detail(Model model, HttpServletRequest request, HttpServletResponse response,
-                                        MiaoshaUser user,
+    public Result<GoodsDetailVo> detail( MiaoshaUser user,
                                         @PathVariable("goodsId")long goodsId) {
-
         GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
-
         long startAt = goods.getStartDate().getTime();
         long endAt = goods.getEndDate().getTime();
         long now = System.currentTimeMillis();
-
         int miaoshaStatus = 0;
         int remainSeconds = 0;
         if(now < startAt ) {//秒杀还没开始，倒计时
@@ -111,39 +121,30 @@ public class GoodsController {
             miaoshaStatus = 1;
             remainSeconds = 0;
         }
-
-        GoodsDetailVo vo =new GoodsDetailVo();
+        GoodsDetailVo vo = new GoodsDetailVo();
         vo.setGoods(goods);
         vo.setUser(user);
         vo.setRemainSeconds(remainSeconds);
         vo.setMiaoshaStatus(miaoshaStatus);
         return Result.success(vo);
-
     }
 
 
 
-   /*
-   //为静态化的商品的详情页
+   //木有静态化的商品的详情页
     @RequestMapping(value = "/to_detail/{goodsId}", produces="text/html")
     @ResponseBody
     public String detail(Model model, HttpServletRequest request, HttpServletResponse response,
                          MiaoshaUser user,
                          @PathVariable("goodsId")long goodsId) {
         model.addAttribute("user", user);
-
-        *//*
-        取缓存
-         *//*
+//        取缓存
         String html = redisService.get(GoodsKey.getGoodsDetail, ""+goodsId, String.class);
         //如果缓存中非空
         if(!StringUtils.isEmpty(html)){
             return html;
         }
-
-        *//*
-        *如果从redis中娶不到，就*手动渲染*
-        *//*
+//        *如果从redis中娶不到，就*手动渲染*
         GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
         model.addAttribute("goods", goods);
 
@@ -167,7 +168,6 @@ public class GoodsController {
         model.addAttribute("remainSeconds", remainSeconds);
 //        return "goods_detail";
 
-
         SpringWebContext ctx = new SpringWebContext(request,response,
                 request.getServletContext(),request.getLocale(), model.asMap(), applicationContext );
         html = thymeleafViewResolver.getTemplateEngine().process("goods_detail", ctx);
@@ -176,6 +176,6 @@ public class GoodsController {
         }
         //写到输出
         return html;
-    }*/
+    }
 
 }
