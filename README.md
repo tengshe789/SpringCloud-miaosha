@@ -28,11 +28,9 @@ IntelliJ IDEA 2018.1 x64、MySQL 8.0、Tomcat、Linux、Maven、Git、Navicat、
 页面模板在resources/templates/中，可以自己配置
 #### redis
 启动程序必须开启RabbitMQ，否则启动失败。我用的是windows版的RabbitMQ，当然，使用远程服务连接linux的RabbitMQ更好，配置文件都在resources中的application.properties里面，连接的用户名和密码都是guest，剩下的可以自行配制
-#### 其他
-不懂问我👇
 
 ### 联系我：
-微信：tengshe789(我手把手教你)
+微信：tengshe789
 
 ### 版本迭代Update content：
 #### 第6版version 0.81
