@@ -59,6 +59,10 @@ IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMeter
 
 ### 版本迭代Update content：
 
+#### 第8版version 0.86 beta
+
+将秒杀接口的地址没隐藏😂增加了docker配置文件
+
 #### 第7版version 0.85 beta
 
 将秒杀接口的地址隐藏。目前已知的bug有，ui乱码，mq启动异常
