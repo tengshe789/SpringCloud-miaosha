@@ -59,6 +59,10 @@ IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMeter
 
 ### 版本迭代Update content：
 
+#### 第9版version 0.87 beta
+
+抖了个小机灵，数据库新增商品iPhone Xs Max。新增分布式Session的相关注释，通俗易懂~
+
 #### 第8版version 0.86 beta
 
 将秒杀接口的地址没隐藏😂增加了docker配置文件

@@ -15,8 +15,9 @@ public class GlobleExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public Result<String> exceptionHandler(HttpServletRequest request,Exception e){
         e.printStackTrace();
-        if (e instanceof BindException){
+        if (e instanceof BindException){//绑定异常（端口被占用，通常出现在启动服务的时候）
             BindException exception=(BindException) e;
+            //异常信息
             String message = exception.getMessage();
             return Result.error(CodeMsg.BIND_ERROR.fillArgs(message));
         }else if (e instanceof GlobleException){

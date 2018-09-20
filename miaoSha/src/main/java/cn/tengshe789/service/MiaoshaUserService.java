@@ -114,7 +114,6 @@ public class MiaoshaUserService {
 
     //生成cookie
     private void addCookie(HttpServletResponse response, String token,MiaoshaUser user){
-
         redisService.set(MiaoshaUserKey.token,token,user);
         Cookie cookie=new Cookie(COOKIE_NAME_TOKEN,token);
         cookie.setMaxAge(MiaoshaUserKey.token.expireSeconds());//cookie有效期=userkey的有效期

@@ -33,10 +33,10 @@ CREATE TABLE `goods` (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES ('1', 'iphoneX', 'Apple/苹果iPhone X 全网通4G手机苹果X 10', '/img/iphonex.png', 'Apple/苹果iPhone X 全网通4G手机苹果X 10', '7788.00', '100');
+INSERT INTO `goods` VALUES ('1', 'iphoneXs MAX', 'Apple/苹果iPhone Xs MAX 全网通4G手机苹果Xs MAX', '/img/iphonex.png', 'Apple/苹果iPhone X 全网通4G手机苹果X 10', '12799.00', '100');
 INSERT INTO `goods` VALUES ('2', '华为 P20 PRO', 'Huawei/华为 P20 PRO全网通4G智能手机', '/img/p20pro.png', 'Huawei/华为 P20 PRO 8G+256G 全网通4G智能手机', '5299.00', '50');
 INSERT INTO `goods` VALUES ('3', '荣耀9i', 'Huawei/荣耀9i', '/img/荣耀9i.jpg', 'Huawei/荣耀9i', '999.00', '9999');
-INSERT INTO `goods` VALUES ('4', '魅族PRO7', 'meizu/魅族PRO7', '/img/魅族PRO7.jpg', '魅族PRO7', '1599.00', '200');
+INSERT INTO `goods` VALUES ('4', '魅族PRO7', 'meizu/魅族PRO', '/img/魅族PRO7.jpg', '魅族PRO7', '1599.00', '200');
 
 -- ----------------------------
 -- Table structure for miaosha_goods

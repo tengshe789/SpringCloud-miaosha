@@ -53,7 +53,6 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
         String token=StringUtils.isEmpty(paramToken)?cookieToken:paramToken;
         //从redis中取出token
         return miaoshaUserService.getByToken(response,token);
-
     }
 
     private String getCookieValue(HttpServletRequest request, String cookieNameToken) {
