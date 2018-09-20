@@ -2,6 +2,10 @@ package cn.tengshe789.util;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+/**
+ * @author tengshe789
+ *  后端的表单密码加密功能和（弃用）
+ */
 public class MD5Util {
     public static String md5(String data){
         return DigestUtils.md5Hex(data);

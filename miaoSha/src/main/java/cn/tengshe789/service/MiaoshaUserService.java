@@ -27,8 +27,11 @@ public class MiaoshaUserService {
     @Autowired
     RedisService redisService;
 
+    /*
+     * 用ID查找用户
+     */
     public MiaoshaUser getById(long id){
-        //取缓存
+        //缓存中查
         MiaoshaUser user = redisService.get(MiaoshaUserKey.getById, "" + id, MiaoshaUser.class);
         if (user !=null){
             return user;
@@ -40,11 +43,14 @@ public class MiaoshaUserService {
         }
         return user;
     }
-    //csdn大神文章
-    // http://blog.csdn.net/tTU1EvLDeLFq5btqiK/article/details/78693323
+    /*
+    * 修改密码接口
+    * 大神的blog
+    * http://blog.csdn.net/tTU1EvLDeLFq5btqiK/article/details/78693323
+    */
     public boolean updatePassword(String token,long id,String formPass){
         /*
-        对象级缓存
+         * 对象级缓存
          */
         //取user
         MiaoshaUser user=getById(id);
@@ -66,13 +72,18 @@ public class MiaoshaUserService {
         return true;
     }
 
+    /*
+     * Token
+     */
     public MiaoshaUser getByToken(HttpServletResponse response,String token) {
         if (StringUtils.isEmpty(token)){
             return null;
         }
         MiaoshaUser user = redisService.get(MiaoshaUserKey.token, token, MiaoshaUser.class);
         //延长有效期.如果用户不是第一次登陆，则重新生成一次cookie以延长cookie的有效期
-        if (user!=null){addCookie(response,token,user);}
+        if (user!=null){
+            addCookie(response,token,user);
+        }
         return user;
     }
 

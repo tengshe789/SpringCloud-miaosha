@@ -1,5 +1,8 @@
 package cn.tengshe789.redis;
 
+/**
+ * @author tengshe789
+ */
 public class GoodsKey extends BasePrefix{
     private GoodsKey(int expireSeconds, String prefix) {
         super(expireSeconds, prefix);

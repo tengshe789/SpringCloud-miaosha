@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/miaosha")
 public class MiaoshaController implements InitializingBean {
     @Autowired
@@ -67,7 +67,6 @@ public class MiaoshaController implements InitializingBean {
     }
 
     @RequestMapping(value="/reset", method=RequestMethod.GET)
-    @ResponseBody
     public Result<Boolean> reset(Model model) {
         List<GoodsVo> goodsList = goodsService.listGoodsVo();
         for(GoodsVo goods : goodsList) {
@@ -82,7 +81,6 @@ public class MiaoshaController implements InitializingBean {
     }
 
     @RequestMapping(value = "/do_miaosha",method = RequestMethod.POST)
-    @ResponseBody
     public Result<Integer> miaosha(Model model, MiaoshaUser user,
                          @RequestParam("goodsId")long goodsId){
         model.addAttribute("user",user);
@@ -178,7 +176,6 @@ public class MiaoshaController implements InitializingBean {
      * @return
      */
     @RequestMapping(value = "/result",method = RequestMethod.GET)
-    @ResponseBody
     public Result<Long> miaoshaResult(Model model, MiaoshaUser user,
                                    @RequestParam("goodsId")long goodsId){
         model.addAttribute("user",user);

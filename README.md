@@ -1,43 +1,73 @@
-# miaosha秒杀商城
+# miaosha秒杀商城beta
+
 ### 项目名称：秒杀商城----miaosha
-一个简单的有秒杀功能的电子商城项目，适合新人阅读。可以作为学业答辩论文材料。
+
+一个简单的有秒杀功能的电子商城项目，适合新晋程序员阅读参考。
 A simple spike shopping mall project, suitable for new people to read. It can be used as a paper material for academic defense.
+
 ### 项目技术：
-SpringBoot 1.5.13、MyBatis 1.31、JDK 1.8、Druid 1.1.10、Redis 4.09、JSR303、Log4j、Lombok、Thymeleaf 、Bootstrap、jQuery、Ajax、RabbitMQ
+
+SpringBoot 1.5、MyBatis 1.3、JDK 8、Druid 1.1、Redis 4.09、JSR303、Log4j、Lombok、Thymeleaf 、Bootstrap、jQuery、Ajax、RabbitMQ
 
 ### 开发工具：
-IntelliJ IDEA 2018.1 x64、MySQL 8.0、Tomcat、Linux、Maven、Git、Navicat、JMeter
+IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMeter
 
 ### 项目描述：
+
 该项目的侧重点主要就是秒杀商品这个功能，就是网络卖家可以发布一些超低价格的商品，所有买家在同一时间在网上抢拍。<br/>
 后台个人独立搭建，主要包含以下功能：用户登录、商品列表、商品详情、商品秒杀、订单详情，我会不断对其做高并发方面的优化。
 
 ### 项目优化(不断更新)：
-分布式Session同步系统,页面缓存,对象级缓存，页面静态化
+
+密码md5加密，系统SSR化，分布式Session同步系统,页面缓存,对象级缓存，数据库缓存，商品界面静态化，异步下单，jvm调优
+
+### 未来目标
+
+- 未来目标：争取早日建成一个高并发 、高可用 、高性能的秒杀系统平台
+- 计划：
+  ①引入solr，实现商品搜索 
+  ② 增加redis仆人，完善可用性 
+  ③Tomcat服务端优化，寻找靠谱的CDN节点 
+  ④练习vue.js，使用vue.js重构UI 
+  ⑤引入高性能jvm，摆脱java8 
+  ⑥应用程序容器化，转向微服务
+  ⑦增强持续集成的可行性，减少项目部署的步骤and时间
+  ⑧使用Webflux重构系统，争取早日脱离Servlet容器
 
 ### 项目界面：
-暂不更新
+
+![登陆](http://resume.tengshe789.tech/static/%E7%99%BB%E9%99%86.jpg)
+
+![列表](http://resume.tengshe789.tech/static/%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8.jpg)
 
 ### 怎么使用：
+
 #### 数据库MySql
 默认用户名root
 密码123456
+
 #### redis
 启动程序必须开启redis，否则启动失败。我用的是windows版的redis，当然，使用远程服务连接linux的redis更好，配置文件都在resources中的application.properties里面，可以自行配制
 #### thymeleaf
 页面模板在resources/templates/中，可以自己配置
-#### redis
-启动程序必须开启RabbitMQ，否则启动失败。我用的是windows版的RabbitMQ，当然，使用远程服务连接linux的RabbitMQ更好，配置文件都在resources中的application.properties里面，连接的用户名和密码都是guest，剩下的可以自行配制
-#### 其他
-不懂问我👇
+#### RabbitMQ
 
+启动程序必须开启RabbitMQ，否则启动失败。我用的是windows版的RabbitMQ，当然，使用远程服务连接linux的RabbitMQ更好，配置文件都在resources中的application.properties里面，连接的用户名和密码都是guest，剩下的可以自行配制
 ### 联系我：
-微信：tengshe789(我手把手教你)
+
+微信：tengshe789
 
 ### 版本迭代Update content：
+
+#### 第7版version 0.85 beta
+
+将秒杀接口的地址隐藏。目前已知的bug有，ui乱码，mq启动异常
+
 #### 第6版version 0.81
+
 修复一大堆的bug
 #### 第5版version 0.8
+
 增加中间件rabbitMQ
 #### 第4版version 0.7
 解决无限刷单问题，将部分界面静态化，将reids缓存地址换回本地服务器

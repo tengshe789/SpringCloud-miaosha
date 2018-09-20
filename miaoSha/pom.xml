@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.tengshe789</groupId>
@@ -10,8 +10,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>miaoSha</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>http://miaosha.tengshe789.tech</url>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -26,18 +25,9 @@
   </properties>
 
   <dependencies>
-      <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin &ndash;&gt;-->
-      <!--<dependency>-->
-          <!--<groupId>org.apache.maven.plugins</groupId>-->
-          <!--<artifactId>maven-war-plugin</artifactId>-->
-          <!--<version>3.2.2</version>-->
-      <!--</dependency>-->
-
-      <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-tomcat</artifactId>
-      <version>2.0.2.RELEASE</version>
     </dependency>
 
     <dependency>
@@ -51,10 +41,27 @@
     </dependency>
 
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-quartz-starter</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+
+
+    <dependency>
       <groupId>org.mybatis.spring.boot</groupId>
       <artifactId>mybatis-spring-boot-starter</artifactId>
-      <version>1.3.1</version>
+      <version>1.3.2</version>
     </dependency>
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper-spring-boot-starter</artifactId>
+      <version>1.2.5</version>
+    </dependency>
+
 
     <dependency>
       <groupId>mysql</groupId>

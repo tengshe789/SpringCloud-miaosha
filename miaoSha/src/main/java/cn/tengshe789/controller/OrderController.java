@@ -14,8 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/order")
 public class OrderController {
     @Autowired
@@ -25,7 +26,6 @@ public class OrderController {
     GoodsService goodsService;
 
     @RequestMapping("/detail")
-    @ResponseBody
     public Result<OrderDetailVo> info(Model model, MiaoshaUser user,
                                       @RequestParam("orderId") long orderId){
         if (user==null){

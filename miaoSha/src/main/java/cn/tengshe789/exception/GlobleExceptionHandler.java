@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.net.BindException;
 
-@ControllerAdvice
+@ControllerAdvice(basePackages = "cn.tengshe789.controller")
 @ResponseBody
 public class GlobleExceptionHandler {
     @ExceptionHandler(value = Exception.class)

@@ -8,6 +8,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import java.util.List;
 
+/**
+ * 给controller参数赋值
+ */
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
     @Autowired

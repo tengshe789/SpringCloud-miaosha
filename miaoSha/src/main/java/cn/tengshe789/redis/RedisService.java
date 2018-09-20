@@ -18,7 +18,7 @@ public class RedisService {
     JedisPool jedisPool;
 
     /**
-     * 获取当个对象
+     * 获取单个对象
      * */
     public <T> T get(KeyPrefix prefix, String key,  Class<T> clazz) {
         Jedis jedis = null;
@@ -169,6 +169,9 @@ public class RedisService {
         }
     }
 
+    /*
+     *   将对象转换成json
+     */
     public static <T> String beanToString(T value) {
         if(value == null) {
             return null;
@@ -185,6 +188,9 @@ public class RedisService {
         }
     }
 
+    /*
+     *   将json转换成对象
+     */
     @SuppressWarnings("unchecked")
     public static <T> T stringToBean(String str, Class<T> clazz) {
         if(str == null || str.length() <= 0 || clazz == null) {
@@ -201,6 +207,9 @@ public class RedisService {
         }
     }
 
+    /*
+     *   关闭连接
+     */
     private void returnToPool(Jedis jedis) {
         if(jedis != null) {
             jedis.close();

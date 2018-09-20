@@ -18,11 +18,11 @@ public class MQSender {
         amqpTemplate.convertAndSend(MQConfig.MIAOSHA_QUEUE, msg);
     }
 
-//	public void send(Object message) {
-//		String msg = RedisService.beanToString(message);
-//		log.info("send message:"+msg);
-//		amqpTemplate.convertAndSend(MQConfig.QUEUE, msg);
-//	}
+	public void send(Object message) {
+		String msg = RedisService.beanToString(message);
+		log.info("send message:"+msg);
+		amqpTemplate.convertAndSend(MQConfig.QUEUE, msg);
+	}
 
 //	public void sendTopic(Object message) {
 //		String msg = RedisService.beanToString(message);

@@ -36,15 +36,9 @@ public class MiaoshaService {
              //order_info.miashao_order,生成订单
              return orderService.createOrder(user,goods);
          }else {
-
              setGoodsOver(goods.getId());
             return null;
          }
-
-         //不能在自家不能调用别家的dao，但可以调用别家的service
-//         Goods g=new Goods();
-//         g.setId(goods.getId());
-//         g.setGoodsStock(goods.getGoodsStock()-1);
     }
 
 

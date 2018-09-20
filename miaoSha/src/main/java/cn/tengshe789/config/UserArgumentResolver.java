@@ -15,11 +15,17 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 从request中拿token
+ */
 @Service
 public class UserArgumentResolver implements HandlerMethodArgumentResolver {
     @Autowired
     MiaoshaUserService miaoshaUserService;
 
+    /*
+    判断获取的参数是否是MiaoshaUser类型的
+     */
     @Override
     public boolean supportsParameter(MethodParameter methodParameter) {
         //获取方法参数
@@ -27,6 +33,9 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
         return parameterType==MiaoshaUser.class;
     }
 
+    /*
+   如果获取的参数是MiaoshaUser类型的，则从request中取一个参数的token
+    */
     @Override
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer,
                                   NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
@@ -48,7 +57,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
     }
 
     private String getCookieValue(HttpServletRequest request, String cookieNameToken) {
-        //遍历所有COokie
+        //遍历所有Cookie
         Cookie[] cookies = request.getCookies();
         if(cookies==null || cookies.length<=0){
             return null;

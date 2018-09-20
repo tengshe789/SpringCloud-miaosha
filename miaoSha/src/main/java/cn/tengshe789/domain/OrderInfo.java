@@ -1,12 +1,10 @@
 package cn.tengshe789.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
 public class OrderInfo {
     private Long id;
     private Long userId;

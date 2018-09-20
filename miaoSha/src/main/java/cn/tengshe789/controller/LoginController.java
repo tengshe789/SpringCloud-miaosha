@@ -37,26 +37,6 @@ public class LoginController {
     @ResponseBody
     public Result<Boolean> doLogin(HttpServletResponse response, @Valid LoginVo loginVo){
         logger.info(loginVo.toString());
-//        //参数校验
-//        String passInput =loginVo.getPassword();
-//        String moblie=loginVo.getMobile();
-//        if(StringUtils.isEmpty(passInput)){
-//            return Result.error(CodeMsg.PASSWORD_EMPTY);
-//        }
-//        if (StringUtils.isEmpty(moblie)){
-//            return Result.error(CodeMsg.MOBILE_EMPTY);
-//        }
-//        if (ValidatorUtil.isMoblie(moblie)){
-//            return Result.error(CodeMsg.MOBILE_ERROR);
-//        }
-
-        //登陆
-//        CodeMsg cm = miaoshaUserService.login(loginVo);
-//        if (cm.getCode()==0){
-//            return Result.success(true);
-//        }else {
-//            return Result.error(cm);
-//        }
         miaoshaUserService.login(response,loginVo);
         return Result.success(true);
     }
