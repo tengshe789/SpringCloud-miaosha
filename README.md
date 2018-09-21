@@ -7,10 +7,10 @@ A simple spike shopping mall project, suitable for new people to read. It can be
 
 ### 项目技术：
 
-SpringBoot 1.5、MyBatis 1.3、JDK 8、Druid 1.1、Redis 4.09、JSR303、Log4j、Lombok、Thymeleaf 、Bootstrap、jQuery、Ajax、RabbitMQ
+SpringBoot 1.5、MyBatis 1.3、JDK 8、Druid 1.1、Redis 4.09、JSR303、Log4j、Lombok、Undertow、Thymeleaf 、Bootstrap、jQuery、Ajax、RabbitMQ、dev-tools
 
 ### 开发工具：
-IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMeter
+IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMetert、Jvisualvm
 
 ### 项目描述：
 
@@ -58,6 +58,10 @@ IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMeter
 微信：tengshe789
 
 ### 版本迭代Update content：
+
+#### 第10版version 0.88 beta
+
+将serlvet容器由tomcat换成undertow，性能大概提升25%。新增增加热部署工具dev-tools
 
 #### 第9版version 0.87 beta
 

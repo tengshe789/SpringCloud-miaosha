@@ -2,7 +2,6 @@ package cn.tengshe789.controller;
 
 import cn.tengshe789.domain.MiaoshaOrder;
 import cn.tengshe789.domain.MiaoshaUser;
-import cn.tengshe789.domain.OrderInfo;
 import cn.tengshe789.rabbitmq.MQSender;
 import cn.tengshe789.rabbitmq.MiaoshaMessage;
 import cn.tengshe789.redis.GoodsKey;
@@ -103,7 +102,6 @@ public class MiaoshaController implements InitializingBean {
         miaoshaMessage.setGoodsId(goodsId);
         sender.sendMiaoshaMessage(miaoshaMessage);
         return Result.success(0);//定义0代表排队中
-
     }
 
 
