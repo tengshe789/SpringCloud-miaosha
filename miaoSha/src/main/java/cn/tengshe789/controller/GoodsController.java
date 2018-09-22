@@ -51,17 +51,17 @@ public class GoodsController {
     ,@RequestParam(required = false,defaultValue = "1",value = "page")Integer page) {
         model.addAttribute("user", user);
         //取缓存
-//    	String html = redisService.get(GoodsKey.getGoodsList, "", String.class);
-//    	if(!StringUtils.isEmpty(html)) {
-//    		return html;
-//    	}
+    	String html = redisService.get(GoodsKey.getGoodsList, "", String.class);
+    	if(!StringUtils.isEmpty(html)) {
+    		return html;
+    	}
         List<GoodsVo> goodsList = goodsService.listGoodsVo();
         model.addAttribute("goodsList", goodsList);
 //    	 return "goods_list";
         SpringWebContext ctx = new SpringWebContext(request,response,
                 request.getServletContext(),request.getLocale(), model.asMap(), applicationContext );
         //手动渲染
-        String html = thymeleafViewResolver.getTemplateEngine().process("goods_list", ctx);
+        html = thymeleafViewResolver.getTemplateEngine().process("goods_list", ctx);
         if(!StringUtils.isEmpty(html)) {
             redisService.set(GoodsKey.getGoodsList, "", html);
         }
@@ -69,7 +69,7 @@ public class GoodsController {
     }
 
    /** 
-   * @methodDesc: 静态话的商品的详情页
+   * @methodDesc: 静态化的商品的详情页
    * @Author: tEngSHe789
    * @Date: 17:45 
    * @QQ: 970176296
@@ -78,11 +78,13 @@ public class GoodsController {
     public Result<GoodsDetailVo> detail( MiaoshaUser user,
                                         @PathVariable("goodsId")long goodsId) {
         GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
-        long startAt = goods.getStartDate().getTime();
-        long endAt = goods.getEndDate().getTime();
-        long now = System.currentTimeMillis();
-        int miaoshaStatus = 0;
-        int remainSeconds = 0;
+        long startAt = goods.getStartDate().getTime();//开始时间
+        long endAt = goods.getEndDate().getTime();//结束时间
+        long now = System.currentTimeMillis();//当前时间
+
+        int miaoshaStatus = 0;// 秒杀状态
+        int remainSeconds = 0; // 剩余秒数
+
         if(now < startAt ) {//秒杀还没开始，倒计时
             miaoshaStatus = 0;
             remainSeconds = (int)((startAt - now )/1000);
@@ -98,13 +100,14 @@ public class GoodsController {
         vo.setUser(user);
         vo.setRemainSeconds(remainSeconds);
         vo.setMiaoshaStatus(miaoshaStatus);
+
         return Result.success(vo);
     }
 
 
 
                /** 
-               * @methodDesc: 木有静态化的商品的详情页 
+               * @methodDesc: SSR的商品的详情页
                * @Param:  
                * @return:  
                * @Author: tEngSHe789

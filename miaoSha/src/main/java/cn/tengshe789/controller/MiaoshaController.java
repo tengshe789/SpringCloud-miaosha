@@ -14,6 +14,8 @@ import cn.tengshe789.service.GoodsService;
 import cn.tengshe789.service.MiaoshaService;
 import cn.tengshe789.service.MiaoshaUserService;
 import cn.tengshe789.service.OrderService;
+import cn.tengshe789.util.MD5Util;
+import cn.tengshe789.util.UUIDUtil;
 import cn.tengshe789.vo.GoodsVo;
 import com.sun.org.apache.bcel.internal.classfile.Code;
 import org.springframework.beans.factory.InitializingBean;
@@ -22,6 +24,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 
@@ -79,12 +87,58 @@ public class MiaoshaController implements InitializingBean {
         return Result.success(true);
     }
 
-    @RequestMapping(value = "/do_miaosha",method = RequestMethod.POST)
-    public Result<Integer> miaosha(Model model, MiaoshaUser user,
-                         @RequestParam("goodsId")long goodsId){
+    @RequestMapping(value = "/path",method = RequestMethod.GET)
+    public Result<String> getMiaoshaPath(Model model, MiaoshaUser user,
+                                   @RequestParam("goodsId")long goodsId){
         model.addAttribute("user",user);
         if (user==null){
             return Result.error(CodeMsg.SESSION_ERROR);
+        }
+        String path = miaoshaService.creatMiaoshaPath(user,goodsId);
+
+        return Result.success(path);
+    }
+
+    @RequestMapping(value = "/verifyCode",method = RequestMethod.GET)
+    public Result<String> getMiaoshaVerifyCode(HttpServletResponse response, Model model,
+                                               MiaoshaUser user,
+                                               @RequestParam("goodsId")long goodsId){
+        model.addAttribute("user",user);
+        if (user==null){
+            return Result.error(CodeMsg.SESSION_ERROR);
+        }
+        BufferedImage img = miaoshaService.creatVerifyCode(user,goodsId);
+        try {
+            OutputStream outputStream = response.getOutputStream();
+            ImageIO.write(img,"JPEG",outputStream);
+            outputStream.flush();
+            outputStream.close();
+            return null;
+        }catch (IOException e){
+            e.printStackTrace();
+            return Result.error(CodeMsg.MIAO_SHA_FAIL);
+        }
+    }
+
+
+
+    @RequestMapping(value = "/{path}/do_miaosha",method = RequestMethod.POST)
+    public Result<Integer> miaosha(Model model, MiaoshaUser user,
+                         @RequestParam("goodsId")long goodsId,
+                                   @PathVariable("path")String path){
+        model.addAttribute("user",user);
+        if (user==null){
+            return Result.error(CodeMsg.SESSION_ERROR);
+        }
+        //验证path
+        boolean check = miaoshaService.checkPath(user,goodsId,path);
+        if ( !check){
+            return Result.error(CodeMsg.REQUEST_ILLEGAL);
+        }
+        //拿到初始化时的库存数量，判断库存是否没了，减少redis访问
+        boolean over = localOverMap.get(goodsId);
+        if (over){
+            return Result.error(CodeMsg.MIAO_SHA_OVER);
         }
         //预先在redis中减库存
         Long stock = redisService.decr(GoodsKey.getGoodsStock, "" + goodsId);
@@ -104,6 +158,24 @@ public class MiaoshaController implements InitializingBean {
         return Result.success(0);//定义0代表排队中
     }
 
+    /**
+     * 秒杀成功：返回orderId
+     * 库存不足：-1
+     * 排队中：0
+     * @param model
+     * @param user
+     * @param goodsId
+     * @return
+     */
+    @RequestMapping(value = "/result",method = RequestMethod.GET)
+    public Result<Long> miaoshaResult(Model model, MiaoshaUser user,
+                                      @RequestParam("goodsId")long goodsId){
+        model.addAttribute("user",user);
+        if (user==null) {
+        }
+        long result = miaoshaService.getMiaoshaResult(user.getId(),goodsId);
+        return Result.success(result);
+    }
 
     //第二次的代码
 //    @RequestMapping(value = "/do_miaosha",method = RequestMethod.POST)
@@ -164,22 +236,4 @@ public class MiaoshaController implements InitializingBean {
 //        return "order_detail";
 //    }
 
-    /**
-     * 秒杀成功：返回orderId
-     * 库存不足：-1
-     * 排队中：0
-     * @param model
-     * @param user
-     * @param goodsId
-     * @return
-     */
-    @RequestMapping(value = "/result",method = RequestMethod.GET)
-    public Result<Long> miaoshaResult(Model model, MiaoshaUser user,
-                                   @RequestParam("goodsId")long goodsId){
-        model.addAttribute("user",user);
-        if (user==null) {
-        }
-        long result = miaoshaService.getMiaoshaResult(user.getId(),goodsId);
-        return Result.success(result);
-    }
 }

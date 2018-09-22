@@ -21,6 +21,7 @@ public class MQConfig {
     /**
      * Direct模式 交换机Exchange
      * 先发送消息到交换机，做路由~
+     * 凡是子类及带有方法或属性的类都要加上注册Bean到Spring IoC的注解
      * */
     @Bean
     public Queue queue() {
@@ -29,6 +30,11 @@ public class MQConfig {
 
     /**
      * Topic模式 交换机Exchange
+     * topic和queue的对应关系是一个topic拥有多个queue，当producer往broken发送消息时，
+     * 消息会存储在topic下的不同队列中，而一个队列只会被一个consumer消费，这样消息户被均衡负载到不同的队列下，
+     * 也就是会被多个消费者并行消费，顺序就无法保证了。
+     * 该怎么办呢？答案是把需要顺序消费的消息发送到同一台broker server下的同一个队列，
+     * 而这些消息也只会被同一个消费者消费，这样就可以保证严格的顺序了
      * */
     @Bean
     public Queue topicQueue1() {
@@ -52,7 +58,12 @@ public class MQConfig {
     }
 
     /**
-     * Fanout模式 交换机Exchange
+     * Fanout模式（广播模式） 交换机Exchange
+     * 任何发送到Fanout Exchange的消息都会被转发到与该Exchange绑定(Binding)的所有Queue上
+     * 1.可以理解为路由表的模式
+     * 2.这种模式不需要RouteKey
+     * 3.这种模式需要提前将Exchange与Queue进行绑定，一个Exchange可以绑定多个Queue，一个Queue可以同多个Exchange进行绑定。
+     * 4.如果接受到消息的Exchange没有与任何Queue绑定，则消息会被抛弃。
      * */
     @Bean
     public FanoutExchange fanoutExchage(){

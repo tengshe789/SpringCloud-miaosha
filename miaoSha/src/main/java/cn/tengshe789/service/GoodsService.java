@@ -25,6 +25,11 @@ public class GoodsService {
         return goodsDao.getGoodsVoByGoodsId(goodsId);
     }
 
+    /**
+     * 减库存失败了就不返回订单
+     * @param goods
+     * @return
+     */
     public boolean reduceStock(GoodsVo goods) {
         MiaoshaGoods g = new MiaoshaGoods();
         g.setGoodsId(goods.getId());

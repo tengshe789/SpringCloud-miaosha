@@ -7,7 +7,7 @@ A simple spike shopping mall project, suitable for new people to read. It can be
 
 ### 项目技术：
 
-SpringBoot 1.5、MyBatis 1.3、JDK 8、Druid 1.1、Redis 4.09、JSR303、Log4j、Lombok、Undertow、Thymeleaf 、Bootstrap、jQuery、Ajax、RabbitMQ、dev-tools
+SpringBoot 1.5、MyBatis 1.3、JDK 8、Druid 1.1、Redis 4.09、JSR223、JSR303、Log4j、Lombok、Undertow、Thymeleaf 、Bootstrap、jQuery、Ajax、RabbitMQ、dev-tools
 
 ### 开发工具：
 IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMetert、Jvisualvm
@@ -59,6 +59,19 @@ IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMetert�
 
 ### 版本迭代Update content：
 
+#### 第12版version 0.90 beta
+
+抱歉，这是一个无法正常实现秒杀功能的版本，其他功能正常运行，正在努力的找bug
+
+新加了：
+
+- 秒杀地址url隐藏功能
+- 使用JSR223规范的高级运算验证码功能
+
+#### 第11版version 0.89 beta
+
+修复注释中一大堆错别字；修复商品详情界面无法显示的bug（js条件语句写错了，为什么没人提醒我！？？）
+
 #### 第10版version 0.88 beta
 
 将serlvet容器由tomcat换成undertow，性能大概提升25%。新增增加热部署工具dev-tools
@@ -69,11 +82,11 @@ IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMetert�
 
 #### 第8版version 0.86 beta
 
-将秒杀接口的地址没隐藏😂增加了docker配置文件
+增加了docker配置文件
 
 #### 第7版version 0.85 beta
 
-将秒杀接口的地址隐藏。目前已知的bug有，ui乱码，mq启动异常
+修复若干错误。目前已知的bug有，ui乱码，mq启动异常
 
 #### 第6版version 0.81
 
