@@ -6,7 +6,8 @@ public abstract class BasePrefix implements KeyPrefix{
 
     private String prefix;
 
-    public BasePrefix(String prefix) {//0代表永不过期
+    public BasePrefix(String prefix) {
+        //0代表永不过期
         this(0, prefix);
     }
 
@@ -15,7 +16,7 @@ public abstract class BasePrefix implements KeyPrefix{
         this.prefix = prefix;
     }
     @Override
-    public int expireSeconds() {//默认0代表永不过期
+    public int expireSeconds() {
         return expireSeconds;
     }
     @Override

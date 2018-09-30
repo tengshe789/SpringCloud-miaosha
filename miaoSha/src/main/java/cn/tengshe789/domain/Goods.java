@@ -1,10 +1,8 @@
 package cn.tengshe789.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class Goods {
     private Long id;
     private String goodsName;

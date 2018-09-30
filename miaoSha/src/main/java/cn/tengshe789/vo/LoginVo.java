@@ -13,9 +13,12 @@ import javax.validation.constraints.NotNull;
 @Setter
 @ToString
 public class LoginVo {
+    //手机号码，1开头，后面有11位
     @NotNull
     @IsMobile
     private String mobile;
+
+    //密码最小6位
     @NotNull
     @Length(min = 6)
     private String password;

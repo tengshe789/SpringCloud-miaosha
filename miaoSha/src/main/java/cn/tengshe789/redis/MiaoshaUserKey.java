@@ -2,6 +2,7 @@ package cn.tengshe789.redis;
 
 public class MiaoshaUserKey extends BasePrefix{
 
+    //token默认过期时间是2天
     private static final int TOKEN_EXIPRE= 3600*24*2;
 
     private MiaoshaUserKey(int expireSeconds,String prefix) {
