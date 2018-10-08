@@ -1,11 +1,11 @@
 package cn.tengshe789;
 
+import de.codecentric.boot.admin.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
@@ -13,6 +13,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
  *
  */
 
+//启用Admin UI模块
+@EnableAdminServer
 @SpringBootApplication
 @EnableAsync
 //@ComponentScan("cn.tengshe789.controller")

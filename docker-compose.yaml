@@ -14,7 +14,7 @@ services:
    container_name: v-mysql
    image: mysql/mysql-server:5.7
    environment:
-    MYSQL_DATABASE: test
+    MYSQL_DATABASE: miaosha
     MYSQL_ROOT_PASSWORD: root
     MYSQL_ROOT_HOST: '%'
    ports:
@@ -23,7 +23,7 @@ services:
 
   app:
     restart: always
-    build: ./app
+    build: ./miaoSha
     working_dir: /miaoSha
     volumes:
       - ./app:/miaoSha

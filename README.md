@@ -1,4 +1,4 @@
-# miaosha秒杀商城beta
+# miaosha秒杀商城Beta
 
 ### 项目名称：秒杀商城----miaosha
 
@@ -7,19 +7,34 @@ A simple spike shopping mall project, suitable for new people to read. It can be
 
 ### 项目技术：
 
-SpringBoot 1.5、MyBatis 1.3、JDK 8、Druid 1.1、Redis 4.09、JSR223、JSR303、Log4j、Lombok、Undertow、Thymeleaf 、Bootstrap、jQuery、Ajax、RabbitMQ、dev-tools
+JDK 8、SpringBoot 1.5、MyBatis 1.3、Druid 1.1、Redis、JSR223、JSR303、Actuator、Log4j、Lombok、Thymeleaf 、RabbitMQ、Bootstrap、jQuery、Ajax
 
 ### 开发工具：
-IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMetert、Jvisualvm
+
+IntelliJ IDEA  x64、MySQL 8、Docker、Undertow、Linux、Maven、dev-tools、Admin-UI、Git、Navicat、JMetert、Jvisualvm
 
 ### 项目描述：
 
 该项目的侧重点主要就是秒杀商品这个功能，就是网络卖家可以发布一些超低价格的商品，所有买家在同一时间在网上抢拍。<br/>
 后台个人独立搭建，主要包含以下功能：用户登录、商品列表、商品详情、商品秒杀、订单详情，我会不断对其做高并发方面的优化。
 
-### 项目优化(不断更新)：
+### 项目特点：
 
-密码md5加密，系统SSR化，分布式Session同步系统,页面缓存,对象级缓存，数据库缓存，商品界面静态化，异步下单，jvm调优
+1. 基于SpringBoot，简化了大量项目配置和maven依赖，让您更专注于业务开发，独特的分包方式，代码多而不乱。
+2. 页面缓存与SSR。利用Thymeleaf 模板引擎对页面进行封装和渲染，使臃肿的html代码变得简洁，更加易维护。
+3. 对象缓存。利用redis对经常调用的查询进行缓存，提升运行速度。
+4. 统一拦截器。控制器层统一的异常拦截机制，利用`@ControllerAdvice`统一对异常拦截，有利于对异常的维护。
+5. 高效密码加密。客户端将输入密码与固定的盐值进行md5哈希算法进行计算，用ajax将数值传入服务端吗，防止用户明文密码在网络进行传输，预防数据库被盗，避免通过MD5反推出密码，双重保险。
+6. 注解验证。使用JSR303自定义校验器，实现对用户账号、密码的验证，使得验证逻辑从业务代码中脱离出来。
+7. 分布式Session。使用客户端存储法和缓存存储法，解决session不一致问题。
+8. **界面静态化**。重新设计秒杀商品页面，页面内容静态化，用户请求不需要经过应用服务。
+9. 异步下单。使用了Rabbitmq，用户提交请求时直接返回入队，性能也会提高。
+10. 秒杀地址隐藏。自动生成秒杀地址，预防高流量访问。
+11. Jvm调优。固定堆内存大小，减少内存自动扩容和收缩带来的性能损失。
+12. 谷歌V8渲染。使用JSR223规范，利用JS v8引擎渲染计算图形验证码。
+13. 容器化。使用docker进行容器化，使部署简便快捷。
+14. 负载均衡。使用nginx反向代理进行负载均衡，增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。
+15. 后台监控功能。使用基于Actuator的Admin UI显示各个服务的状态。
 
 ### 未来目标
 
@@ -38,26 +53,24 @@ IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMetert�
 
 ![登陆](http://resume.tengshe789.tech/static/%E7%99%BB%E9%99%86.jpg)
 
-![列表](http://resume.tengshe789.tech/static/%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8.jpg)
-
 ### 怎么使用：
 
-#### 数据库MySql
-默认用户名root
-密码123456
-
-#### redis
-启动程序必须开启redis，否则启动失败。我用的是windows版的redis，当然，使用远程服务连接linux的redis更好，配置文件都在resources中的application.properties里面，可以自行配制
-#### thymeleaf
-页面模板在resources/templates/中，可以自己配置
-#### RabbitMQ
-
-启动程序必须开启RabbitMQ，否则启动失败。我用的是windows版的RabbitMQ，当然，使用远程服务连接linux的RabbitMQ更好，配置文件都在resources中的application.properties里面，连接的用户名和密码都是guest，剩下的可以自行配制
+等我写完在告诉你
 ### 联系我：
 
 微信：tengshe789
 
+好多人加我微信让我教他，结果发现都是大佬。我很菜的~！！！
+
 ### 版本迭代Update content：
+
+#### 第14版version 0.92
+
+集成spring-mail，增加发送邮件功能！
+
+#### 第13版version 0.91
+
+修复异常。日常更新。
 
 #### 第12版version 0.90 beta
 
@@ -103,5 +116,17 @@ IntelliJ IDEA  x64、MySQL 8、Tomcat、Linux、Maven、Git、Navicat、JMetert�
 #### 第1版version 0.5
 登陆界面，简单列表界面，剩余主要功能还未完成
 
-
 项目地址：https://github.com/tengshe789/-miaosha
+
+### 参考资料
+
+我博客里的参考文献
+
+代码中注释的网页连接
+
+慕课网的若鱼大大的教程
+
+it黑马培训机构2017年的分布式商城解决方案（[code](http://www.itheima.com/special/hmjavaeezly/index.shtml)）
+
+程序员小柒的[开源项目](https://gitee.com/52itstyle/spring-boot-seckill)
+

@@ -10,6 +10,7 @@ import cn.tengshe789.service.MiaoshaUserService;
 import cn.tengshe789.vo.GoodsDetailVo;
 import cn.tengshe789.vo.GoodsVo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -26,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+@Slf4j
 @RestController
 @EnableAutoConfiguration
 @RequestMapping("/goods")

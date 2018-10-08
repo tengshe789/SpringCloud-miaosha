@@ -15,7 +15,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.13.RELEASE</version>
+    <version>1.5.16.RELEASE</version>
   </parent>
 
   <properties>
@@ -30,14 +30,34 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-tomcat</artifactId>
+
     </dependency>
 <!--spring-boot-devtools 是一个为开发者服务的一个模块，其中最重要的功能就是自动应用代码更改到最新的App上面去-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
-      <optional>true</optional>
+      <optional>true</optional> <!-- 设置为 true 热部署才有效 -->
       <scope>true</scope>
     </dependency>
+
+    <!--Admin-UI服务端-->
+      <dependency>
+          <groupId>de.codecentric</groupId>
+          <artifactId>spring-boot-admin-server</artifactId>
+          <version>1.5.6</version>
+      </dependency>
+      <dependency>
+          <groupId>de.codecentric</groupId>
+          <artifactId>spring-boot-admin-server-ui</artifactId>
+          <version>1.5.6</version>
+      </dependency>
+
+      <!--Admin-UI客服端-->
+      <dependency>
+          <groupId>de.codecentric</groupId>
+          <artifactId>spring-boot-admin-starter-client</artifactId>
+          <version>1.5.6</version>
+      </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -49,10 +69,16 @@
         </exclusion>
       </exclusions>
     </dependency>
+
 <!--添加 Undertow-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-undertow</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-mail</artifactId>
     </dependency>
 
     <dependency>
@@ -142,6 +168,18 @@
       <version>1.18.0</version>
       <scope>provided</scope>
     </dependency>
+    <!-- swagger2 -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>2.2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>2.2.2</version>
+    </dependency>
+
 
 
   </dependencies>
