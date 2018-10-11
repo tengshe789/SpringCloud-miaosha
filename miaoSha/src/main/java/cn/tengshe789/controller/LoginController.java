@@ -19,8 +19,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping(value = "/login")
 public class LoginController {
-    //日志
-    private static Logger logger=LoggerFactory.getLogger(LoginController.class);
+
     @Autowired
     RedisService redisService;
 
@@ -35,7 +34,7 @@ public class LoginController {
     @RequestMapping("do_login")
     @ResponseBody
     public Result<String> doLogin(HttpServletResponse response, @Valid LoginVo loginVo){
-        logger.info(loginVo.toString());
+        log.info(loginVo.toString());
         String token = miaoshaUserService.login(response, loginVo);
         return Result.success(token);
     }

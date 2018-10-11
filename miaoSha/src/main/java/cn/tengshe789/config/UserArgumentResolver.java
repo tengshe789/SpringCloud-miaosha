@@ -34,8 +34,8 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
     }
 
     /*
-   如果获取的参数是MiaoshaUser类型的，则从request中取一个参数的token
-    */
+     * 如果获取的参数是MiaoshaUser类型的，则从request中取一个参数的token
+     */
     @Override
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer,
                                   NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
