@@ -17,7 +17,6 @@ import cn.tengshe789.service.OrderService;
 import cn.tengshe789.util.MD5Util;
 import cn.tengshe789.util.UUIDUtil;
 import cn.tengshe789.vo.GoodsVo;
-import com.sun.org.apache.bcel.internal.classfile.Code;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;

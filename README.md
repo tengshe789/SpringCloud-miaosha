@@ -64,6 +64,10 @@ IntelliJ IDEA  x64、MySQL 8、Docker、Undertow、Linux、Maven、dev-tools、A
 
 ### 版本迭代Update content：
 
+#### 第15版version 0.93
+
+java 11 可以运行！
+
 #### 第14版version 0.92
 
 集成spring-mail，增加发送邮件功能！
