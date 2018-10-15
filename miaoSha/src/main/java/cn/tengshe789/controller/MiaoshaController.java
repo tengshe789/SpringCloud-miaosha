@@ -14,8 +14,6 @@ import cn.tengshe789.service.GoodsService;
 import cn.tengshe789.service.MiaoshaService;
 import cn.tengshe789.service.MiaoshaUserService;
 import cn.tengshe789.service.OrderService;
-import cn.tengshe789.util.MD5Util;
-import cn.tengshe789.util.UUIDUtil;
 import cn.tengshe789.vo.GoodsVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
@@ -55,6 +53,7 @@ public class MiaoshaController implements InitializingBean {
     @Autowired
     MQSender sender;
 
+    //本地标志
     private HashMap<Long, Boolean> localOverMap =  new HashMap<Long, Boolean>();
 
     /**
@@ -74,7 +73,7 @@ public class MiaoshaController implements InitializingBean {
         }
     }
 
-    @RequestMapping(value="/reset", method=RequestMethod.GET)
+    @GetMapping("/reset")
     public Result<Boolean> reset(Model model) {
         List<GoodsVo> goodsList = goodsService.listGoodsVo();
         for(GoodsVo goods : goodsList) {
@@ -88,7 +87,7 @@ public class MiaoshaController implements InitializingBean {
         return Result.success(true);
     }
 
-    @RequestMapping(value = "/path",method = RequestMethod.GET)
+    @GetMapping("/path")
     public Result<String> getMiaoshaPath(Model model, MiaoshaUser user,
                                    @RequestParam("goodsId")long goodsId){
         model.addAttribute("user",user);
@@ -100,7 +99,7 @@ public class MiaoshaController implements InitializingBean {
         return Result.success(path);
     }
 
-    @RequestMapping(value = "/verifyCode",method = RequestMethod.GET)
+    @GetMapping("/verifyCode")
     public Result<String> getMiaoshaVerifyCode(HttpServletResponse response, Model model,
                                                MiaoshaUser user,
                                                @RequestParam("goodsId")long goodsId){
@@ -123,7 +122,7 @@ public class MiaoshaController implements InitializingBean {
 
 
 
-    @RequestMapping(value = "/{path}/do_miaosha",method = RequestMethod.POST)
+    @PostMapping("/{path}/do_miaosha")
     public Result<Integer> miaosha(Model model, MiaoshaUser user,
                          @RequestParam("goodsId")long goodsId,
                                    @PathVariable("path")String path){
@@ -168,7 +167,7 @@ public class MiaoshaController implements InitializingBean {
      * @param goodsId
      * @return
      */
-    @RequestMapping(value = "/result",method = RequestMethod.GET)
+    @GetMapping("/result")
     public Result<Long> miaoshaResult(Model model, MiaoshaUser user,
                                       @RequestParam("goodsId")long goodsId){
         model.addAttribute("user",user);
