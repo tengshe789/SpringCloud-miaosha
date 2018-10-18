@@ -2,38 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>商品列表</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- jquery -->
     <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
     <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
     <script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/signin.css}" />
-    <!-- jquery-validator -->
-    <script type="text/javascript" th:src="@{/jquery-validation/jquery.validate.min.js}"></script>
-    <script type="text/javascript" th:src="@{/jquery-validation/localization/messages_zh.min.js}"></script>
-    <!-- layer -->
-    <script type="text/javascript" th:src="@{/layer/layer.js}"></script>
-    <!-- md5.js -->
-    <script type="text/javascript" th:src="@{/js/md5.min.js}"></script>
-    <!-- common.js -->
-    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/goods.css}"/>
+
 </head>
 <body>
+<div class="seckill_content">
+    <div class="title"><h2>秒杀商品列表</h2></div>
+    <div class="all_seckill_goods">
+        <div class="seckill_goods" th:each="goods,goodsStat : ${goodsList}">
+            <h4 th:text="${goods.goodsName}"></h4>
+            <img th:src="@{${goods.goodsImg}}" width="250"/>
+            <br/><br/>
+            <div class="seckill_price">
+                <p th:text="${goods.goodsTitle}"></p>
+                <p>
+                    <span class="price1" th:text="${goods.miaoshaPrice}+'元  '"></span>
+                    <del><span class="price2" th:text="${goods.goodsPrice}+'元'"></span></del>
+                </p>
+                <a th:href="'/goods_detail.htm?goodsId='+${goods.id}">
+                    <button class="btn btn-default" type="submit">进入详情页...</button>
+                </a>
 
-<div class="panel panel-default" >
-    <div class="panel-heading">秒杀商品列表</div>
-    <table class="table" id="goodslist">
-        <tr><td>商品名称</td><td>商品图片</td><td>商品原价</td><td>秒杀价</td><td>库存数量</td><td>详情</td></tr>
-        <tr  th:each="goods,goodsStat : ${goodsList}">
-            <td th:text="${goods.goodsName}"></td>
-            <td ><img th:src="@{${goods.goodsImg}}" width="100" height="100" /></td>
-            <td th:text="${goods.goodsPrice}"></td>
-            <td th:text="${goods.miaoshaPrice}"></td>
-            <td th:text="${goods.stockCount}"></td>
-            <td><a th:href="'/goods_detail.htm?goodsId='+${goods.id}">详情</a></td>
-        </tr>
-    </table>
+            </div>
+        </div>
+    </div>
+
 </div>
 </body>
+<!-- jquery-validator -->
+<script type="text/javascript" th:src="@{/jquery-validation/jquery.validate.min.js}"></script>
+<script type="text/javascript" th:src="@{/jquery-validation/localization/messages_zh.min.js}"></script>
+<!-- layer -->
+<script type="text/javascript" th:src="@{/layer/layer.js}"></script>
+<!-- md5.js -->
+<script type="text/javascript" th:src="@{/js/md5.min.js}"></script>
+<!-- common.js -->
+<script type="text/javascript" th:src="@{/js/common.js}"></script>
 </html>
