@@ -1,22 +1,35 @@
 # miaosha秒杀商城
 
-### 项目名称：秒杀商城----miaosha
+### 项目名称：秒杀商城----miaosha（持续更新ing）
 
-一个简单的有秒杀功能的电子商城项目，适合新晋程序员阅读参考。
-A simple spike shopping mall project, suitable for new people to read. It can be used as a paper material for academic defense.
+由于面临毕业，且时间有限，准备把这个过去的项目使用微服务技术重构一下交上去。截至到2019年9月，会完成全部的更新。
 
 ### 项目技术：
 
-JDK 8、SpringBoot 1.5、MyBatis 1.3、Druid 1.1、Redis、JSR223、JSR303、Actuator、Log4j、Lombok、Thymeleaf 、RabbitMQ、Bootstrap、jQuery、Ajax
+#### 后端技术选型为：
+Java 8、SpringBoot 2.1.0、Spring Cloud 、MyBatis 、Druid 、Redis、Actuator、Log4j、Thymeleaf 、RabbitMQ、Consul、Spring Cloud Bus、Spring Cloud Config、Spring Cloud Gateway、Feign、Hystrix等。
+
+#### 前端技术选型为：
+
+Bootstrap、jQuery、Ajax、html、css等。
 
 ### 开发工具：
 
-IntelliJ IDEA  x64、MySQL 8、Docker、Undertow、Linux、Maven、dev-tools、Admin-UI、Git、Navicat、JMetert、Jvisualvm
+IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、dev-tools、Admin-UI、Git、Navicat、JMetert、Jvisualvm、Postman
 
 ### 项目描述：
 
-该项目的侧重点主要就是秒杀商品这个功能，就是网络卖家可以发布一些超低价格的商品，所有买家在同一时间在网上抢拍。<br/>
-后台个人独立搭建，主要包含以下功能：用户登录、商品列表、商品详情、商品秒杀、订单详情，我会不断对其做高并发方面的优化。
+随着网络商城在全球范围内的广泛应用，人们对于互联网技术的要求已不单单是浏览一下网页，日益忙碌的人们已经习惯的利用网络商城这一强大的平台实现的网上购物。可随着网络商城的用户量不断增多，网络商家的营销活动不断增多，许许多多的传统网络商城会出现一系列的性能问题。
+
+双十一的秒杀活动家喻户晓，天猫、京东、苏宁等等电商网站经常会在凌晨零点出现服务中断现象。例如在某一个时刻抢购一个原价1999现在秒杀价只要999的手机时，会迎来一个用户请求的高峰期，可能会有几十万几百万的并发量，来抢这个手机，在高并发的情形下会对数据库服务器或者是文件服务器应用服务器造成巨大的压力，严重时说不定就宕机了。
+
+第二个问题是，秒杀的东西都是有量的，一款手机只有10台的货物量，那么，在高并发的情况下，成千上万条数据更新数据库，那次这个时候的先后顺序是很乱的，很容易出现10台的量，抢到的人就不止10个这种严重的问题。
+
+第三个问题是，传统的购物商。应用往往使用集群方式管理，即一个虚拟化节点上往往会部署负责多种业务的模块。在高流量的压力下往往会导致多个节点不可用，这时只能通过传统的“加机器”方式来缓解压力。这在已经步入2019年的今天是极其不可取的。
+
+本课题的目标是设计一个“秒杀商城”云服务平台，解决这些严重的系统性能问题、数据一致性问题、架构问题。
+
+平台使用微服务架构搭建，主要集成两种系统，第一种系统实现以下功能：用户登录、用户管理、权限管理；第二个系统实现以下功能：商品列表、商品详情、商品秒杀、订单详情、第三方支付。同时平台会有公共的网关负责管理权限，会有服务代理进行负载均衡策略分发流量。
 
 ### 项目特点：
 
@@ -39,15 +52,6 @@ IntelliJ IDEA  x64、MySQL 8、Docker、Undertow、Linux、Maven、dev-tools、A
 ### 未来目标
 
 - 未来目标：争取早日建成一个高并发 、高可用 、高性能的秒杀系统平台
-- 计划：
-  ①引入solr，实现商品搜索 
-  ② 增加redis仆人，完善可用性 
-  ③Tomcat服务端优化，寻找靠谱的CDN节点 
-  ④练习vue.js，使用vue.js重构UI 
-  ⑤引入高性能jvm，摆脱java8 
-  ⑥应用程序容器化，转向微服务
-  ⑦增强持续集成的可行性，减少项目部署的步骤and时间
-  ⑧使用Webflux重构系统，争取早日脱离Servlet容器
 
 ### 项目界面：
 
@@ -55,12 +59,12 @@ IntelliJ IDEA  x64、MySQL 8、Docker、Undertow、Linux、Maven、dev-tools、A
 
 ### 怎么使用：
 
-等我写完在告诉你
+待重构完在更新。
 ### 联系我：
 
 微信：tengshe789
 
-好多人加我微信让我教他，结果发现都是大佬。我很菜的~！！！
+欢迎加微信~
 
 ### 版本迭代Update content：
 

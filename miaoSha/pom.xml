@@ -10,6 +10,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>miaoSha</name>
+  <description>miaosha</description>
   <url>http://miaosha.tengshe789.tech</url>
 
   <parent>
@@ -22,6 +23,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <java.version>8</java.version>
     <!--Docker -->
       <docker.image.prefix>springboot</docker.image.prefix>
   </properties>
@@ -157,14 +159,15 @@
       <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
 
-    <!-- lombok -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <!-- swagger2 -->
+          <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+          <dependency>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>1.18.4</version>
+              <scope>provided</scope>
+          </dependency>
+
+      <!-- swagger2 -->
     <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger2</artifactId>
