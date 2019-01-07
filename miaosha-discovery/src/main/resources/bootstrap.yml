@@ -1,0 +1,33 @@
+server:
+  port: 8766
+
+spring:
+  security:
+    user:
+      name: miaosha
+      password: 123
+  application:
+    name: @artifactId@
+  cloud:
+    config:
+      enabled: false
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        #这里是重写健康检查的endPoint，默认为 /health，重写是为了节省不必要的网络传输，只需要http 200状态码即可
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 5s
+        heartbeat:
+          enabled: false
+
+# 对外暴露端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

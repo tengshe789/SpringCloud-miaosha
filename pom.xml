@@ -10,6 +10,7 @@
     <modules>
         <module>miaosha-discovery</module>
         <module>miaosha-common</module>
+        <module>miaosha-gateway</module>
     </modules>
     <name>${project.artifactId}</name>
 	<packaging>pom</packaging>
@@ -47,6 +48,7 @@
 		<elastic-job-lite.version>2.1.5</elastic-job-lite.version>
 		<mysql.connector.version>8.0.13</mysql.connector.version>
 		<security.oauth.version>2.3.3.RELEASE</security.oauth.version>
+        <fastjson.version>1.2.51</fastjson.version>
 		<jackson.modules>2.9.6</jackson.modules>
 		<activiti.version>5.22.0</activiti.version>
 		<!--<docker.url>http://192.168.0.13:4243</docker.url>-->
@@ -124,7 +126,17 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!--jackson模块-->
+
+            <!-- 引入 json 工具包 -->
+            <!--fastjson 模块 (可选)-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+			<!--jackson模块 (可选)-->
 			<dependency>
 				<groupId>com.fasterxml.jackson.module</groupId>
 				<artifactId>jackson-modules-java8</artifactId>
@@ -132,7 +144,9 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-		</dependencies>
+            <!-- 结束 -->
+
+        </dependencies>
 	</dependencyManagement>
 
 	<build>

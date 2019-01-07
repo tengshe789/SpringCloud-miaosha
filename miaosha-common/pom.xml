@@ -16,6 +16,7 @@
 
     <modules>
         <module>miaosha-common-core</module>
+        <module>miaosha-route</module>
     </modules>
 
 

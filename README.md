@@ -1,13 +1,14 @@
-# miaosha秒杀商城
+# miaosha秒杀商城 2代 （Spring Cloud 版本）
 
-### 项目名称：秒杀商城----miaosha（持续更新ing）
+### 项目名称：秒杀商城----miaosha
 
 由于面临毕业，且时间有限，准备把这个过去的项目使用微服务技术重构一下交上去。截至到2019年9月，会完成全部的更新。
 
+附：老版本请看`git`的`master`的0.91版本
 ### 项目技术：
 
 #### 后端技术选型为：
-Java 8、SpringBoot 2.1.0、Spring Cloud 、MyBatis 、Druid 、Redis、Actuator、Log4j、Thymeleaf 、RabbitMQ、Consul、Spring Cloud Bus、Spring Cloud Config、Spring Cloud Gateway、Feign、Hystrix等。
+Java 8、SpringBoot 2.0.7、Spring Cloud 、MyBatis 、Druid 、Redis、Actuator、Log4j、Thymeleaf 、RabbitMQ、Consul、Spring Cloud Bus、Spring Cloud Config、Spring Cloud Gateway、Feign、Hystrix等。
 
 #### 前端技术选型为：
 
@@ -67,55 +68,8 @@ IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、de
 欢迎加微信~
 
 ### 版本迭代Update content：
-
-#### 第13版version 0.91
-
-修复异常。日常更新。
-
-#### 第12版version 0.90 beta
-
-抱歉，这是一个无法正常实现秒杀功能的版本，其他功能正常运行，正在努力的找bug
-
-新加了：
-
-- 秒杀地址url隐藏功能
-- 使用JSR223规范的高级运算验证码功能
-
-#### 第11版version 0.89 beta
-
-修复注释中一大堆错别字；修复商品详情界面无法显示的bug（js条件语句写错了，为什么没人提醒我！？？）
-
-#### 第10版version 0.88 beta
-
-将serlvet容器由tomcat换成undertow，性能大概提升25%。新增增加热部署工具dev-tools
-
-#### 第9版version 0.87 beta
-
-抖了个小机灵，数据库新增商品iPhone Xs Max。新增分布式Session的相关注释，通俗易懂~
-
-#### 第8版version 0.86 beta
-
-增加了docker配置文件
-
-#### 第7版version 0.85 beta
-
-修复若干错误。目前已知的bug有，ui乱码，mq启动异常
-
-#### 第6版version 0.81
-
-修复一大堆的bug
-#### 第5版version 0.8
-
-增加中间件rabbitMQ
-#### 第4版version 0.7
-解决无限刷单问题，将部分界面静态化，将reids缓存地址换回本地服务器
-#### 第3版version 0.6
-将Springboot版本更新成1.5.13，加入商品列表、商品详情的页面级缓存
-#### 第2版version 0.55
-还在全力建设ing，另外紧急修复看到商品列表以后，无法跳转对应商品详细信息的BUG。
-#### 第1版version 0.5
-登陆界面，简单列表界面，剩余主要功能还未完成
-
+#### 第14版 2019-1-7
++ spring cloud 重构
 项目地址：https://github.com/tengshe789/-miaosha
 
 ### 参考资料
@@ -123,10 +77,4 @@ IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、de
 我博客里的参考文献
 
 代码中注释的网页连接
-
-慕课网的若鱼大大的教程
-
-it黑马培训机构2017年的分布式商城解决方案（[code](http://www.itheima.com/special/hmjavaeezly/index.shtml)）
-
-程序员小柒的[开源项目](https://gitee.com/52itstyle/spring-boot-seckill)
 
