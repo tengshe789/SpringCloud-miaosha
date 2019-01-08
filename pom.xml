@@ -25,14 +25,13 @@
 	</developers>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 
 		<spring-boot.version>2.0.7.RELEASE</spring-boot.version>
 		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
 		<spring-platform.version>Cairo-RELEASE</spring-platform.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<spring-boot-admin.version>2.0.4</spring-boot-admin.version>
