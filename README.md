@@ -9,11 +9,11 @@
 
 #### 后端技术选型为：
 
-Java 11、SpringBoot 2.1.2  与 Spring Cloud Greenwich 技术栈、Elasticsearch、MyBatis plus 、Druid 、Redis、Actuator、Log4j、Thymeleaf 、RabbitMQ等。
+Java 11、SpringBoot 2.1.2  与 Spring Cloud Greenwich 技术栈、swagger、Elasticsearch、MyBatis plus 、Druid 、Redis、Actuator、Log4j、Thymeleaf 、RabbitMQ等。
 
 #### 前端技术选型为：
 
-Bootstrap、jQuery、Ajax、html、css等。
+本人能力有限，暂时摒弃一代miaosha商城前端框架。新的前端还在学习思考ing。不更新。
 
 #### Spring 家族技术选型
 
@@ -50,18 +50,46 @@ IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、de
 
 - 未来目标：争取早日建成一个高并发 、高可用 、高性能的秒杀系统平台
 
-### 项目界面：
+### 项目架构图
 
-![登陆](http://resume.tengshe789.tech/static/%E7%99%BB%E9%99%86.jpg)
+//TODO
+
+### 分包结构
+
+```
+├─ xbrl-root
+│  │  
+│  ├─ doc---------------- 项目文档
+│  │ 
+│  ├─ logs---------------- 日志存放目录
+│  │  
+│  ├─ miaosha-common---------------- 基本依赖
+│  │  ├─ miaosha-common-core---------------- 核心模块
+│  │  ├─ miaosha-common-data---------------- 数据与持久化模块
+│  │  ├─ miaosha-common-log---------------- 日志处理模块
+│  │  ├─ miaosha-common-security---------------- 安全模块
+│  │  
+│  ├─ miaosha-config----------------- 配置中心
+│  │  
+│  ├─ miaosha-gateway-------------- 商城网关
+│  │ 
+│  ├─ miaosha-discovery-------------- 服务发现功能
+│  │  
+│  ├─ miaosha-mall-------------- 商城
+│  │  
+│  ├─ miaosha-plugins-------------- 插件
+│  │  
+│  ├─ miaosha-upms-------------- 通用的权限管理系统
+│  │  
+│  ├─ script-------------- 脚本语言
+│  │  
+
+```
 
 ### 怎么使用：
 
-请看代码中doc目录下的markdown
-### 联系我：
+请看代码中doc目录下的markdown，写的零零散散，后期有时间会专门开个gitbook做为文档！
 
-微信：tengshe789
-
-欢迎加微信~
 
 ### QA
 
@@ -70,15 +98,25 @@ IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、de
 看到了一篇文章：https://www.optaplanner.org/blog/2019/01/17/HowMuchFasterIsJava11.html
 
 结论：Java 11 与 Java 8 比较过程中，在几乎所有测试数据集上都有速度上的提升。平均而言，仅通过切换到 Java 11 就有 16% 的改进，这种改进可能是因为 Java 10 中引入了 JEP 307: Parallel Full GC for G1。
+
+### 项目界面：
+
+![登陆](http://resume.tengshe789.tech/static/%E7%99%BB%E9%99%86.jpg)
+
 ### 版本迭代Update content：
 
-请看代码中的`CHANGELOG.md`.
+请看![CHANGELOG.md](https://github.com/tengshe789/-miaosha/blob/version2/CHANGELOG.md).
+
+### 联系我：
+
+微信：tengshe789 , catch me as you can~
 
 ### 参考资料
 
-我博客里的参考文献
+- 我博客里的参考文献
 
-代码中注释的网页连接
+- code以及doc中标明的网页连接
+
 
 
 
