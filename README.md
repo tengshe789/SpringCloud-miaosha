@@ -8,15 +8,20 @@
 ### 项目技术：
 
 #### 后端技术选型为：
-Java 8、SpringBoot 2.0.7、Spring Cloud 、MyBatis 、Druid 、Redis、Actuator、Log4j、Thymeleaf 、RabbitMQ、Consul、Spring Cloud Bus、Spring Cloud Config、Spring Cloud Gateway、Feign、Hystrix等。
+
+Java 11、SpringBoot 2.1.2  与 Spring Cloud Greenwich 技术栈、Elasticsearch、MyBatis plus 、Druid 、Redis、Actuator、Log4j、Thymeleaf 、RabbitMQ等。
 
 #### 前端技术选型为：
 
 Bootstrap、jQuery、Ajax、html、css等。
 
+#### Spring 家族技术选型
+
+Spring Security OAuth2、Spring Cache、Spring Cloud Config、Spring Cloud Gateway、Feign、Hystrix、Spring Event
+
 ### 开发工具：
 
-IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、dev-tools、Admin-UI、Git、Navicat、JMetert、Jvisualvm、Postman
+IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、dev-tools、Admin-UI、Git、Navicat、JMetert、Jvisualvm、Postman、Consul
 
 ### 项目描述：
 
@@ -28,29 +33,20 @@ IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、de
 
 第三个问题是，传统的购物商。应用往往使用集群方式管理，即一个虚拟化节点上往往会部署负责多种业务的模块。在高流量的压力下往往会导致多个节点不可用，这时只能通过传统的“加机器”方式来缓解压力。这在已经步入2019年的今天是极其不可取的。
 
-本课题的目标是设计一个“秒杀商城”云服务平台，解决这些严重的系统性能问题、数据一致性问题、架构问题。
+本课题的目标是设计一个“**秒杀商城**”云服务平台，解决这些严重的系统性能问题、数据一致性问题、架构问题。
 
 平台使用微服务架构搭建，主要集成两种系统，第一种系统实现以下功能：用户登录、用户管理、权限管理；第二个系统实现以下功能：商品列表、商品详情、商品秒杀、订单详情、第三方支付。同时平台会有公共的网关负责管理权限，会有服务代理进行负载均衡策略分发流量。
 
 ### 项目特点：
 
-1. 基于SpringBoot，简化了大量项目配置和maven依赖，让您更专注于业务开发，独特的分包方式，代码多而不乱。
-2. 页面缓存与SSR。利用Thymeleaf 模板引擎对页面进行封装和渲染，使臃肿的html代码变得简洁，更加易维护。
-3. 对象缓存。利用redis对经常调用的查询进行缓存，提升运行速度。
-4. 统一拦截器。控制器层统一的异常拦截机制，利用`@ControllerAdvice`统一对异常拦截，有利于对异常的维护。
-5. 高效密码加密。客户端将输入密码与固定的盐值进行md5哈希算法进行计算，用ajax将数值传入服务端吗，防止用户明文密码在网络进行传输，预防数据库被盗，避免通过MD5反推出密码，双重保险。
-6. 注解验证。使用JSR303自定义校验器，实现对用户账号、密码的验证，使得验证逻辑从业务代码中脱离出来。
-7. 分布式Session。使用客户端存储法和缓存存储法，解决session不一致问题。
-8. **界面静态化**。重新设计秒杀商品页面，页面内容静态化，用户请求不需要经过应用服务。
-9. 异步下单。使用了Rabbitmq，用户提交请求时直接返回入队，性能也会提高。
-10. 秒杀地址隐藏。自动生成秒杀地址，预防高流量访问。
-11. Jvm调优。固定堆内存大小，减少内存自动扩容和收缩带来的性能损失。
-12. 谷歌V8渲染。使用JSR223规范，利用JS v8引擎渲染计算图形验证码。
-13. 容器化。使用docker进行容器化，使部署简便快捷。
-14. 负载均衡。使用nginx反向代理进行负载均衡，增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。
-15. 后台监控功能。使用基于Actuator的Admin UI显示各个服务的状态。
-
-### 未来目标
+1. **基于SpringBoot**，简化了大量项目配置和maven依赖，让您更专注于业务开发，独特的分包方式，代码多而不乱。
+2. **Java 11 支持**：使用原生Java 11，并大量实践`stream`、`webflux `、`lambda`、三元运算符，测试数据集在速度上有巨大提升。
+3. **细粒度缓存**。利用`redis`对经常调用的查询、页面、实例进行缓存，保证运行速度。
+4. **注解验证**。使用`JSR303`规范和`AOP`编辑代码，使得验证逻辑从业务代码中脱离出来。
+5. **异步下单**。多种分布式消息队列以及百万级并发框架`Disruptor`参与下单进程，高效且可靠。
+6. **强力监控**。多种监控工具的加入使得你可以全方位的统计观测数据。
+7. **日志系统**。基于`spring event`异步处理日志。
+8. **容器化**。Docker、rancher的支持。
 
 - 未来目标：争取早日建成一个高并发 、高可用 、高性能的秒杀系统平台
 
@@ -60,21 +56,29 @@ IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、de
 
 ### 怎么使用：
 
-待重构完在更新。
+请看代码中doc目录下的markdown
 ### 联系我：
 
 微信：tengshe789
 
 欢迎加微信~
 
+### QA
+
+1. 为什么不用原来的JDK1.8，而换到现在的Java 11？
+
+看到了一篇文章：https://www.optaplanner.org/blog/2019/01/17/HowMuchFasterIsJava11.html
+
+结论：Java 11 与 Java 8 比较过程中，在几乎所有测试数据集上都有速度上的提升。平均而言，仅通过切换到 Java 11 就有 16% 的改进，这种改进可能是因为 Java 10 中引入了 JEP 307: Parallel Full GC for G1。
 ### 版本迭代Update content：
-#### 第14版 2019-1-7
-+ spring cloud 重构
-项目地址：https://github.com/tengshe789/-miaosha
+
+请看代码中的`CHANGELOG.md`.
 
 ### 参考资料
 
 我博客里的参考文献
 
 代码中注释的网页连接
+
+
 

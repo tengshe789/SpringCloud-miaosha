@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  tech.tengshe789.miaosha.common.log.feign.fallback.LogServiceFallbackImpl,\
+  tech.tengshe789.miaosha.common.log.feign.factories.LogServiceFactory

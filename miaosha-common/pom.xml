@@ -16,7 +16,9 @@
 
     <modules>
         <module>miaosha-common-core</module>
-        <module>miaosha-route</module>
+        <module>miaosha-common-data</module>
+        <module>miaosha-common-security</module>
+        <module>miaosha-common-log</module>
     </modules>
 
 

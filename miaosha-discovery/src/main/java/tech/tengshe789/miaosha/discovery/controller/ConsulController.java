@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * @program: miaosha
- * @description: Consul控制器
+ * @description: Consul功能扩展器
  * @author: <a href="mailto:randyvan007@qq.com">tEngSHe789</a>
  * @create: 2019-01-07 11:10
  **/
