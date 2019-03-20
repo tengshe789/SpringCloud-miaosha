@@ -1,15 +1,21 @@
 # miaosha秒杀商城 2代 （Spring Cloud 版本）
 
-### 项目名称：秒杀商城----miaosha
+### 项目名称：秒杀商城----SpringCloud-miaosha
 
 由于面临毕业，且时间有限，准备把这个过去的项目使用微服务技术重构一下交上去。截至到2019年9月，会完成全部的更新。
 
 附：老版本请看`git`的`master`的0.91版本
+
+**重要说明**：
+现在的项目，启动不起来的，1是因为我没有上传sql文件，文档里面的sql文件是master分支的；2是本人也是边学边用技术，会有很多不成熟的地方，请见谅；3是文档的确再写，但是最近事情比较多所以打算一下子把所有文档都上传完毕。
+
+因为是毕业设计作品，毕业前一定会写完的，各位稍安勿躁，也不必期待过高，毕竟我还没正式参加工作~
+
 ### 项目技术：
 
 #### 后端技术选型为：
 
-Java 11、SpringBoot 2.1.2  与 Spring Cloud Greenwich 技术栈、swagger、Elasticsearch、MyBatis plus 、Druid 、Redis、Actuator、Log4j、Thymeleaf 、RabbitMQ等。
+Java 11、SpringBoot 2.1.3  与 Spring Cloud Greenwich 技术栈、swagger、Elasticsearch、MyBatis plus 、Druid 、Redis、Log4j、Thymeleaf 、RabbitMQ、kaptcha、等。
 
 #### 前端技术选型为：
 
@@ -17,11 +23,11 @@ Java 11、SpringBoot 2.1.2  与 Spring Cloud Greenwich 技术栈、swagger、Ela
 
 #### Spring 家族技术选型
 
-Spring Security OAuth2、Spring Cache、Spring Cloud Config、Spring Cloud Gateway、Feign、Hystrix、Spring Event
+Spring Security OAuth2、Spring Cache、Spring Cloud Config、Spring Cloud Gateway、Spring under OpenFeign、Hystrix、Spring Event、Spring IO Platform、Actuator、Configuration-processor、spring-boot-admin
 
 ### 开发工具：
 
-IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、dev-tools、Admin-UI、Git、Navicat、JMetert、Jvisualvm、Postman、Consul
+IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、dev-tools、Admin-UI、Git、Navicat、JMetert、Jvisualvm、Postman、curator、elastic-job-lite、Consul
 
 ### 项目描述：
 
@@ -41,8 +47,8 @@ IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、de
 
 1. **基于SpringBoot**，简化了大量项目配置和maven依赖，让您更专注于业务开发，独特的分包方式，代码多而不乱。
 2. **Java 11 支持**：使用原生Java 11，并大量实践`stream`、`webflux `、`lambda`、三元运算符，测试数据集在速度上有巨大提升。
-3. **细粒度缓存**。利用`redis`对经常调用的查询、页面、实例进行缓存，保证运行速度。
-4. **注解验证**。使用`JSR303`规范和`AOP`编辑代码，使得验证逻辑从业务代码中脱离出来。
+3. **细粒度缓存**。利用`JSR107`规范，`redis`对经常调用的查询、页面、实例进行缓存，保证运行速度。
+4. **注解验证**。使用`JSR304`规范和`AOP`编辑代码，使得验证逻辑从业务代码中脱离出来。
 5. **异步下单**。多种分布式消息队列以及百万级并发框架`Disruptor`参与下单进程，高效且可靠。
 6. **强力监控**。多种监控工具的加入使得你可以全方位的统计观测数据。
 7. **日志系统**。基于`spring event`异步处理日志。
@@ -57,16 +63,19 @@ IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、de
 ### 分包结构
 
 ```
-├─ xbrl-root
+├─ SpringCloud-miaosha
 │  │  
 │  ├─ doc---------------- 项目文档
 │  │ 
 │  ├─ logs---------------- 日志存放目录
 │  │  
 │  ├─ miaosha-common---------------- 基本依赖
-│  │  ├─ miaosha-common-core---------------- 核心模块
+│  │  ├─ miaosha-common-base---------------- 基础封装模块模块
+│  │  ├─ miaosha-common-bom---------------- 公共版本控制模块
+│  │  ├─ miaosha-common-core---------------- 公共工具类核心包模块
 │  │  ├─ miaosha-common-data---------------- 数据与持久化模块
 │  │  ├─ miaosha-common-log---------------- 日志处理模块
+│  │  ├─ miaosha-common-mq---------------- 消息队列模块
 │  │  ├─ miaosha-common-security---------------- 安全模块
 │  │  
 │  ├─ miaosha-config----------------- 配置中心
@@ -76,10 +85,16 @@ IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、de
 │  ├─ miaosha-discovery-------------- 服务发现功能
 │  │  
 │  ├─ miaosha-mall-------------- 商城
+│  │  ├─ miaosha-mall-ads---------------- 广告模块
+│  │  ├─ miaosha-mall-goods---------------- 商品模块
+│  │  ├─ miaosha-mall-order---------------- 订单模块
+│  │  ├─ miaosha-mall-pay---------------- 支付模块
+│  │  ├─ miaosha-mall-search---------------- 搜索模块
+│  │  ├─ miaosha-mall-seckill---------------- 秒杀模块
 │  │  
 │  ├─ miaosha-plugins-------------- 插件
 │  │  
-│  ├─ miaosha-upms-------------- 通用的权限管理系统
+│  ├─ miaosha-sys-------------- 账户后台控制系统
 │  │  
 │  ├─ script-------------- 脚本语言
 │  │  
@@ -105,13 +120,15 @@ IntelliJ IDEA  x64、MySQL 8、Kubernetes、Docker、Linux、Lombok、Maven、de
 
 ### 版本迭代Update content：
 
-请看![CHANGELOG.md](https://github.com/tengshe789/-miaosha/blob/version2/CHANGELOG.md).
+请看[CHANGELOG.md](https://github.com/tengshe789/-miaosha/blob/version2/CHANGELOG.md).
 
 ### 联系我：
 
 微信：tengshe789 , catch me as you can~
 
 ### 参考资料
+
+- 新发现的大神开源工具包mica,解决好多问题
 
 - 我博客里的参考文献
 

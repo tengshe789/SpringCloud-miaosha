@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  tech.tengshe789.miaosha.common.data.config.ThrowableConfig,\
+  tech.tengshe789.miaosha.common.data.redis.RedisCacheAutoConfiguration,\
+  tech.tengshe789.miaosha.common.data.redis.RedisCacheConfig,\
+  tech.tengshe789.miaosha.common.data.redis.RedisCacheManagerConfig,\
+  tech.tengshe789.miaosha.common.data.mybatisplus.MybatisPlusConfigurer

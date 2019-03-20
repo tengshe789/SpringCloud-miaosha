@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tech.tengshe789</groupId>
-    <artifactId>-miaosha</artifactId>
+    <artifactId>SpringCloud-miaosha</artifactId>
     <version>2.0-SNAPSHOT</version>
     <modules>
         <module>miaosha-discovery</module>
         <module>miaosha-common</module>
         <module>miaosha-gateway</module>
-        <module>miaosha-upms</module>
+        <module>miaosha-sys</module>
         <module>miaosha-config</module>
         <module>miaosha-plugins</module>
         <module>miaosha-mall</module>
@@ -30,8 +30,7 @@
 
 	<properties>
 		<java.version>11</java.version>
-
-		<spring-boot.version>2.1.2.RELEASE</spring-boot.version>
+		<spring-boot.version>2.1.3.RELEASE</spring-boot.version>
 		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
 		<spring-platform.version>Cairo-RELEASE</spring-platform.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -40,19 +39,14 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<spring-boot-admin.version>2.0.4</spring-boot-admin.version>
 		<hutool.version>4.3.0</hutool.version>
-		<mybatis-plus.version>3.0.7.1</mybatis-plus.version>
-        <druid.version>1.1.13</druid.version>
 		<kaptcha.version>0.0.9</kaptcha.version>
 		<swagger.version>2.9.2</swagger.version>
 		<curator.version>2.10.0</curator.version>
-		<velocity.version>1.7</velocity.version>
 		<lcn.version>4.1.0</lcn.version>
 		<jasypt.version>2.1.0</jasypt.version>
 		<ttl.version>2.10.1</ttl.version>
 		<elastic-job-lite.version>2.1.5</elastic-job-lite.version>
-		<mysql.connector.version>8.0.14</mysql.connector.version>
 		<security.oauth.version>2.3.3.RELEASE</security.oauth.version>
-        <fastjson.version>1.2.55</fastjson.version>
 		<docker.url>http://192.168.190.137:2375</docker.url>
 		<registry.url>192.168.190.137:5000</registry.url>
 	</properties>
@@ -63,11 +57,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
 		</dependency>
-        <!--JSR303规范-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
 		<!--配置文件处理器-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -108,22 +97,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-        <!-- 引入 json 工具包 -->
-        <!--fastjson 模块 (可选)-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
-        <!--jackson模块 (可选)-->
-        <!--<dependency>-->
-            <!--<groupId>com.fasterxml.jackson.module</groupId>-->
-            <!--<artifactId>jackson-modules-java8</artifactId>-->
-            <!--<version>${jackson.modules}</version>-->
-            <!--<type>pom</type>-->
-            <!--<scope>import</scope>-->
-        <!--</dependency>-->
-        <!-- 结束 -->
 	</dependencies>
 
 	<dependencyManagement>
@@ -149,6 +122,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>miaosha-common-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
 	</dependencyManagement>
 

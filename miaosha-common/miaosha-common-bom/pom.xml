@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-dependencies-parent</artifactId>
+        <groupId>org.springframework.cloud</groupId>
+        <version>2.1.3.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>miaosha-common-bom</artifactId>
+    <packaging>pom</packaging>
+    <version>${miaosha.version}</version>
+    <description>miaosha 公共版本控制</description>
+
+    <properties>
+        <miaosha.version>2.0-SNAPSHOT</miaosha.version>
+        <jackson.modules>2.9.6</jackson.modules>
+        <mybatis-plus.version>3.0.7.1</mybatis-plus.version>
+        <druid.version>1.1.13</druid.version>
+        <mysql.connector.version>8.0.14</mysql.connector.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--公共依赖 base -->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-common-base</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+            <!--公共依赖 core -->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-common-core</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+            <!--公共依赖 data -->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-common-data</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+            <!--公共依赖 log -->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-common-log</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+            <!--公共依赖 mq -->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-common-mq</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+            <!--公共依赖 security -->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-common-security</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+
+            <!--商城模块 ads-->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-mall-ads</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+            <!--商城模块 goods-->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-mall-goods</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+            <!--商城模块 order-->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-mall-order</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+            <!--商城模块 pay-->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-mall-pay</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+            <!--商城模块 search-->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-mall-search</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+            <!--商城模块 seckill-->
+            <dependency>
+                <groupId>tech.tengshe789</groupId>
+                <artifactId>miaosha-mall-seckill</artifactId>
+                <version>${miaosha.version}</version>
+            </dependency>
+
+
+            <!--jackson模块-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-modules-java8</artifactId>
+                <version>${jackson.modules}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--mybatis plus extension,包含了mybatis plus core-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--mybatis-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--mysql 驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.version}</version>
+            </dependency>
+            <!-- druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
+

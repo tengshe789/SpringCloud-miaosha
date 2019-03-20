@@ -1,6 +1,5 @@
 package tech.tengshe789.miaosha.common.security.exception;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;

@@ -3,38 +3,30 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>-miaosha</artifactId>
+        <artifactId>SpringCloud-miaosha</artifactId>
         <groupId>tech.tengshe789</groupId>
         <version>2.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>miaosha-mall</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>miaosha-mall-goods</module>
+        <module>miaosha-mall-order</module>
+        <module>miaosha-mall-pay</module>
+        <module>miaosha-mall-seckill</module>
+        <module>miaosha-mall-ads</module>
+        <module>miaosha-mall-search</module>
+    </modules>
 
     <dependencies>
-        <!--公共依赖 core -->
+        <!--sys依赖  -->
         <dependency>
             <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-common-core</artifactId>
+            <artifactId>miaosha-sys</artifactId>
             <version>2.0-SNAPSHOT</version>
-        </dependency>
-        <!--公共依赖 data -->
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-common-data</artifactId>
-            <version>2.0-SNAPSHOT</version>
-        </dependency>
-        <!--公共依赖 security -->
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-common-security</artifactId>
-            <version>2.0-SNAPSHOT</version>
-        </dependency>
-        <!--公共依赖 log -->
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-common-log</artifactId>
-            <version>2.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

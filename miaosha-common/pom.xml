@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>-miaosha</artifactId>
+        <artifactId>SpringCloud-miaosha</artifactId>
         <groupId>tech.tengshe789</groupId>
         <version>2.0-SNAPSHOT</version>
     </parent>
@@ -19,6 +19,9 @@
         <module>miaosha-common-data</module>
         <module>miaosha-common-security</module>
         <module>miaosha-common-log</module>
+        <module>miaosha-common-mq</module>
+        <module>miaosha-common-base</module>
+        <module>miaosha-common-bom</module>
     </modules>
 
 

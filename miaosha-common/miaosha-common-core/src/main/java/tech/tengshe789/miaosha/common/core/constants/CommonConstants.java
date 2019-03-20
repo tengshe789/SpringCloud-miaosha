@@ -8,11 +8,6 @@ package tech.tengshe789.miaosha.common.core.constants;
  **/
 public interface CommonConstants {
 	/**
-	 * header 中租户ID
-	 */
-	String TENANT_ID = "TENANT_ID";
-
-	/**
 	 * 路由存放
 	 */
 	String ROUTE_KEY = "gateway_route_key";
@@ -25,11 +20,23 @@ public interface CommonConstants {
 	/**
 	 * 验证码前缀
 	 */
-	String DEFAULT_CODE_KEY = "DEFAULT_CODE_KEY_";
+	String DEFAULT_CODE_KEY = "DEFAULT_CODE_";
 
-	/**
-	 * 菜单
-	 */
-	String MENU = "0";
+	String GOODS_LIST_KEY = "GOODS_LIST_";
+
+	String GOODS_DETAIL_KEY = "GOODS_DETAIL_";
+
+	String GOODS_STOCK_KEY =  "GOODS_STOCK_";
+
+	String ISOVER = "GO_";
+
+	String MIAOSHA_PATH_KEY = "MIAOSHA_PATH_";
+
+	//验证码时间设置长一点，本次设置的5分钟
+	String MIAOSHA_CODE_KEY  = "MIAOSHA_CODE_";
+
+//	String token = new MiaoshaUserKey(3600*24*2,"tk");
+
+	String MIAOSHA_ORDER_KEY = "MIAOSHA_ORDER_";
 
 }

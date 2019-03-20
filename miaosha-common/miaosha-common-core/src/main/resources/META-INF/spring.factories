@@ -1,1 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  tech.tengshe789.miaosha.common.core.config.MessageSourceConfig,\
+  tech.tengshe789.miaosha.common.core.config.RestTemplateConfig
