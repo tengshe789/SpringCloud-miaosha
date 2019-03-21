@@ -32,11 +32,26 @@ public interface CommonConstants {
 
 	String MIAOSHA_PATH_KEY = "MIAOSHA_PATH_";
 
-	//验证码时间设置长一点，本次设置的5分钟
+	/**
+	 *  验证码时间设置长一点，本次设置的5分钟
+	 */
 	String MIAOSHA_CODE_KEY  = "MIAOSHA_CODE_";
 
 //	String token = new MiaoshaUserKey(3600*24*2,"tk");
 
 	String MIAOSHA_ORDER_KEY = "MIAOSHA_ORDER_";
 
+	/**
+	 * 删除
+	 */
+	String STATUS_DEL = "1";
+	/**
+	 * 正常
+	 */
+	String STATUS_NORMAL = "0";
+
+	/**
+	 * 锁定
+	 */
+	String STATUS_LOCK = "9";
 }

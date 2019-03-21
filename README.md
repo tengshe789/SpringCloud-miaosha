@@ -9,13 +9,13 @@
 **重要说明**：
 现在的项目，启动不起来的，1是因为我没有上传sql文件，文档里面的sql文件是master分支的；2是本人也是边学边用技术，会有很多不成熟的地方，请见谅；3是文档的确再写，但是最近事情比较多所以打算一下子把所有文档都上传完毕。
 
-因为是毕业设计作品，毕业前一定会写完的，各位稍安勿躁，也不必期待过高，毕竟我还没正式参加工作~
+因为是**毕业设计作品**，毕业前一定会写完的，而本人面临毕业，也想苟活一次（出国转一转），各位稍安勿躁，也不必期待过高~
 
 ### 项目技术：
 
 #### 后端技术选型为：
 
-Java 11、SpringBoot 2.1.3  与 Spring Cloud Greenwich 技术栈、swagger、Elasticsearch、MyBatis plus 、Druid 、Redis、Log4j、Thymeleaf 、RabbitMQ、kaptcha、等。
+Java 11、SpringBoot 2.1.3  与 Spring Cloud Greenwich 技术栈、swagger、Elasticsearch、MyBatis plus 、Druid 、Redis、Log4j、Thymeleaf 、RabbitMQ、kaptcha等。
 
 #### 前端技术选型为：
 
@@ -46,7 +46,7 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 ### 项目特点：
 
 1. **基于SpringBoot**，简化了大量项目配置和maven依赖，让您更专注于业务开发，独特的分包方式，代码多而不乱。
-2. **Java 11 支持**：使用原生Java 11，并大量实践`stream`、`webflux `、`lambda`、三元运算符，测试数据集在速度上有巨大提升。
+2. **Java 11 支持**：使用原生Java 11，并大量实践`stream`、`webflux `、`lambda`、三元运算符，测试数据集在多核机器的速度上有巨大提升。
 3. **细粒度缓存**。利用`JSR107`规范，`redis`对经常调用的查询、页面、实例进行缓存，保证运行速度。
 4. **注解验证**。使用`JSR304`规范和`AOP`编辑代码，使得验证逻辑从业务代码中脱离出来。
 5. **异步下单**。多种分布式消息队列以及百万级并发框架`Disruptor`参与下单进程，高效且可靠。
@@ -68,6 +68,8 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 │  ├─ doc---------------- 项目文档
 │  │ 
 │  ├─ logs---------------- 日志存放目录
+│  │ 
+│  ├─ miaosha-auth---------------- 鉴权中心模块
 │  │  
 │  ├─ miaosha-common---------------- 基本依赖
 │  │  ├─ miaosha-common-base---------------- 基础封装模块模块
@@ -101,6 +103,10 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 
 ```
 
+### 秒杀设计
+
+
+
 ### 怎么使用：
 
 请看代码中doc目录下的markdown，写的零零散散，后期有时间会专门开个gitbook做为文档！
@@ -108,13 +114,30 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 
 ### QA
 
-1. 为什么不用原来的JDK1.8，而换到现在的Java 11？
+1. 为什么不用原来的Java 8，而换到现在的Java 11？
 
 看到了一篇文章：https://www.optaplanner.org/blog/2019/01/17/HowMuchFasterIsJava11.html
 
 结论：Java 11 与 Java 8 比较过程中，在几乎所有测试数据集上都有速度上的提升。平均而言，仅通过切换到 Java 11 就有 16% 的改进，这种改进可能是因为 Java 10 中引入了 JEP 307: Parallel Full GC for G1。
 
+2. 为何用`rabbitMQ`作为秒杀业务的主要消息中间件？
+
+一开始我对MQ的选型主要是`Kafka`和`rabbitMQ`这两种。
+
+对于 `Kafka` 而言，其采用的是类似 PacificA 的一致性协议，通过 ISR（In-Sync-Replica）来保证多副本之间的同步，并且支持强一致性语义（通过 Acks 实现），`Kafka` 设计之初是为日志处理而生，给人们留下了数据可靠性要求不高的不良印象，但是随着版本的升级优化，其可靠性得到极大的增强。
+
+而后者 `rabbitMQ`，是通过镜像环形队列实现多副本及强一致性语义的，多副本可以保证在 Master 节点宕机异常之后可以提升 Slave 作为新的 Master 而继续提供服务来保障可用性。
+
+除了政治原因，加上`rabbitMQ`可靠性+可用性在业界口碑较好，因为我这个项目设计金融支付领域，消息可靠性尤为重要，故我使用`rabbitMQ`作为秒杀结构中异步下单的消息中间件。
+
+3. 为何在代码中极少使用`@Autowired`注入bean？
+
+   请参考网页：https://kinbiko.com/java/dependency-injection-patterns/?tdsourcetag=s_pctim_aiomsg
+
+
 ### 项目界面：
+
+个人服务器被ddos，下面的图片可能显示不出来，见谅。
 
 ![登陆](http://resume.tengshe789.tech/static/%E7%99%BB%E9%99%86.jpg)
 
@@ -129,10 +152,10 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 ### 参考资料
 
 - 新发现的大神开源工具包mica,解决好多问题
-
 - 我博客里的参考文献
-
 - code以及doc中标明的网页连接
+- https://blog.csdn.net/cyy_zyd/article/details/81741751
+- gitee上pig框架
 
 
 

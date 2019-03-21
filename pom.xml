@@ -15,6 +15,7 @@
         <module>miaosha-config</module>
         <module>miaosha-plugins</module>
         <module>miaosha-mall</module>
+        <module>miaosha-auth</module>
     </modules>
     <name>${project.artifactId}</name>
 	<packaging>pom</packaging>

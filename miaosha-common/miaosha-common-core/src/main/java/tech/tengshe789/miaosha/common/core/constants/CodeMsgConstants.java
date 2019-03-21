@@ -34,7 +34,7 @@ public class CodeMsgConstants {
 	public static CodeMsgConstants FAILED_TO_OBTAIN_CURRENT_USER_INFORMATION = new CodeMsgConstants(200102, "获取当前用户信息失败~");
 
 
-	//登录模块 5001XX
+	//登录与认证模块 5001XX
 	public static CodeMsgConstants SESSION_ERROR = new CodeMsgConstants(500110, "Session不存在或者已经失效~");
 	public static CodeMsgConstants PASSWORD_EMPTY = new CodeMsgConstants(500111, "登录密码不能为空~");
 	public static CodeMsgConstants MOBILE_EMPTY = new CodeMsgConstants(500112, "手机号不能为空~");
@@ -42,6 +42,8 @@ public class CodeMsgConstants {
 	public static CodeMsgConstants MOBILE_NOT_EXIST = new CodeMsgConstants(500114, "手机号不存在~");
 	public static CodeMsgConstants PASSWORD_ERROR = new CodeMsgConstants(500115, "密码错误~");
 	public static CodeMsgConstants USER_INFORMATION_IS_EMPTY = new CodeMsgConstants(500116, "用户信息为空");
+	public static CodeMsgConstants EXIT_FAILED_TOKEN_EMPTY = new CodeMsgConstants(500117, "退出失败，token 为空");
+	public static CodeMsgConstants EXIT_FAILED_TOKEN_INVALID = new CodeMsgConstants(500117, "退出失败，token 无效");
 
 	//商品模块 5002XX
 

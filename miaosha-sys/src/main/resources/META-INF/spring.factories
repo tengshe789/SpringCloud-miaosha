@@ -1,3 +1,0 @@
-#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-#  tech.tengshe789.miaosha.upms.feign.fallback.RemoteTokenServiceImpl,\
-#  tech.tengshe789.miaosha.upms.feign.factories.RemoteTokenServiceFactory

@@ -20,5 +20,5 @@ public interface ServiceNameConstants {
 	/**
 	 * UMPS模块
 	 */
-	String UMPS_SERVICE = "miaosha-upms";
+	String UMPS_SERVICE = "miaosha-sys";
 }

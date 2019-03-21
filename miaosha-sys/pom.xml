@@ -10,60 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>miaosha-sys</artifactId>
-    <description>miaosha 后台管理员权限管理系统</description>
-
-    <dependencies>
-        <!--web 模块-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!--undertow容器-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
-        </dependency>
-        <!--mybatis-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-        <!--数据库-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!-- druid -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
-        <!--consul 模块-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-consul-discovery</artifactId>-->
-        <!--</dependency>-->
-        <!--公共依赖 core -->
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-common-core</artifactId>
-        </dependency>
-        <!--公共依赖 data -->
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-common-data</artifactId>
-        </dependency>
-        <!--公共依赖 security -->
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-common-security</artifactId>
-        </dependency>
-        <!--公共依赖 log -->
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-common-log</artifactId>
-        </dependency>
-    </dependencies>
+    <packaging>pom</packaging>
+    <description>miaosha 账户后台控制系统</description>
+    <modules>
+        <module>miaosha-sys-api</module>
+        <module>miaosha-sys-biz</module>
+    </modules>
 
     <build>
         <plugins>

@@ -47,10 +47,6 @@ public class SwaggerProperties {
 	 **/
 	private String license = "";
 	/**
-	 * 许可证URL
-	 **/
-	private String licenseUrl = "";
-	/**
 	 * 服务条款URL
 	 **/
 	private String termsOfServiceUrl = "";

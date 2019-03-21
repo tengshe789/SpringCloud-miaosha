@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>SpringCloud-miaosha</artifactId>
+        <groupId>tech.tengshe789</groupId>
+        <version>2.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>miaosha-auth</artifactId>
+    <description>miaosha 认证授权中心</description>
+
+    <dependencies>
+        <!--miaosha-common-security-->
+        <dependency>
+            <groupId>tech.tengshe789</groupId>
+            <artifactId>miaosha-common-security</artifactId>
+        </dependency>
+        <!--公共模块 data-->
+        <dependency>
+            <groupId>tech.tengshe789</groupId>
+            <artifactId>miaosha-common-data</artifactId>
+        </dependency>
+        <!-- actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- freemarker -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <!--web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--undertow容器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <!--spring security 、oauth、jwt、autoconfigure依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-security</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

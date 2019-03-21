@@ -24,10 +24,11 @@ public interface SecurityConstants {
 	 * 角色前缀
 	 */
 	String ROLE = "ROLE_";
+
 	/**
 	 * 前缀
 	 */
-	String PIGX_PREFIX = "pigx_";
+	String MIAOSHA_PREFIX = "miaosha_";
 
 	/**
 	 * oauth 相关前缀
@@ -72,6 +73,7 @@ public interface SecurityConstants {
 	 * {bcrypt} 加密的特征码
 	 */
 	String BCRYPT = "{bcrypt}";
+
 	/**
 	 * sys_oauth_client_details 表的字段，不包括client_id、client_secret
 	 */

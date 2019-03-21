@@ -2,9 +2,6 @@ package tech.tengshe789.miaosha.mall.goods.controller;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
-import org.springframework.context.ApplicationContext;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
