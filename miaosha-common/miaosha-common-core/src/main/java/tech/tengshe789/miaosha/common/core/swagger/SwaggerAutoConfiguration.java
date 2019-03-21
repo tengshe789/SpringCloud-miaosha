@@ -135,7 +135,6 @@ public class SwaggerAutoConfiguration {
 			.title(swaggerProperties.getTitle())
 			.description(swaggerProperties.getDescription())
 			.license(swaggerProperties.getLicense())
-			.licenseUrl(swaggerProperties.getLicenseUrl())
 			.termsOfServiceUrl(swaggerProperties.getTermsOfServiceUrl())
 			.contact(new Contact(swaggerProperties.getContact().getName(), swaggerProperties.getContact().getUrl(), swaggerProperties.getContact().getEmail()))
 			.version(swaggerProperties.getVersion())

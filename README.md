@@ -116,19 +116,19 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 
 1. 为什么不用原来的Java 8，而换到现在的Java 11？
 
-看到了一篇文章：https://www.optaplanner.org/blog/2019/01/17/HowMuchFasterIsJava11.html
+   看到了一篇文章：https://www.optaplanner.org/blog/2019/01/17/HowMuchFasterIsJava11.html
 
-结论：Java 11 与 Java 8 比较过程中，在几乎所有测试数据集上都有速度上的提升。平均而言，仅通过切换到 Java 11 就有 16% 的改进，这种改进可能是因为 Java 10 中引入了 JEP 307: Parallel Full GC for G1。
+   **结论**：Java 11 与 Java 8 比较过程中，在几乎所有测试数据集上都有速度上的提升。平均而言，仅通过切换到 Java 11 就有 16% 的改进，这种改进可能是因为 Java 10 中引入了 JEP 307: Parallel Full GC for G1。
 
 2. 为何用`rabbitMQ`作为秒杀业务的主要消息中间件？
 
-一开始我对MQ的选型主要是`Kafka`和`rabbitMQ`这两种。
+   一开始我对MQ的选型主要是`Kafka`和`rabbitMQ`这两种。
 
-对于 `Kafka` 而言，其采用的是类似 PacificA 的一致性协议，通过 ISR（In-Sync-Replica）来保证多副本之间的同步，并且支持强一致性语义（通过 Acks 实现），`Kafka` 设计之初是为日志处理而生，给人们留下了数据可靠性要求不高的不良印象，但是随着版本的升级优化，其可靠性得到极大的增强。
+   对于 `Kafka` 而言，其采用的是类似 PacificA 的一致性协议，通过 ISR（In-Sync-Replica）来保证多副本之间的同步，并且支持强一致性语义（通过 Acks 实现），`Kafka` 设计之初是为日志处理而生，给人们留下了数据可靠性要求不高的不良印象，但是随着版本的升级优化，其可靠性得到极大的增强。
 
-而后者 `rabbitMQ`，是通过镜像环形队列实现多副本及强一致性语义的，多副本可以保证在 Master 节点宕机异常之后可以提升 Slave 作为新的 Master 而继续提供服务来保障可用性。
+   而后者 `rabbitMQ`，是通过镜像环形队列实现多副本及强一致性语义的，多副本可以保证在 Master 节点宕机异常之后可以提升 Slave 作为新的 Master 而继续提供服务来保障可用性。
 
-除了政治原因，加上`rabbitMQ`可靠性+可用性在业界口碑较好，因为我这个项目设计金融支付领域，消息可靠性尤为重要，故我使用`rabbitMQ`作为秒杀结构中异步下单的消息中间件。
+   除了政治原因，加上`rabbitMQ`可靠性+可用性在业界口碑较好，因为我这个项目设计金融支付领域，消息可靠性尤为重要，故我使用`rabbitMQ`作为秒杀结构中异步下单的消息中间件。
 
 3. 为何在代码中极少使用`@Autowired`注入bean？
 
@@ -156,7 +156,4 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 - code以及doc中标明的网页连接
 - https://blog.csdn.net/cyy_zyd/article/details/81741751
 - gitee上pig框架
-
-
-
 

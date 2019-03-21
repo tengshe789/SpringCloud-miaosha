@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>miaosha-plugins</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>miaosha-plugins-sidecar</module>
+    </modules>
 
     <dependencies>
         <!--公共依赖 core -->
