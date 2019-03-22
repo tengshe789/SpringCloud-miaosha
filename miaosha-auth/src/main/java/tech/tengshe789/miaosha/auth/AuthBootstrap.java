@@ -3,6 +3,7 @@ package tech.tengshe789.miaosha.auth;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
 import tech.tengshe789.miaosha.common.core.notice.ContainerStartupNotification;
 import tech.tengshe789.miaosha.common.security.annotation.EnableMiaoshaFeignClients;
 
@@ -12,7 +13,7 @@ import tech.tengshe789.miaosha.common.security.annotation.EnableMiaoshaFeignClie
  * @author: tEngSHe789
  * @create: 2019-03-21 10:09
  **/
-@SpringBootApplication
+@SpringCloudApplication
 @Slf4j
 @EnableMiaoshaFeignClients
 public class AuthBootstrap extends ContainerStartupNotification {

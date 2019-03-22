@@ -1,3 +1,10 @@
+#### 第21版 2019-3-22 version 2 snapshot
+1. 增加rest模板的负载均衡
+2. 根据配置spring security oauth2 ，个性化客户端模式携带的 token 内容 
+
+#### 第20版 2019-3-21 version 2 snapshot
+修复bug
+
 #### 第19版 2019-3-21 version 2 snapshot
 1.新增鉴权中心模块
 2.更新readme

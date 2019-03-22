@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
@@ -12,7 +13,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
  * @author: <a href="mailto:randyvan007@qq.com">tEngSHe789</a>
  * @create: 2019-01-21 18:54
  **/
-@SpringBootApplication
+@SpringCloudApplication
 @Slf4j
 @EnableConfigServer
 public class ConfigServerBootsrap implements CommandLineRunner {

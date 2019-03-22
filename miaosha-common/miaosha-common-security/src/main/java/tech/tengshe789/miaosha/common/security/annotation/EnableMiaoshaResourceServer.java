@@ -18,6 +18,7 @@ import java.lang.annotation.*;
 @EnableResourceServer
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
+//开启@Secured 注解过滤权限
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Import({CustomResourceServerConfig.class})
 public @interface EnableMiaoshaResourceServer {

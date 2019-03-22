@@ -69,7 +69,7 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 │  │ 
 │  ├─ logs---------------- 日志存放目录
 │  │ 
-│  ├─ miaosha-auth---------------- 鉴权中心模块
+│  ├─ miaosha-auth---------------- 鉴权中心
 │  │  
 │  ├─ miaosha-common---------------- 基本依赖
 │  │  ├─ miaosha-common-base---------------- 基础封装模块模块
@@ -95,6 +95,7 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 │  │  ├─ miaosha-mall-seckill---------------- 秒杀模块
 │  │  
 │  ├─ miaosha-plugins-------------- 插件
+│  │  ├─ miaosha-plugins-sidecar---------------- sidecar
 │  │  
 │  ├─ miaosha-sys-------------- 账户后台控制系统
 │  │  
