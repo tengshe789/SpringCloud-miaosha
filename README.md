@@ -110,6 +110,38 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 
 ### 怎么使用：
 
+#### 启动顺序
+请在系统的host文件中，加上以下几条
+
+```text
+127.0.0.1 miaosha-mysql
+127.0.0.1 miaosha-redis
+127.0.0.1 miaosha-rabbitmq
+127.0.0.1 miaosha-zipkin
+127.0.0.1 miaosha-config
+127.0.0.1 miaosha-gateway
+127.0.0.1 miaosha-auth
+127.0.0.1 miaosha-sys
+127.0.0.1 miaosha-mall-goods
+127.0.0.1 miaosha-mall-orders
+127.0.0.1 miaosha-mall-seckill
+```
+
+然后请务必严格按照以下顺序启动程序
+
+1. 请看代码中doc目录下的consul文件夹，启动consul
+2. 启动miaosha-config
+3. 启动miaosha-gateway
+4. 启动miaosha-auth
+5. 启动miaosha-sys
+6. 启动miaosha-mall-goods
+7. 启动miaosha-mall-orders
+8. 启动miaosha-mall-seckill
+
+暂且这个启动顺序，目前mall模块还没重写，以后增加新功能，譬如分布式事务，我会重写readme的。
+
+#### 部署
+
 请看代码中doc目录下的markdown，写的零零散散，后期有时间会专门开个gitbook做为文档！
 
 

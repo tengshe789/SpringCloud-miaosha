@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import tech.tengshe789.miaosha.common.core.constants.SecurityConstants;
 import tech.tengshe789.miaosha.common.core.constants.ServiceNameConstants;
 import tech.tengshe789.miaosha.common.core.result.Result;
+import tech.tengshe789.miaosha.sys.api.feign.factories.RemoteTokenServiceFallbackFactory;
 
 import java.util.Map;
 
@@ -14,7 +15,7 @@ import java.util.Map;
  * @description: token服务接口
  * @author: <a href="mailto:randyvan007@qq.com">tEngSHe789</a>
  **/
-@FeignClient(value = ServiceNameConstants.AUTH_SERVICE)
+@FeignClient(value = ServiceNameConstants.AUTH_SERVICE, fallbackFactory = RemoteTokenServiceFallbackFactory.class)
 public interface RemoteTokenService {
 	/**
 	 * 分页查询token 信息

@@ -1,1 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    tech.tengshe789.miaosha.common.security.service.MiaoshaUserDetailsServiceImpl,\
+    tech.tengshe789.miaosha.common.security.feign.HystrixFeignTargeterConfiguration

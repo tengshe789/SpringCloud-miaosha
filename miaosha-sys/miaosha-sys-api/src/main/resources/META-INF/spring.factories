@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  tech.tengshe789.miaosha.sys.api.feign.fallback.RemoteLogServiceFallbackImpl,\
+  tech.tengshe789.miaosha.sys.api.feign.fallback.RemoteTokenServiceFallbackImpl,\
+  tech.tengshe789.miaosha.sys.api.feign.fallback.RemoteUserServiceFallbackImpl,\
+  tech.tengshe789.miaosha.sys.api.feign.factories.RemoteLogServiceFallbackFactory,\
+  tech.tengshe789.miaosha.sys.api.feign.factories.RemoteTokenServiceFallbackFactory,\
+  tech.tengshe789.miaosha.sys.api.feign.factories.RemoteUserServiceFallbackFactory

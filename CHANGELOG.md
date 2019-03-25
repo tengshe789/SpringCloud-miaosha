@@ -1,3 +1,10 @@
+#### 第22版 2019-3-25 version 2 snapshot
+1. 增加服务网关的几个自定义filter
+2. 增加spring-cloud-bus，解决服务网关启动时报http 530 异常
+3. 更新readme.md
+4. 优化多个配置文件
+5. 修复几个有关使用jdk11的bug
+
 #### 第21版 2019-3-22 version 2 snapshot
 1. 增加rest模板的负载均衡
 2. 根据配置spring security oauth2 ，个性化客户端模式携带的 token 内容 

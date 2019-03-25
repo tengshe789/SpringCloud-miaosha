@@ -19,9 +19,9 @@ public class CodeMsgConstants {
 	private String msg;
 
 	//正确码
-	public static CodeMsgConstants SUCCESS = new CodeMsgConstants(0, "success");
+	public static CodeMsgConstants SUCCESS = new CodeMsgConstants(0, "服务success");
 	//错误码
-	public static CodeMsgConstants FAIL = new CodeMsgConstants(1, "fail");
+	public static CodeMsgConstants FAIL = new CodeMsgConstants(1, "服务异常");
 
 	//通用的错误码 1001XX
 	public static CodeMsgConstants SERVER_ERROR = new CodeMsgConstants(100100, "服务端异常");

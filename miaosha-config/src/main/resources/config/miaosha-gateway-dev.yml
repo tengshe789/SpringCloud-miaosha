@@ -1,0 +1,33 @@
+spring:
+  cloud:
+    gateway:
+      locator:
+        # 开启通过服务中心的自动根据 serviceId 创建路由的功能
+        enabled: true
+      routes:
+        # 鉴权中心
+        - id: miaosha-auth
+          # 目标服务地址，uri以lb://开头（lb代表从注册中心获取服务），后面接的就是你需要转发到的服务名称
+          uri: lb://miaosha-auth
+          # 要拦截的URL配置
+          predicates:
+            - Path=/auth/**
+        # sys 模块
+        - id: miaosha-sys
+          uri: lb://miaosha-sys
+          predicates:
+            - Path=/sys/**
+          # 过滤规则
+          filters:
+              # 降级配置
+            - name: Hystrix
+              args:
+                name: default
+                fallbackUri: 'forward:/fallback'
+
+# 不校验验证码终端
+ignore:
+  clients:
+    - test
+  swagger-providers:
+    - miaosha-auth

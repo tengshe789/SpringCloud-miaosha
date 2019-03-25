@@ -8,7 +8,7 @@ import tech.tengshe789.miaosha.common.core.constants.SecurityConstants;
 import tech.tengshe789.miaosha.common.core.constants.ServiceNameConstants;
 import tech.tengshe789.miaosha.common.core.result.Result;
 import tech.tengshe789.miaosha.sys.api.dto.UserInfo;
-import tech.tengshe789.miaosha.sys.api.entity.SysUser;
+import tech.tengshe789.miaosha.sys.api.feign.factories.RemoteUserServiceFallbackFactory;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
  * @description: user 服务接口
  * @author: <a href="mailto:randyvan007@qq.com">tEngSHe789</a>
  **/
-@FeignClient(value = ServiceNameConstants.UMPS_SERVICE)
+@FeignClient(value = ServiceNameConstants.SYS_SERVICE,fallbackFactory = RemoteUserServiceFallbackFactory.class)
 public interface RemoteUserService {
 	/**
 	 * 通过用户名查询用户、角色信息
@@ -40,13 +40,4 @@ public interface RemoteUserService {
 	@GetMapping("/social/info/{inStr}")
 	Result<UserInfo> social(@PathVariable("inStr") String inStr
 		, @RequestHeader(SecurityConstants.FROM) String from);
-
-	/**
-	 * 查询上级部门的用户信息
-	 *
-	 * @param username 用户名
-	 * @return R
-	 */
-	@GetMapping("/user/ancestor/{username}")
-	Result<List<SysUser>> ancestorUsers(@PathVariable("username") String username);
 }

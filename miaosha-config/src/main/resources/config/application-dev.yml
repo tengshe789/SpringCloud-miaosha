@@ -4,9 +4,10 @@ jasypt:
     password: miaosha #根密码
 # redis 相关
 spring:
-  redis:
-    password:
-    host: 192.168.130.1
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
   # zipkin
   zipkin:
     enabled: true
@@ -19,6 +20,14 @@ spring:
       # 默认的采样比率为0.1，不能看到所有请求数据
       # 更改采样比率为1，就能看到所有的请求数据了，但是这样会增加接口调用延迟
       probability: 1.0
+  rabbitmq:
+    host: miaosha-rabbitmq
+    port:  5672
+    username: guest
+    password: guest
+  redis:
+    password:
+    host: miaosha-redis
 # 暴露监控端点
 management:
   endpoints:
@@ -47,6 +56,14 @@ feign:
 # hystrix If you need to use ThreadLocal bound variables in your RequestInterceptor`s
 # you will need to either set the thread isolation strategy for Hystrix to `SEMAPHORE or disable Hystrix in Feign.
 hystrix:
+  threadpool:
+    default:
+      ## 并发执行的最大线程数，默认10
+      coreSize: 1000
+      ## BlockingQueue的最大队列数
+      maxQueueSize: 1000
+      ## 即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝
+      queueSizeRejectionThreshold: 500
   command:
     default:
       execution:
@@ -60,7 +77,9 @@ hystrix:
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000
-
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: false
 # mybaits-plus配置
 mybatis-plus:
   type-aliases-package: tech.tengshe789.miaosha.upms.entity

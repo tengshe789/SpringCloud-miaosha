@@ -8,6 +8,8 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.SpringCloudApplication;
 import tech.tengshe789.miaosha.common.core.annotation.EnableMiaoshaSwagger;
 import tech.tengshe789.miaosha.common.core.notice.ContainerStartupNotification;
+import tech.tengshe789.miaosha.common.security.annotation.EnableMiaoshaFeignClients;
+import tech.tengshe789.miaosha.common.security.annotation.EnableMiaoshaResourceServer;
 
 /**
  * @program: -miaosha
@@ -19,6 +21,8 @@ import tech.tengshe789.miaosha.common.core.notice.ContainerStartupNotification;
 @SpringCloudApplication
 @Slf4j
 @MapperScan("tech.tengshe789.miaosha.sys.biz.mapper")
+@EnableMiaoshaFeignClients
+@EnableMiaoshaResourceServer
 public class MiaoshaSysBootstap extends ContainerStartupNotification {
 
 	public static void main(String[] args) {

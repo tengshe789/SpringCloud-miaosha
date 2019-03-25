@@ -11,11 +11,15 @@
 
     <artifactId>miaosha-mall-order</artifactId>
     <dependencies>
+        <!-- goods 模块-->
         <dependency>
             <groupId>tech.tengshe789</groupId>
             <artifactId>miaosha-mall-goods</artifactId>
         </dependency>
+        <!--rabbitMQ-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+        </dependency>
     </dependencies>
-
-
 </project>

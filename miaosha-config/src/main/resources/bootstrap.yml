@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: @artifactId@
+    name: miaosha-config
   profiles:
     active: native
   # 配置中心
@@ -12,6 +12,27 @@ spring:
       server:
         native:
           search-locations: classpath:/config/
+    # 注册中心
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        tags: version=2.0
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 5s
+        instance-id: ${spring.application.name}:comma,separated,profiles:${server.port}
+    bus:
+      trace:
+        enabled: true
+      ack:
+        enabled: true
+      refresh:
+        enabled: true
+  rabbitmq:
+    host: miaosha-rabbitmq
+    port:  5672
+    username: guest
+    password: guest
 
 # 暴露监控端点
 management:

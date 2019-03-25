@@ -18,7 +18,7 @@ public interface ServiceNameConstants {
 	String AUTH_SERVICE = "miaosha-auth";
 
 	/**
-	 * UMPS模块
+	 * sys模块
 	 */
-	String UMPS_SERVICE = "miaosha-sys";
+	String SYS_SERVICE = "miaosha-sys";
 }
