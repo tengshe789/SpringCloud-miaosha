@@ -51,6 +51,11 @@ public interface SecurityConstants {
 	String OAUTH_TOKEN_URL = "/oauth/token";
 
 	/**
+	 * 社交登录URL
+	 */
+	String SOCIAL_TOKEN_URL = "/mobile/token/social";
+
+	/**
 	 * 手机号登录URL
 	 */
 	String SMS_TOKEN_URL = "/mobile/token/sms";

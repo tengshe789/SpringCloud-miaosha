@@ -1,7 +1,8 @@
 # 加解密根密码
 jasypt:
   encryptor:
-    password: miaosha #根密码
+    #根密码
+    password: miaosha
 # redis 相关
 spring:
   jackson:

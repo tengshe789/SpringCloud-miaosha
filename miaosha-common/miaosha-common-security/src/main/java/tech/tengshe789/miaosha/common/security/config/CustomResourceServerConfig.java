@@ -2,7 +2,6 @@ package tech.tengshe789.miaosha.common.security.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
@@ -23,7 +22,7 @@ import java.io.IOException;
  * @create: 2019-03-21 10:49
  **/
 @Configuration
-@ComponentScan("tech.tengshe789.miaosha.common.security")
+//继承BaseResourceServerConfigurerAdapter即可实现接入oauth2
 public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	private static final String RESOURCE_ID = "resource_id";

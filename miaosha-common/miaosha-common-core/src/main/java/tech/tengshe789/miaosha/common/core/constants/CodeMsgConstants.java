@@ -1,7 +1,6 @@
 package tech.tengshe789.miaosha.common.core.constants;
 
 import lombok.*;
-import lombok.experimental.UtilityClass;
 
 /**
  * @program: -miaosha
@@ -9,17 +8,18 @@ import lombok.experimental.UtilityClass;
  * @author: <a href="mailto:randyvan007@qq.com">tEngSHe789</a>
  * @create: 2019-01-25 09:09
  **/
-@Getter
-@Setter
-@ToString
+@Data
 @AllArgsConstructor
 public class CodeMsgConstants {
 
 	private int code;
 	private String msg;
 
-	//正确码
+	/**
+	 * 正确码
+	 */
 	public static CodeMsgConstants SUCCESS = new CodeMsgConstants(0, "服务success");
+
 	//错误码
 	public static CodeMsgConstants FAIL = new CodeMsgConstants(1, "服务异常");
 
@@ -33,8 +33,9 @@ public class CodeMsgConstants {
 	public static CodeMsgConstants ORIGINAL_PASSWORD_WRONG = new CodeMsgConstants(200101, "原密码错误，修改失败");
 	public static CodeMsgConstants FAILED_TO_OBTAIN_CURRENT_USER_INFORMATION = new CodeMsgConstants(200102, "获取当前用户信息失败~");
 
-
-	//登录与认证模块 5001XX
+	/**
+	 * 登录与认证模块 5001XX
+	 */
 	public static CodeMsgConstants SESSION_ERROR = new CodeMsgConstants(500110, "Session不存在或者已经失效~");
 	public static CodeMsgConstants PASSWORD_EMPTY = new CodeMsgConstants(500111, "登录密码不能为空~");
 	public static CodeMsgConstants MOBILE_EMPTY = new CodeMsgConstants(500112, "手机号不能为空~");
@@ -43,7 +44,8 @@ public class CodeMsgConstants {
 	public static CodeMsgConstants PASSWORD_ERROR = new CodeMsgConstants(500115, "密码错误~");
 	public static CodeMsgConstants USER_INFORMATION_IS_EMPTY = new CodeMsgConstants(500116, "用户信息为空");
 	public static CodeMsgConstants EXIT_FAILED_TOKEN_EMPTY = new CodeMsgConstants(500117, "退出失败，token 为空");
-	public static CodeMsgConstants EXIT_FAILED_TOKEN_INVALID = new CodeMsgConstants(500117, "退出失败，token 无效");
+	public static CodeMsgConstants EXIT_FAILED_TOKEN_INVALID = new CodeMsgConstants(500118, "退出失败，token 无效");
+	public static CodeMsgConstants MIAOSHA_USERNAME_NOT_FOUND = new CodeMsgConstants(500119, "用户不存在");
 
 	//商品模块 5002XX
 
@@ -55,6 +57,9 @@ public class CodeMsgConstants {
 	public static CodeMsgConstants MIAO_SHA_OVER = new CodeMsgConstants(500400, "商品秒杀完了喔~");
 	public static CodeMsgConstants CHONG_FU_MIAOSHA = new CodeMsgConstants(500401, "不能重复秒杀商品啊大兄弟！！！");
 	public static final CodeMsgConstants MIAO_SHA_FAIL = new CodeMsgConstants(500402, "验证码引擎故障");
+
+	//秒杀模块 9999XX
+	public static CodeMsgConstants INTERCEPTION_FAILURE = new CodeMsgConstants(999901, "网关拦截失败");
 
 	//可以返回带参数的校验码
 	public CodeMsgConstants fillArgs(Object... args) {

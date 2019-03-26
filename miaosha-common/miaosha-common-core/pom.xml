@@ -61,6 +61,24 @@
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
         </dependency>
+        <!--解决jdk11中出现的java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException问题-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <!--解决jdk11中出现的javax.xml.bind.JAXBException: Implementation of JAXB-API has not been found on module path or classpath问题-->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <!--解决jdk11中出现的java.lang.ClassNotFoundException: javax.activation.DataHandler问题-->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -17,7 +17,7 @@ import org.springframework.security.oauth2.provider.ClientDetailsService;
 /**
  * @program: -miaosha
  * @description: Spring Security配置
- *   SecurityConfiguration一定要在ResourceServerConfiguration 之前
+ *   SecurityConfiguration 一定要在 ResourceServerConfiguration 之前
  * @author: tEngSHe789
  * @create: 2019-03-21 10:16
  **/
@@ -62,7 +62,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return super.authenticationManagerBean();
 	}
 
-
 	/**
 	 * https://spring.io/blog/2017/11/01/spring-security-5-0-0-rc1-released#password-storage-updated
 	 * Encoded password does not look like BCrypt
@@ -73,5 +72,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
-
 }

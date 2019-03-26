@@ -17,7 +17,7 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.a
 
 /**
  * <p>
- * 全局拦截器，作用所有的微服务
+ * 全局拦截器，作用所有的微服务。可以让网关转发到业务模块时候会自动截取前缀，不用再每个微服务路由配置了StripPrefixFilter
  * <p>
  * 1. 对请求头中参数进行处理 from 参数进行清洗
  * 2. 重写StripPrefix = 1,支持全局

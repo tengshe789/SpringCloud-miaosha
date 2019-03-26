@@ -31,3 +31,8 @@ ignore:
     - test
   swagger-providers:
     - miaosha-auth
+# @value
+security:
+  encode:
+    # 前端密码密钥，必须16位
+    key: '1234567812345678'

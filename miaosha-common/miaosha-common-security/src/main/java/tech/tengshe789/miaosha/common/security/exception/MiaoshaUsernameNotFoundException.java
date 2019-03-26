@@ -1,6 +1,7 @@
 package tech.tengshe789.miaosha.common.security.exception;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import tech.tengshe789.miaosha.common.core.constants.CodeMsgConstants;
 
 /**
  * @program: -miaosha
@@ -10,6 +11,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  **/
 public class MiaoshaUsernameNotFoundException extends UsernameNotFoundException {
 	public MiaoshaUsernameNotFoundException() {
-		super("用户不存在");
+		super(CodeMsgConstants.MIAOSHA_USERNAME_NOT_FOUND.getMsg());
 	}
 }

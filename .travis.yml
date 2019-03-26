@@ -1,0 +1,8 @@
+language: java
+jdk:
+  - openjdk11
+script:
+  - mvn clean package
+  - mvn install
+
+after_success:

@@ -1,3 +1,9 @@
+#### 第23版 2019-3-26 version 2 snapshot
+1. 完善配置文件中关于 jasypt 的配置
+2. 继续修复几个有关使用jdk11的bug
+3. 添加自定义过滤client的网关filter
+4. 添加自定义校验密码的网关filter
+
 #### 第22版 2019-3-25 version 2 snapshot
 1. 增加服务网关的几个自定义filter
 2. 增加spring-cloud-bus，解决服务网关启动时报http 530 异常
