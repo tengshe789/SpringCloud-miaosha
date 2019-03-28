@@ -1,0 +1,1439 @@
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.confirm-button {
+    -webkit-transition: all .15s ease-out;
+    transition: all .15s ease-out
+}
+
+.formatted {
+    white-space: pre
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1em;
+    color: inherit
+}
+
+.icon-button:not([disabled]) {
+    cursor: pointer
+}
+
+.icon-button:not([disabled]):hover {
+    color: #0a0a0a
+}
+
+.icon-button:not([disabled]) svg {
+    fill: currentcolor
+}
+
+.icon-button:disabled {
+    opacity: .5;
+    pointer-events: none
+}
+
+.icon-button:active {
+    outline: none
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.panel {
+    margin-bottom: 1.5rem
+}
+
+.panel__close {
+    margin-right: .75em;
+    color: #b5b5b5;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-self: flex-end
+}
+
+.panel__header--sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: #fff
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.application-status {
+    text-align: center;
+    line-height: 1rem;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.application-status__icon {
+    color: grey;
+    margin: 0 auto
+}
+
+.application-status__icon--UP {
+    color: #23d160
+}
+
+.application-status__icon--RESTRICTED {
+    color: #ffdd57
+}
+
+.application-status__icon--DOWN, .application-status__icon--OUT_OF_SERVICE {
+    color: #ff3860
+}
+
+.application-status__icon--OFFLINE, .application-status__icon--UNKNOWN {
+    color: #7a7a7a
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.logo {
+    -ms-flex-item-align: center;
+    align-self: center;
+    -ms-flex-preferred-size: 12em;
+    flex-basis: 12em;
+    -ms-flex-preferred-size: content;
+    flex-basis: content;
+    max-height: 2.25em;
+    padding: .5em 1em .5em .5em;
+    font-size: 1.5em;
+    font-weight: 600;
+    white-space: nowrap
+}
+
+.logo img {
+    margin-right: .5em
+}
+
+.control.has-inline-text {
+    line-height: 2.25em
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.application-list__item {
+    -webkit-transition: all 86ms ease-out;
+    transition: all 86ms ease-out
+}
+
+.application-list__item.is-active {
+    margin: .75rem -.75rem;
+    max-width: unset
+}
+
+.application-list__item__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+:not(.is-active) > .application-list__item__header:hover {
+    background-color: #fafafa
+}
+
+.application-list__item__header > :not(:first-child) {
+    margin-left: 12px
+}
+
+.application-list__item__header__status {
+    width: 64px
+}
+
+.application-list__item__header__name, .application-list__item__header__version {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%
+}
+
+.application-list__item__header__name.title {
+    margin: .75rem 0
+}
+
+.application-list__item__header__actions {
+    justify-self: end;
+    opacity: 0;
+    -webkit-transition: all 86ms ease-out;
+    transition: all 86ms ease-out;
+    will-change: opacity;
+    margin-right: 32px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.is-active .application-list__item__header__actions, :hover > .application-list__item__header__actions {
+    opacity: 1
+}
+
+.application-list__item__header__actions > * {
+    width: 32px;
+    height: 32px
+}
+
+.application__instances td {
+    vertical-align: middle
+}
+
+.instance__status {
+    width: 64px
+}
+
+.instance__actions {
+    text-align: right;
+    opacity: 0;
+    -webkit-transition: all 86ms ease-out;
+    transition: all 86ms ease-out;
+    will-change: opacity;
+    margin-right: 64px
+}
+
+:hover > .instance__actions {
+    opacity: 1
+}
+
+.instance__actions > * {
+    width: 32px;
+    height: 32px
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.application-group {
+    margin: 64px 0
+}
+
+.auditevents {
+    table-layout: fixed
+}
+
+.auditevents td {
+    vertical-align: middle
+}
+
+.auditevents__event--is-detailed td {
+    border: none !important
+}
+
+.auditevents__event-detail {
+    overflow: auto
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.beans table.beans__bean-detail tbody tr {
+    pointer-events: none;
+    background-color: #f5f5f5
+}
+
+.caches td, .caches th {
+    vertical-align: middle
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.cache-chart__svg {
+    height: 159px;
+    width: 100%
+}
+
+.cache-chart__area--miss {
+    fill: #ffdd57;
+    opacity: .8
+}
+
+.cache-chart__area--hit {
+    fill: #209cee;
+    opacity: .8
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.datasource-chart__svg {
+    height: 159px;
+    width: 100%
+}
+
+.datasource-chart__area--active {
+    fill: #209cee;
+    opacity: .8
+}
+
+.datasource-chart__line--max {
+    stroke: #7a7a7a
+}
+
+.datasource-current {
+    margin-bottom: 0 !important
+}
+
+table .metrics__label {
+    width: 300px;
+    white-space: pre-wrap
+}
+
+table .metrics__actions {
+    width: 1px;
+    vertical-align: middle
+}
+
+table .metrics__statistic-name * {
+    vertical-align: middle
+}
+
+table .metrics__statistic-value {
+    text-align: right;
+    vertical-align: middle
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+td.health-details__nested {
+    padding: 0 0 0 .75em;
+    border-bottom: 0
+}
+
+.health-details__nested .table {
+    margin-bottom: .5em
+}
+
+.health-details__status {
+    float: right
+}
+
+.health-details__status--UP {
+    color: #23d160
+}
+
+.health-details__status--RESTRICTED {
+    color: #ffdd57
+}
+
+.health-details__status--DOWN, .health-details__status--OUT_OF_SERVICE {
+    color: #ff3860
+}
+
+.health-details__status--OFFLINE, .health-details__status--UNKNOWN {
+    color: #7a7a7a
+}
+
+.info {
+    overflow: auto
+}
+
+.info__key {
+    vertical-align: top
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.mem-chart__svg {
+    height: 159px;
+    width: 100%
+}
+
+.mem-chart__area--committed {
+    fill: #ffdd57;
+    opacity: .8
+}
+
+.mem-chart__area--used {
+    fill: #209cee;
+    opacity: .8
+}
+
+.mem-chart__area--metaspace {
+    fill: #42d3a5;
+    opacity: .8
+}
+
+.mem-chart__line--max {
+    stroke: #7a7a7a
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.memory-current {
+    margin-bottom: 0 !important
+}
+
+.metadata {
+    overflow: auto
+}
+
+.metadata__key {
+    vertical-align: top
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.threads-chart__svg {
+    height: 159px;
+    width: 100%
+}
+
+.threads-chart__area--live {
+    fill: #ffdd57;
+    opacity: .8
+}
+
+.threads-chart__area--daemon {
+    fill: #209cee;
+    opacity: .8
+}
+
+.threads-current {
+    margin-bottom: 0 !important
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.details-header {
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.details-header__urls {
+    width: 100%;
+    text-align: center
+}
+
+.heapdump {
+    -ms-flex-pack: distribute;
+    justify-content: space-around
+}
+
+.heapdump, .heapdump > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.heapdump > div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.trace-chart__svg {
+    height: 200px;
+    width: 100%
+}
+
+.trace-chart__hover {
+    stroke: #b5b5b5;
+    stroke-width: 1px
+}
+
+.trace-chart__tooltip {
+    position: absolute;
+    background: #0a0a0a;
+    opacity: .8;
+    pointer-events: none;
+    border-radius: 6px;
+    padding: .825em;
+    width: 200px
+}
+
+.trace-chart__tooltip table td, .trace-chart__tooltip table th {
+    border: none;
+    color: #b5b5b5;
+    padding: .25em .75em
+}
+
+.trace-chart__tooltip table td {
+    text-align: right
+}
+
+.trace-chart__tooltip--left {
+    left: 5px
+}
+
+.trace-chart__tooltip--right {
+    right: 5px
+}
+
+.trace-chart .selection {
+    stroke: none;
+    fill: rgba(0, 0, 0, .2);
+    fill-opacity: 1
+}
+
+.trace-chart__axis-y .domain {
+    stroke: none
+}
+
+.trace-chart__axis-y .tick:not(:first-of-type) line {
+    stroke-dasharray: 2, 2;
+    stroke: #b5b5b5
+}
+
+.trace-chart__area--totalSuccess {
+    fill: #23d160;
+    opacity: .8
+}
+
+.trace-chart__area--totalClientErrors {
+    fill: #ffdd57;
+    opacity: .8
+}
+
+.trace-chart__area--totalServerErrors {
+    fill: #ff3860;
+    opacity: .8
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.httptraces {
+    table-layout: fixed
+}
+
+.httptraces td {
+    vertical-align: middle;
+    overflow: hidden;
+    word-wrap: break-word
+}
+
+.httptraces__trace--is-detailed td {
+    border: none !important
+}
+
+.httptraces__trace-timestamp {
+    width: 130px
+}
+
+.httptraces__trace-method {
+    width: 100px
+}
+
+.httptraces__trace-uri {
+    width: auto
+}
+
+.httptraces__trace-status {
+    width: 80px
+}
+
+.httptraces__trace-contentType {
+    width: 200px
+}
+
+.httptraces__trace-contentLength {
+    width: 100px
+}
+
+.httptraces__trace-timeTaken {
+    width: 120px
+}
+
+.httptraces__trace-detail {
+    overflow: auto
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.m-bean-attribute--text {
+    resize: vertical;
+    min-height: 120px
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.m-bean {
+    -webkit-transition: all 86ms ease-out;
+    transition: all 86ms ease-out
+}
+
+.m-bean.is-active {
+    margin: .75rem -.75rem;
+    max-width: unset
+}
+
+.m-bean.is-active .m-bean--header {
+    padding-bottom: 0
+}
+
+.m-bean:not(.is-active) .m-bean--header:hover {
+    background-color: #fafafa
+}
+
+.m-bean--header .level .level-left {
+    width: 100%
+}
+
+.m-bean--header .level .level-left .level-item {
+    min-width: 0;
+    -ms-flex-negative: 1;
+    flex-shrink: 1
+}
+
+.m-bean--header .level .level-left .level-item p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.m-bean--header--close {
+    position: absolute;
+    right: .75rem;
+    top: .75rem
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.logfile-view {
+    padding: 1.5em
+}
+
+.logfile-view pre {
+    word-break: break-all;
+    padding: 0;
+    white-space: pre-wrap;
+    width: 100%
+}
+
+.logfile-view pre:hover {
+    background: #dbdbdb
+}
+
+.logfile-view-actions {
+    top: 84px;
+    right: 32px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    float: right
+}
+
+.logfile-view-actions__navigation {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-right: .5rem
+}
+
+.rotated {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg)
+}
+
+.logger-control__level--inherited {
+    opacity: .5
+}
+
+.logger-control__level--inherited:hover {
+    opacity: 1
+}
+
+.sessions td, .sessions th {
+    vertical-align: middle
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.sidebar {
+    height: 100%;
+    width: 175px;
+    background-color: #fafafa;
+    border-right: 1px solid #dbdbdb
+}
+
+.sidebar .instance-summary {
+    padding: 1rem .5rem;
+    color: #4a4a4a;
+    background-color: #7a7a7a;
+    text-align: center
+}
+
+.sidebar .instance-summary:hover {
+    background-color: hsla(0, 0%, 47.8%, .9)
+}
+
+.sidebar .instance-summary__name {
+    font-weight: 600;
+    font-size: 1.25rem
+}
+
+.sidebar .instance-summary__id {
+    font-size: 1rem
+}
+
+.sidebar .instance-summary--UP {
+    color: #fff;
+    background-color: #42d3a5
+}
+
+.sidebar .instance-summary--UP:hover {
+    background-color: rgba(66, 211, 165, .9)
+}
+
+.sidebar .instance-summary--RESTRICTED {
+    color: rgba(0, 0, 0, .7);
+    background-color: #ffdd57
+}
+
+.sidebar .instance-summary--RESTRICTED:hover {
+    background-color: rgba(255, 221, 87, .9)
+}
+
+.sidebar .instance-summary--DOWN, .sidebar .instance-summary--OUT_OF_SERVICE {
+    color: #fff;
+    background-color: #ff3860
+}
+
+.sidebar .instance-summary--DOWN:hover, .sidebar .instance-summary--OUT_OF_SERVICE:hover {
+    background-color: rgba(255, 56, 96, .9)
+}
+
+.sidebar a {
+    border-radius: 2px;
+    color: #4a4a4a;
+    display: block;
+    padding: .5em .75em
+}
+
+.sidebar a:hover {
+    background-color: rgba(0, 0, 0, .04)
+}
+
+.sidebar .sidebar-group .sidebar-group-items {
+    display: none
+}
+
+.sidebar .sidebar-group.is-active {
+    -webkit-box-shadow: inset 4px 0 0 #42d3a5;
+    box-shadow: inset 4px 0 0 #42d3a5;
+    background-color: rgba(0, 0, 0, .04)
+}
+
+.sidebar .sidebar-group.is-active > a {
+    color: #4a4a4a;
+    font-weight: 600
+}
+
+.sidebar .sidebar-group.is-active .sidebar-group-items {
+    display: block;
+    padding-bottom: .25em
+}
+
+.sidebar .sidebar-group.is-active .sidebar-group-items a {
+    padding-left: 2em
+}
+
+.sidebar .sidebar-group.is-active .sidebar-group-items a.is-active {
+    background-color: #42d3a5;
+    color: #fff
+}
+
+.sidebar .sidebar-group.is-showing-flyout .sidebar-group-items {
+    position: fixed;
+    display: block;
+    z-index: 999;
+    background-color: #fff;
+    min-width: 150px;
+    -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+    box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1)
+}
+
+.instances {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.instances, .instances__body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1
+}
+
+.instances__sidebar, .instances__view {
+    position: relative
+}
+
+.instances__sidebar {
+    z-index: 20
+}
+
+.instances__view {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    z-index: 10
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.thread-tag {
+    width: 2em
+}
+
+.thread-tag--runnable {
+    color: #fff !important;
+    background-color: #23d160 !important
+}
+
+.thread-tag--runnable:before {
+    content: "R"
+}
+
+.thread-tag--timed_waiting, .thread-tag--waiting {
+    color: rgba(0, 0, 0, .7) !important;
+    background-color: #ffdd57 !important
+}
+
+.thread-tag--timed_waiting:before, .thread-tag--waiting:before {
+    content: "W"
+}
+
+.thread-tag--blocked {
+    color: #fff !important;
+    background-color: #ff3860 !important
+}
+
+.thread-tag--blocked:before {
+    content: "B"
+}
+
+.thread-tag--terminated {
+    color: #363636 !important;
+    background-color: #f5f5f5 !important
+}
+
+.thread-tag--terminated:before {
+    content: "T"
+}
+
+.thread-tag--new {
+    color: #363636 !important;
+    background-color: #f5f5f5 !important
+}
+
+.thread-tag--new:before {
+    content: "N"
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.threads {
+    table-layout: fixed
+}
+
+.threads__thread-name {
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.threads__thread-details {
+    table-layout: fixed
+}
+
+.threads__thread-details td:first-child:not(.threads__thread-stacktrace) {
+    width: 20%
+}
+
+.threads__thread-stacktrace {
+    overflow: auto;
+    max-height: 300px
+}
+
+.threads__timeline {
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 0 !important;
+    padding-right: 0 !important
+}
+
+.threads__timeline svg {
+    display: block
+}
+
+.threads__scale .domain {
+    display: none
+}
+
+.thread--runnable {
+    fill: #23d160
+}
+
+.thread--timed_waiting, .thread--waiting {
+    fill: #ffdd57
+}
+
+.thread--blocked {
+    fill: #ff3860
+}
+
+.hystrix {
+    width: 100%;
+    height: 800px
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.hex-mesh {
+    background-color: #4a4a4a;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.hex {
+    fill-opacity: .05;
+    stroke-width: .5;
+    stroke-opacity: .8
+}
+
+.hex polygon {
+    fill: none;
+    stroke: #7a7a7a;
+    -webkit-transition: all .25s ease-out;
+    transition: all .25s ease-out
+}
+
+.hex.is-white polygon {
+    fill: #fff;
+    fill-opacity: .3;
+    stroke: #fff;
+    stroke-opacity: .95;
+    stroke-width: 1.5
+}
+
+.hex.is-black polygon {
+    fill: #0a0a0a;
+    fill-opacity: .3;
+    stroke: #0a0a0a;
+    stroke-opacity: .95;
+    stroke-width: 1.5
+}
+
+.hex.is-light polygon {
+    fill: #f5f5f5;
+    fill-opacity: .3;
+    stroke: #f5f5f5;
+    stroke-opacity: .95;
+    stroke-width: 1.5
+}
+
+.hex.is-dark polygon {
+    fill: #363636;
+    fill-opacity: .3;
+    stroke: #363636;
+    stroke-opacity: .95;
+    stroke-width: 1.5
+}
+
+.hex.is-primary polygon {
+    fill: #42d3a5;
+    fill-opacity: .3;
+    stroke: #42d3a5;
+    stroke-opacity: .95;
+    stroke-width: 1.5
+}
+
+.hex.is-link polygon {
+    fill: #3273dc;
+    fill-opacity: .3;
+    stroke: #3273dc;
+    stroke-opacity: .95;
+    stroke-width: 1.5
+}
+
+.hex.is-info polygon {
+    fill: #209cee;
+    fill-opacity: .3;
+    stroke: #209cee;
+    stroke-opacity: .95;
+    stroke-width: 1.5
+}
+
+.hex.is-success polygon {
+    fill: #23d160;
+    fill-opacity: .3;
+    stroke: #23d160;
+    stroke-opacity: .95;
+    stroke-width: 1.5
+}
+
+.hex.is-warning polygon {
+    fill: #ffdd57;
+    fill-opacity: .3;
+    stroke: #ffdd57;
+    stroke-opacity: .95;
+    stroke-width: 1.5
+}
+
+.hex.is-danger polygon {
+    fill: #ff3860;
+    fill-opacity: .3;
+    stroke: #ff3860;
+    stroke-opacity: .95;
+    stroke-width: 1.5
+}
+
+.hex.is-selectable:hover {
+    cursor: pointer
+}
+
+.hex.is-selectable:hover polygon {
+    fill-opacity: .85;
+    stroke-opacity: 1
+}
+
+.hex__body {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+/*!
+ * Copyright 2014-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.wallboard {
+    background-color: #4a4a4a;
+    height: calc(100vh - 52px);
+    width: 100%
+}
+
+.wallboard .application {
+    color: #f5f5f5;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.wallboard .application__name {
+    width: 100%;
+    padding: 2.5%;
+    color: #fff;
+    font-size: 2em;
+    font-weight: 600;
+    line-height: 1.125
+}
+
+.wallboard .application__version {
+    color: #f5f5f5;
+    font-size: 1.25em;
+    line-height: 1.25
+}
+
+.wallboard .application__header {
+    width: 90%;
+    margin-bottom: .5em
+}
+
+.wallboard .application__footer {
+    width: 90%;
+    margin-top: .5em
+}

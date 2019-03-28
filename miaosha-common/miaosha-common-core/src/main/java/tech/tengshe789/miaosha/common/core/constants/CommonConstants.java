@@ -32,6 +32,8 @@ public interface CommonConstants {
 
 	String MIAOSHA_PATH_KEY = "MIAOSHA_PATH_";
 
+	String GET_MIAOSHA_ORDER_BY_UID_GID_KEY = "GET_MIAOSHA_ORDER_BY_UID_GID";
+
 	/**
 	 *  验证码时间设置长一点，本次设置的5分钟
 	 */

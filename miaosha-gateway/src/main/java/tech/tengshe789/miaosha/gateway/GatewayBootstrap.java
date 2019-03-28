@@ -20,6 +20,6 @@ public class GatewayBootstrap extends ContainerStartupNotification {
 
 	@Override
 	public void run(String... args) throws Exception {
-		log.info(">>>>>>>>>>>>>>> miaosha 程序 服务网关功能 启动完成<<<<<<<<<<<<<");
+		log.info(">>>>>>>>>>>>>>> miaosha 平台 服务网关 组件 启动完成<<<<<<<<<<<<<");
 	}
 }

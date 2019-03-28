@@ -10,16 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>miaosha-mall-order</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>miaosha-mall-order-api</module>
+        <module>miaosha-mall-order-biz</module>
+    </modules>
     <dependencies>
-        <!-- goods 模块-->
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-mall-goods</artifactId>
-        </dependency>
-        <!--rabbitMQ-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-        </dependency>
     </dependencies>
 </project>

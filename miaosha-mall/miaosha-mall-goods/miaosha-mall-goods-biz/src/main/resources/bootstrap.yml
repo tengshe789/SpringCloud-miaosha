@@ -1,0 +1,31 @@
+server:
+  port: 5002
+
+spring:
+  application:
+    name: miaosha-mall-goods
+  # dev环境
+  profiles:
+    active: dev
+  cloud:
+    # 注册中心
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        tags: version=2.0
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 5s
+        instance-id: ${spring.application.name}:comma,separated,profiles:${server.port}
+    # 配置中心
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        service-id: miaosha-config
+    autoconfigure:
+      exclude: org.springframework.cloud.gateway.config.GatewayAutoConfiguration
+  main:
+    allow-bean-definition-overriding: true

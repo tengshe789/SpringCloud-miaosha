@@ -31,6 +31,6 @@ public class MiaoshaSysBootstap extends ContainerStartupNotification {
 
 	@Override
 	public void run(String... args) throws Exception {
-		log.info("SYS启动成功！");
+		log.info(">>>>>>>>>>>>>>> miaosha 平台 系统服务 组件 启动完成<<<<<<<<<<<<<");
 	}
 }

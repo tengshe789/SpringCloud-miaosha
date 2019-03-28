@@ -36,7 +36,6 @@ public class CodeMsgConstants {
 	/**
 	 * 登录与认证模块 5001XX
 	 */
-	public static CodeMsgConstants SESSION_ERROR = new CodeMsgConstants(500110, "Session不存在或者已经失效~");
 	public static CodeMsgConstants PASSWORD_EMPTY = new CodeMsgConstants(500111, "登录密码不能为空~");
 	public static CodeMsgConstants MOBILE_EMPTY = new CodeMsgConstants(500112, "手机号不能为空~");
 	public static CodeMsgConstants MOBILE_ERROR = new CodeMsgConstants(500113, "手机号格式错误~");
@@ -58,7 +57,7 @@ public class CodeMsgConstants {
 	public static CodeMsgConstants CHONG_FU_MIAOSHA = new CodeMsgConstants(500401, "不能重复秒杀商品啊大兄弟！！！");
 	public static final CodeMsgConstants MIAO_SHA_FAIL = new CodeMsgConstants(500402, "验证码引擎故障");
 
-	//秒杀模块 9999XX
+	//网关模块 9999XX
 	public static CodeMsgConstants INTERCEPTION_FAILURE = new CodeMsgConstants(999901, "网关拦截失败");
 
 	//可以返回带参数的校验码

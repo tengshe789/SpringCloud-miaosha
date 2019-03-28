@@ -15,11 +15,9 @@ import java.util.Map;
 
 /**
  * @program: -miaosha
- * @description:
  * @author: tEngSHe789
  * @create: 2019-03-19 18:10
  **/
-@EnableKafka
 @Configuration
 public class KafkaProducerConfig {
 

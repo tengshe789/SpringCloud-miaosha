@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base th:href="@{${adminContextPath} + '/'}" href=/>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta name=format-detection content="telephone=no,email=no">
+    <meta name=theme-color content=#42d3a5>
+    <link rel="shortcut icon" href=assets/img/favicon.png type=image/png>
+    <title>Spring Boot Admin - Login</title>
+    <link href=assets/css/chunk-vendors.a476dbd7.css rel=stylesheet>
+    <link href=assets/css/chunk-common.9808b72e.css rel=stylesheet>
+</head>
+<body class=login>
+<section class="hero is-fullheight">
+    <div class=hero-body>
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <div class=box>
+                    <figure class="image is-128x128 login--logo"><img src=assets/img/icon-spring-boot-admin.svg>
+                    </figure>
+                    <h1 class="title has-text-primary"> 服务状态监控</h1>
+                    <form method=post><input type=hidden th:if=${_csrf} th:name=${_csrf.parameterName}
+                                             th:value=${_csrf.token}>
+                        <div class=field><p class="is-medium has-text-danger" th:unless="${param.error == null}">Invalid
+                            username or password</p>
+                            <p class=is-medium th:unless="${param.logout == null}">Logout successful</p></div>
+                        <div class=field>
+                            <div class=control><input class="input is-medium" type=input name=username
+                                                      placeholder=Username autofocus
+                                                      th:classappend="${param.error != null} ? is-danger"></div>
+                        </div>
+                        <div class=field>
+                            <div class=control><input class="input is-medium" type=password name=password
+                                                      placeholder=Password
+                                                      th:classappend="${param.error != null} ? is-danger"></div>
+                        </div>
+                        <div class=field>
+                            <div class=control><input type=submit
+                                                      class="button is-block is-primary is-medium is-fullwidth"
+                                                      value=Login></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src=assets/js/chunk-vendors.2f924319.js></script>
+<script src=assets/js/chunk-common.4230ea45.js></script>
+<script src=assets/js/login.614c6c50.js></script>
+</body>
+</html>

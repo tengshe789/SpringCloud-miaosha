@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>miaosha-plugins-sidecar</module>
+        <module>miaosha-plugins-monitor</module>
+        <module>miaosha-plugins-zipkin</module>
     </modules>
 
     <dependencies>

@@ -89,15 +89,25 @@ IntelliJ IDEA  x64、MySQL 5.7、Kubernetes、Docker、Linux、Lombok、Maven、
 │  ├─ miaosha-mall-------------- 商城
 │  │  ├─ miaosha-mall-ads---------------- 广告模块
 │  │  ├─ miaosha-mall-goods---------------- 商品模块
+│  │  │  ├─ miaosha-mall-goods-api---------------- 商品模块的接口端
+│  │  │  ├─ miaosha-mall-goods-biz---------------- 商品模块的服务端
 │  │  ├─ miaosha-mall-order---------------- 订单模块
+│  │  │  ├─ miaosha-mall-order-api---------------- 商品模块的接口端
+│  │  │  ├─ miaosha-mall-order-biz---------------- 商品模块的服务端
 │  │  ├─ miaosha-mall-pay---------------- 支付模块
 │  │  ├─ miaosha-mall-search---------------- 搜索模块
 │  │  ├─ miaosha-mall-seckill---------------- 秒杀模块
+│  │  │  ├─ miaosha-mall-seckill-api---------------- 商品模块的接口端
+│  │  │  ├─ miaosha-mall-seckill-biz---------------- 商品模块的服务端
 │  │  
 │  ├─ miaosha-plugins-------------- 插件
-│  │  ├─ miaosha-plugins-sidecar---------------- sidecar
+│  │  ├─ miaosha-plugins-monitor---------------- 秒杀平台的监控组件
+│  │  ├─ miaosha-plugins-sidecar---------------- 秒杀平台的sidecar
+│  │  ├─ miaosha-plugins-zipkin---------------- 秒杀平台的zipkin监控组件
 │  │  
 │  ├─ miaosha-sys-------------- 账户后台控制系统
+│  │  ├─ miaosha-sys-api---------------- 账户后台控制系统的接口端
+│  │  ├─ miaosha-sys-biz---------------- 账户后台控制系统的服务端
 │  │  
 │  ├─ script-------------- 脚本语言
 │  │  

@@ -24,6 +24,6 @@ public class AuthBootstrap extends ContainerStartupNotification {
 
 	@Override
 	public void run(String... args) throws Exception {
-		log.info("Miaosha鉴权中心启动SUccess");
+		log.info(">>>>>>>>>>>>>>> miaosha 平台 鉴权中心 组件 启动完成<<<<<<<<<<<<<");
 	}
 }

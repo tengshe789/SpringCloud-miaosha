@@ -10,13 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>miaosha-mall-goods</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>miaosha-mall-goods-api</module>
+        <module>miaosha-mall-goods-biz</module>
+    </modules>
 
     <dependencies>
-        <!--thymeleaf-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-
     </dependencies>
 </project>

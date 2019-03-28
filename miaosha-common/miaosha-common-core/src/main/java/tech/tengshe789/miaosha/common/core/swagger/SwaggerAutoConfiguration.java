@@ -4,6 +4,7 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -14,6 +15,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import tech.tengshe789.miaosha.common.core.swagger.SwaggerProperties;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,6 +31,8 @@ import java.util.List;
 @EnableAutoConfiguration
 @Configuration
 @EnableSwagger2
+//开启swagger2
+@ConditionalOnProperty(name = "swagger.enabled", matchIfMissing = true)
 public class SwaggerAutoConfiguration {
 	/**
 	 * 	默认的排除路径,排除Spring Boot默认的错误处理路径和端点

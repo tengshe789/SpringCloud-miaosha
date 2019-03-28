@@ -10,19 +10,59 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>miaosha-mall-seckill</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>miaosha-mall-seckill-api</module>
+        <module>miaosha-mall-seckill-biz</module>
+    </modules>
 
     <dependencies>
         <dependency>
             <groupId>tech.tengshe789</groupId>
             <artifactId>miaosha-mall-goods</artifactId>
-            <version>2.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>tech.tengshe789</groupId>
             <artifactId>miaosha-mall-order</artifactId>
-            <version>2.0-SNAPSHOT</version>
             <scope>compile</scope>
+        </dependency>
+        <!--web 模块-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <!--排除tomcat依赖-->
+                <exclusion>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--undertow容器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <!--mysql 驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!--mybatis-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <!-- druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+        <!--consul 模块-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
     </dependencies>
 </project>

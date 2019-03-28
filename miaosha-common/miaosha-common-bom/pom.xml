@@ -78,13 +78,13 @@
             <!--商城模块 goods-->
             <dependency>
                 <groupId>tech.tengshe789</groupId>
-                <artifactId>miaosha-mall-goods</artifactId>
+                <artifactId>miaosha-mall-goods-api</artifactId>
                 <version>${miaosha.version}</version>
             </dependency>
             <!--商城模块 order-->
             <dependency>
                 <groupId>tech.tengshe789</groupId>
-                <artifactId>miaosha-mall-order</artifactId>
+                <artifactId>miaosha-mall-order-api</artifactId>
                 <version>${miaosha.version}</version>
             </dependency>
             <!--商城模块 pay-->
@@ -102,19 +102,11 @@
             <!--商城模块 seckill-->
             <dependency>
                 <groupId>tech.tengshe789</groupId>
-                <artifactId>miaosha-mall-seckill</artifactId>
+                <artifactId>miaosha-mall-seckill-api</artifactId>
                 <version>${miaosha.version}</version>
             </dependency>
 
 
-            <!--jackson模块-->
-            <dependency>
-                <groupId>com.fasterxml.jackson.module</groupId>
-                <artifactId>jackson-modules-java8</artifactId>
-                <version>${jackson.modules}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <!--mybatis plus extension,包含了mybatis plus core-->
             <dependency>
                 <groupId>com.baomidou</groupId>

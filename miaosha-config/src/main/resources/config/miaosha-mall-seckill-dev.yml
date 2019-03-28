@@ -1,0 +1,41 @@
+mybatis:
+  configuration:
+    default-fetch-size: 100
+    default-statement-timeout: 3000
+    map-underscore-to-camel-case: true
+  mapperLocations: classpath:cn/tengshe789/dao/*.xml
+  type-aliases-package: cn.tengshe789.domain
+spring:
+  resources:
+    add-mappings: true
+    cache-period: 3600
+    chain:
+      cache: 'true'
+      enabled: true
+      gzipped: true
+      html-application-cache: true
+    static-locations: classpath:/static/
+  thymeleaf:
+    cache: false
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    servlet:
+      content-type: text/html
+    suffix: .html
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(DWnxhaD6hmvVYLpVCMYjTw==)
+      client-secret: ENC(DWnxhaD6hmvVYLpVCMYjTw==)
+      scope: server
+      # 默认放行url,子模块重写时application-dev.yml中的公共配置会被覆盖,所以要把公共配置中的放行url再写一次
+ignore-urls:
+  - /actuator/**
+  - /v2/api-docs
+  - /user/info/*
+  - /social/info/*
+  - /mobile/*
+  - /log/save

@@ -83,18 +83,6 @@ public class SysUser implements Serializable {
 	private String avatar;
 
 	/**
-	 * 部门ID
-	 */
-	@ApiModelProperty(value="",name="",example="")
-	private Integer deptId;
-
-	/**
-	 * 租户ID
-	 */
-	@ApiModelProperty(value="",name="",example="")
-	private Integer tenantId;
-
-	/**
 	 * 微信openid
 	 */
 	@ApiModelProperty(value="",name="",example="")

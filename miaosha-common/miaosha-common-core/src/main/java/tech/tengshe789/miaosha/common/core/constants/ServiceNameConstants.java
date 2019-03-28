@@ -18,7 +18,23 @@ public interface ServiceNameConstants {
 	String AUTH_SERVICE = "miaosha-auth";
 
 	/**
-	 * sys模块
+	 * sys 模块
 	 */
 	String SYS_SERVICE = "miaosha-sys";
+
+	/**
+	 * goods 模块
+	 */
+	String GOODS_SERVICE = "miaosha-mall-goods";
+
+	/**
+	 * order 模块
+	 */
+	String ORDER_SERVICE = "miaosha-mall-order";
+
+	/**
+	 * seckill 模块
+	 */
+	String SECKILL_SERVICE = "miaosha-mall-seckill";
+
 }

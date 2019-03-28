@@ -26,6 +26,12 @@ spring:
     port:  5672
     username: guest
     password: guest
+    virtual-host:
+    connection-timeout: 15000
+    publisher-confirms: true
+    publisher-returns: true
+    template:
+      mandatory: true
   redis:
     password:
     host: miaosha-redis

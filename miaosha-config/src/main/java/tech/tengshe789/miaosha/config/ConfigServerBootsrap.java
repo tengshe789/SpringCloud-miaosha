@@ -23,6 +23,6 @@ public class ConfigServerBootsrap implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		log.info("miaosha配置中心启动成功");
+		log.info(">>>>>>>>>>>>>>> miaosha 平台 配置中心 组件 启动完成<<<<<<<<<<<<<");
 	}
 }

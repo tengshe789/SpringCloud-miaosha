@@ -158,5 +158,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 		return Boolean.TRUE;
 	}
 
+	public static void main(String[] args) {
+		System.out.println(ENCODER.matches("123456", "$10$QOfWxxFyAMmEEmnuw9UI/..1s4B4eF/u9PzE2ZaGO.ij9YfmcUy.u"));
+		System.out.println(ENCODER.encode(""));
+	}
 
 }

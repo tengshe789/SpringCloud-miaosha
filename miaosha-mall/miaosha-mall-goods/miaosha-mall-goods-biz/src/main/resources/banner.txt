@@ -1,0 +1,9 @@
+${AnsiColor.BRIGHT_CYAN}  __  __   _                 ${AnsiColor.BLUE}  ____    _
+${AnsiColor.BRIGHT_CYAN} |  \/  | (_)   __ _    ___  ${AnsiColor.BLUE} / ___|  | |__     __ _
+${AnsiColor.BRIGHT_CYAN} | |\/| | | |  / _` |  / _ \ ${AnsiColor.BLUE} \___ \  | '_ \   / _` |
+${AnsiColor.BRIGHT_CYAN} | |  | | | | | (_| | | (_) |${AnsiColor.BLUE}  ___) | | | | | | (_| |
+${AnsiColor.BRIGHT_CYAN} |_|  |_| |_|  \__,_|  \___/ ${AnsiColor.BLUE} |____/  |_| |_|  \__,_|
+
+${AnsiColor.BLUE}>>> SpringCloud-miaosha 商城微服务平台 <<<  ${AnsiColor.BRIGHT_RED}comes from tEngSHe789's Microservice Architecture
+${AnsiColor.MAGENTA}  博客：blog.tengshe789.tech
+${AnsiColor.BRIGHT_GREEN} 微服务 ${spring.application.name} 启动 ${AnsiColor.MAGENTA} :: 基于 Spring Boot ${spring-boot.version} :: ${AnsiColor.BRIGHT_BLACK}

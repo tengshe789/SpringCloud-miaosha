@@ -1,0 +1,4 @@
+turbine:
+  app-config: miaosha-sys,miaosha-mall-goods,miaosha-mall-seckill,miaosha-mall-order
+  cluster-name-expression: new String("default")
+  combine-host-port: true
