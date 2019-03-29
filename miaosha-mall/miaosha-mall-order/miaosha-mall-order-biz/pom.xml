@@ -63,6 +63,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+        <dependency>
+            <groupId>tech.tengshe789</groupId>
+            <artifactId>miaosha-mall-goods-api</artifactId>
+        </dependency>
     </dependencies>
 
 

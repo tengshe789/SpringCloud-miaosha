@@ -20,4 +20,5 @@ public class Goods extends Model<Goods> {
     private String goodsDetail;
     private Double goodsPrice;
     private Integer goodsStock;
+	private Integer version;
 }

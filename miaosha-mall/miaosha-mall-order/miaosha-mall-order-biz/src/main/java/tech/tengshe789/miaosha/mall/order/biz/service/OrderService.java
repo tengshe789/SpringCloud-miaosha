@@ -1,7 +1,6 @@
 package tech.tengshe789.miaosha.mall.order.biz.service;
 
 import lombok.AllArgsConstructor;
-import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -70,6 +69,7 @@ public class OrderService {
 	/**
 	 * 删库走人
 	 */
+	@Deprecated
 	@CacheEvict(value = "user_details", key = "#sysUser.username")
 	public Boolean deleteAllOrders() {
         orderDao.deleteAllOrders();

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tech.tengshe789.miaosha.common.core.constants.CommonConstants;
 import tech.tengshe789.miaosha.common.core.result.Result;
-import tech.tengshe789.miaosha.common.core.util.IdWorker;
 import tech.tengshe789.miaosha.mall.goods.api.feign.RemoteGoodsService;
 import tech.tengshe789.miaosha.mall.goods.api.vo.GoodsVo;
 import tech.tengshe789.miaosha.mall.order.api.entity.MiaoshaOrder;
@@ -46,7 +45,6 @@ public class MiaoshaService {
             return null;
          }
     }
-
 
     public long getMiaoshaResult(Long userId, long goodsId) {
 		MiaoshaOrder order = orderService.getMiaoshaUserByUserIdGoodsId(userId, goodsId).getData();
