@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 /**
  * @program: -miaosha
@@ -28,6 +29,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	ClientDetailsService clientDetailsService;
 
+	/**
+	 * form-login是spring security命名空间配置登录相关信息的标签,它包含如下属性：
+	 * 1. login-page 自定义登录页url,默认为/login
+	 * 2. login-processing-url 登录请求拦截的url,也就是form表单提交时指定的action
+	 * 3. default-target-url 默认登录成功后跳转的url
+	 * 4. always-use-default-target 是否总是使用默认的登录成功后跳转url
+	 * 5. authentication-failure-url 登录失败后跳转的url
+	 * 6. username-parameter 用户名的请求字段 默认为userName
+	 * 7. password-parameter 密码的请求字段 默认为password
+	 * 8. authentication-success-handler-ref 指向一个AuthenticationSuccessHandler用于处理认证成功的请求,不能和default-target-url
+	 *
+	 * @param http
+	 */
 	@Override
 	@SneakyThrows
 	protected void configure(HttpSecurity http) {
@@ -43,6 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				"/mobile/**").permitAll()
 			.anyRequest().authenticated()
 			.and().csrf().disable();
+		//TODO 手机号登录验证处理器配置
 	}
 
 	/**
@@ -72,4 +87,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
+
 }

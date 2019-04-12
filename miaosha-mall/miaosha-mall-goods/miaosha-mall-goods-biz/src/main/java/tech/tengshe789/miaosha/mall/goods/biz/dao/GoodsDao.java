@@ -33,4 +33,8 @@ public interface GoodsDao {
     @Update("update miaosha_goods set stock_count = #{stockCount} where goods_id = #{goodsId}")
     public int resetStock(MiaoshaGoods g);
 
+	// 获取最新版本号
+	@Select("select version from miaosha_goods  where goods_id = #{goodsId}")
+	public int getVersionByGoodsId(@Param("goodsId") long goodsId);
+
 }

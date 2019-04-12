@@ -5,7 +5,7 @@ import tech.tengshe789.miaosha.common.core.constants.CodeMsgConstants;
 
 /**
  * @program: -miaosha
- * @description:
+ * @description: 系统异常
  * @author: tEngSHe789
  * @create: 2019-03-28 13:07
  **/

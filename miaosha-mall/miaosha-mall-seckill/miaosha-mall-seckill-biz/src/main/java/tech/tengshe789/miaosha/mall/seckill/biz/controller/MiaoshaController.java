@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tech.tengshe789.miaosha.common.core.constants.CodeMsgConstants;
@@ -11,6 +12,7 @@ import tech.tengshe789.miaosha.common.core.constants.CommonConstants;
 import tech.tengshe789.miaosha.common.core.constants.RabbitInfo;
 import tech.tengshe789.miaosha.common.core.result.Result;
 import tech.tengshe789.miaosha.common.mq.function.RabbitSender;
+import tech.tengshe789.miaosha.common.security.annotation.Inner;
 import tech.tengshe789.miaosha.common.security.entity.MiaoshaUser;
 import tech.tengshe789.miaosha.common.security.exception.SystemException;
 import tech.tengshe789.miaosha.mall.goods.api.feign.RemoteGoodsService;
@@ -18,6 +20,7 @@ import tech.tengshe789.miaosha.mall.goods.api.vo.GoodsVo;
 import tech.tengshe789.miaosha.mall.order.api.entity.MiaoshaOrder;
 import tech.tengshe789.miaosha.mall.order.api.feign.RemoteOrderService;
 import tech.tengshe789.miaosha.mall.seckill.api.vo.MiaoshaMessage;
+import tech.tengshe789.miaosha.mall.seckill.biz.service.LoadDataIntoCache;
 import tech.tengshe789.miaosha.mall.seckill.biz.service.MiaoshaService;
 import tech.tengshe789.miaosha.sys.api.entity.SysUser;
 
@@ -30,35 +33,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+@Controller
 @RequestMapping("/miaosha")
 @AllArgsConstructor
-public class MiaoshaController implements InitializingBean {
+@CrossOrigin
+public class MiaoshaController {
 	private final RemoteGoodsService goodsService;
 	private final RemoteOrderService orderService;
 	private final RedisTemplate redisTemplate;
 	private final MiaoshaService miaoshaService;
 	private final RabbitSender rabbitSender;
-
-	private HashMap<Long, Boolean> localOverMap = new HashMap<Long, Boolean>(16);
-
-	/**
-	 * 系统初始化时调用
-	 *
-	 * @throws Exception
-	 */
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		List<GoodsVo> goodsList = goodsService.listGoodsVo().getData();
-		if (goodsList == null) {
-			throw new SystemException();
-		}
-		//将redis加载到缓存
-		for (GoodsVo goods : goodsList) {
-			redisTemplate.opsForValue().set(CommonConstants.GOODS_STOCK_KEY + goods.getId(), goods.getStockCount());
-			localOverMap.put(goods.getId(), false);
-		}
-	}
 
 	/**
 	 * 重置系统
@@ -72,7 +56,7 @@ public class MiaoshaController implements InitializingBean {
 		for (GoodsVo goods : goodsList) {
 			goods.setStockCount(10);
 			redisTemplate.opsForValue().set(CommonConstants.GOODS_STOCK_KEY + goods.getId(), 10);
-			localOverMap.put(goods.getId(), false);
+			LoadDataIntoCache.localOverMap.put(goods.getId(), false);
 		}
 		redisTemplate.delete(CommonConstants.GET_MIAOSHA_ORDER_BY_UID_GID_KEY);
 		redisTemplate.delete(CommonConstants.ISOVER);
@@ -88,6 +72,7 @@ public class MiaoshaController implements InitializingBean {
 	 * @param goodsId
 	 * @return
 	 */
+	@Inner
 	@GetMapping("/path")
 	public Result<String> getMiaoshaPath(Model model, SysUser user,
 										 @RequestParam("goodsId") long goodsId) {
@@ -141,6 +126,7 @@ public class MiaoshaController implements InitializingBean {
 	 * @param path
 	 * @return
 	 */
+	@Inner
 	@RequestMapping(value = "/{path}/do_miaosha", method = RequestMethod.POST)
 	public Result<Integer> miaosha(Model model, SysUser user,
 								   @RequestParam("goodsId") long goodsId,
@@ -155,7 +141,7 @@ public class MiaoshaController implements InitializingBean {
 			return Result.error(CodeMsgConstants.REQUEST_ILLEGAL);
 		}
 		//拿到初始化时的库存数量，判断库存是否没了，减少redis访问
-		boolean over = localOverMap.get(goodsId);
+		boolean over = LoadDataIntoCache.localOverMap.get(goodsId);
 		if (over) {
 			return Result.error(CodeMsgConstants.MIAO_SHA_OVER);
 		}
@@ -186,6 +172,7 @@ public class MiaoshaController implements InitializingBean {
 	 * @param goodsId
 	 * @return
 	 */
+	@Inner
 	@RequestMapping(value = "/result", method = RequestMethod.GET)
 	public Result<Long> miaoshaResult(Model model, SysUser user,
 									  @RequestParam("goodsId") long goodsId) {

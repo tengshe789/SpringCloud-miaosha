@@ -1,4 +1,24 @@
 spring:
+  thymeleaf:
+    cache: true
+    enabled: true
+    encoding: UTF-8
+    mode: HTML
+    prefix: classpath:/templates/
+    servlet:
+      content-type: text/html
+    suffix: .html
+    template-resolver-order: 1
+    check-template: false
+    reactive:
+      max-chunk-size: 8192
+  resources:
+    add-mappings: true
+    chain:
+      cache: 'true '
+      enabled: true
+      html-application-cache: true
+    static-locations: classpath:/static/
   cloud:
     gateway:
       locator:
@@ -16,15 +36,50 @@ spring:
         - id: miaosha-sys
           uri: lb://miaosha-sys
           predicates:
-            - Path=/sys/**
+            - Path=/admin/**
           # 过滤规则
           filters:
-              # 降级配置
+            # 降级配置
             - name: Hystrix
               args:
                 name: default
                 fallbackUri: 'forward:/fallback'
-
+        # goods 模块
+        - id: miaosha-mall-goods
+          uri: lb://miaosha-mall-goods
+          predicates:
+            - Path=/goods/**
+          # 过滤规则
+          filters:
+            # 降级配置
+            - name: Hystrix
+              args:
+                name: default
+                fallbackUri: 'forward:/fallback'
+        # order 模块
+        - id: miaosha-mall-order
+          uri: lb://miaosha-mall-order
+          predicates:
+            - Path=/order/**
+          # 过滤规则
+          filters:
+            # 降级配置
+            - name: Hystrix
+              args:
+                name: default
+                fallbackUri: 'forward:/fallback'
+        # seckill 模块
+        - id: miaosha-mall-seckill
+          uri: lb://miaosha-mall-seckill
+          predicates:
+            - Path=/seckill/**
+          # 过滤规则
+          filters:
+            # 降级配置
+            - name: Hystrix
+              args:
+                name: default
+                fallbackUri: 'forward:/fallback'
 # 不校验验证码终端
 ignore:
   clients:

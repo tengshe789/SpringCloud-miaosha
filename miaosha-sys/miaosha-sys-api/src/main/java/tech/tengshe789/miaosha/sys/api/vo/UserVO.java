@@ -68,21 +68,6 @@ public class UserVO implements Serializable {
 	private String avatar;
 
 	/**
-	 * 部门ID
-	 */
-	private Integer deptId;
-
-	/**
-	 * 租户ID
-	 */
-	private Integer tenantId;
-
-	/**
-	 * 部门名称
-	 */
-	private String deptName;
-
-	/**
 	 * 角色列表
 	 */
 	private List<SysRole> roleList;

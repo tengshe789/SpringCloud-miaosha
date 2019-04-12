@@ -18,6 +18,6 @@ public class CryptoApplicationTest {
 		System.out.println(stringEncryptor.encrypt("miaosha"));
 
 		//解密方法
-		System.out.println(stringEncryptor.decrypt("QYfFSuA9OusCXK5XhRoK0A=="));
+		System.out.println(stringEncryptor.decrypt("DWnxhaD6hmvVYLpVCMYjTw=="));
 	}
 }

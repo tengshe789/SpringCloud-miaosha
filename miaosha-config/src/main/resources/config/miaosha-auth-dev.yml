@@ -1,24 +1,10 @@
-freemarker:
-  allow-request-override: false
-  allow-session-override: false
-  cache: true
-  charset: UTF-8
-  check-template-location: true
-  content-type: text/html
-  enabled: true
-  expose-request-attributes: false
-  expose-session-attributes: false
-  expose-spring-macro-helpers: true
-  prefer-file-system-access: true
-  suffix: .ftl
-  template-loader-path: classpath:/templates/
 spring:
   autoconfigure:
     exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.184.130:3306/miaosha?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+    url: jdbc:mysql://miaosha-mysql:3306/miaosha?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
     # mysql的新 驱动名称
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
@@ -63,4 +49,24 @@ spring:
         login-username: admin
         # 登录密码
         login-password: 123
-
+  resources:
+    add-mappings: true
+    chain:
+      cache: 'true '
+      enabled: true
+      html-application-cache: true
+    static-locations: classpath:/static/
+freemarker:
+  enabled: true
+  allow-request-override: false
+  allow-session-override: false
+  cache: true
+  charset: UTF-8
+  check-template-location: true
+  content-type: text/html
+  expose-request-attributes: false
+  expose-session-attributes: false
+  expose-spring-macro-helpers: true
+  prefer-file-system-access: true
+  suffix: .ftl
+  template-loader-path: classpath:/templates/

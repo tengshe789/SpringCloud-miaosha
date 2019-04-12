@@ -4,7 +4,9 @@ server:
 spring:
   application:
     name: miaosha-plugins-monitor
-  #配置中心
+  # dev环境
+  profiles:
+    active: dev
   cloud:
     # 注册中心
     consul:
@@ -23,7 +25,7 @@ spring:
       discovery:
         enabled: true
         service-id: miaosha-config
+    autoconfigure:
+      exclude: org.springframework.cloud.gateway.config.GatewayAutoConfiguration
   main:
     allow-bean-definition-overriding: true
-  profiles:
-    active: dev

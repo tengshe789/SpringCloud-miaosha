@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.context.annotation.ComponentScan;
 import tech.tengshe789.miaosha.common.core.notice.ContainerStartupNotification;
 import tech.tengshe789.miaosha.common.security.annotation.EnableMiaoshaFeignClients;
 

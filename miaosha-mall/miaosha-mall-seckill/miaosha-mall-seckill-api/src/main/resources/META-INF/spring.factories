@@ -1,3 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  tech.tengshe789.miaosha.mall.goods.api.feign.factories.RemoteGoodsServiceFallbackFactory,\
-  tech.tengshe789.miaosha.mall.goods.api.feign.fallback.RemoteLogServiceFallbackImpl
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=

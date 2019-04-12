@@ -1,6 +1,7 @@
 package tech.tengshe789.miaosha.mall.order.biz;
 
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import tech.tengshe789.miaosha.common.core.annotation.EnableMiaoshaSwagger;
@@ -18,6 +19,7 @@ import tech.tengshe789.miaosha.common.security.annotation.EnableMiaoshaResourceS
 @EnableMiaoshaFeignClients
 @EnableMiaoshaResourceServer
 @EnableMiaoshaSwagger
+@MapperScan("tech.tengshe789.miaosha.mall.order.biz.dao")
 public class OrderBootstrap extends ContainerStartupNotification {
 	@Override
 	public void run(String... args) throws Exception {

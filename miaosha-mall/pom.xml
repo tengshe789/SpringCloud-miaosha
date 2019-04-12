@@ -19,14 +19,4 @@
         <module>miaosha-mall-ads</module>
         <module>miaosha-mall-search</module>
     </modules>
-
-    <dependencies>
-
-        <!--sys依赖  -->
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-sys</artifactId>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
 </project>

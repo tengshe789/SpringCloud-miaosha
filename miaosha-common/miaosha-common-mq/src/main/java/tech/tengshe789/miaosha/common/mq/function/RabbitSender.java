@@ -7,10 +7,14 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
@@ -19,9 +23,9 @@ import java.util.Map;
  * @author: tEngSHe789
  * @create: 2019-03-28 14:20
  **/
-@Component
 @AllArgsConstructor
 @Slf4j
+@Service("rabbitSender")
 public class RabbitSender {
 	private final RabbitTemplate rabbitTemplate;
 
@@ -101,6 +105,11 @@ public class RabbitSender {
 		rabbitTemplate.setReturnCallback(returnCallback);
 		CorrelationData correlationData = new CorrelationData(UUID.fastUUID().toString());
 		rabbitTemplate.convertAndSend(exchange, routingKey, msg, correlationData);
+	}
+
+	@Bean
+	public String string() {
+		return new String();
 	}
 
 }

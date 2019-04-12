@@ -4,7 +4,7 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.184.130:3306/miaosha?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+    url: jdbc:mysql://miaosha-mysql:3306/miaosha?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
     # mysql的新 驱动名称
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
@@ -53,10 +53,10 @@ spring:
 security:
   oauth2:
     client:
-      client-id: ENC(DWnxhaD6hmvVYLpVCMYjTw==)
-      client-secret: ENC(DWnxhaD6hmvVYLpVCMYjTw==)
+      client-id: miaosha
+      client-secret: miaosha
       scope: server
-      # 默认放行url,子模块重写时application-dev.yml中的公共配置会被覆盖,所以要把公共配置中的放行url再写一次
+# 默认放行url,子模块重写时application-dev.yml中的公共配置会被覆盖,所以要把公共配置中的放行url再写一次
 ignore-urls:
   - /actuator/**
   - /v2/api-docs

@@ -17,16 +17,6 @@
     </modules>
 
     <dependencies>
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-mall-goods</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>tech.tengshe789</groupId>
-            <artifactId>miaosha-mall-order</artifactId>
-            <scope>compile</scope>
-        </dependency>
         <!--web 模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

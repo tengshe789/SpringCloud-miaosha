@@ -3,7 +3,8 @@ package tech.tengshe789.miaosha.common.security.annotation;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
-import tech.tengshe789.miaosha.common.security.config.CustomResourceServerConfig;
+import tech.tengshe789.miaosha.common.security.config.MiaoshaResourceServerAutoConfiguration;
+import tech.tengshe789.miaosha.common.security.config.MiaoshaSecurityBeanDefinitionRegistrar;
 
 import java.lang.annotation.*;
 
@@ -20,6 +21,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 //开启@Secured 注解过滤权限
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@Import({CustomResourceServerConfig.class})
+@Import({MiaoshaResourceServerAutoConfiguration.class, MiaoshaSecurityBeanDefinitionRegistrar.class})
 public @interface EnableMiaoshaResourceServer {
 }

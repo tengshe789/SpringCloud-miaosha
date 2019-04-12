@@ -35,6 +35,15 @@ spring:
   redis:
     password:
     host: miaosha-redis
+#  thymeleaf:
+#    cache: true
+#    enabled: true
+#    encoding: UTF-8
+#    mode: HTML
+#    prefix: classpath:/templates/
+#    servlet:
+#      content-type: text/html
+#    suffix: .html
 # 暴露监控端点
 management:
   endpoints:
@@ -60,6 +69,7 @@ feign:
       enabled: true
     response:
       enabled: true
+
 # hystrix If you need to use ThreadLocal bound variables in your RequestInterceptor`s
 # you will need to either set the thread isolation strategy for Hystrix to `SEMAPHORE or disable Hystrix in Feign.
 hystrix:
@@ -75,9 +85,9 @@ hystrix:
     default:
       execution:
         isolation:
-          strategy: SEMAPHORE
+          strategy: THREAD
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 1000
   shareSecurityContext: true
 
 #请求处理的超时时间
@@ -87,6 +97,7 @@ ribbon:
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 1
   OkToRetryOnAllOperations: false
+
 # mybaits-plus配置
 mybatis-plus:
   type-aliases-package: tech.tengshe789.miaosha.upms.entity
@@ -130,6 +141,9 @@ swagger:
 security:
   oauth2:
     client:
+      client-id: test
+      client-secret: test
+      scope: server
       # 默认放行url,如果子模块重写这里的配置就会被覆盖
       ignore-urls:
         - /actuator/**
@@ -137,3 +151,17 @@ security:
     resource:
       loadBalanced: true
       token-info-uri: http://miaosha-auth/oauth/check_token
+#freemarker:
+#  enabled: true
+#  allow-request-override: false
+#  allow-session-override: false
+#  cache: true
+#  charset: UTF-8
+#  check-template-location: true
+#  content-type: text/html
+#  expose-request-attributes: false
+#  expose-session-attributes: false
+#  expose-spring-macro-helpers: true
+#  prefer-file-system-access: true
+#  suffix: .ftl
+#  template-loader-path: classpath:/templates/ftl

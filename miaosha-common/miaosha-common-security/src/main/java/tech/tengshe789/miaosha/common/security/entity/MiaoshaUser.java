@@ -9,7 +9,7 @@ import java.util.Collection;
 
 /**
  * @program: -miaosha
- * @description: 扩展用户信息
+ * @description: 封装扩展用户信息
  * @author: <a href="mailto:randyvan007@qq.com">tEngSHe789</a>
  * @create: 2019-02-12 14:25
  **/
@@ -19,11 +19,6 @@ public class MiaoshaUser extends User {
 	 */
 	@Getter
 	private Long id;
-	/**
-	 * 部门ID
-	 */
-	@Getter
-	private Integer deptId;
 
 	/**
 	 * Construct the <code>User</code> with the details required by
@@ -47,7 +42,6 @@ public class MiaoshaUser extends User {
 	public MiaoshaUser(Long id, String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 		this.id = id;
-		this.deptId = deptId;
 	}
 }
 

@@ -92,6 +92,17 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 	}
 
 	/**
+	 * 通过username查询用户信息
+	 *
+	 * @param username
+	 * @return
+	 */
+	@Override
+	public UserVO selectUserVoByUsername(String username) {
+		return baseMapper.getUserVoByUsername(username);
+	}
+
+	/**
 	 * 删除用户
 	 *
 	 * @param sysUser 用户

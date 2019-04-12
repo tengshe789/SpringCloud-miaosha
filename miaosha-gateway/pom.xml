@@ -15,6 +15,11 @@
     <description>miaosha 服务网关，基于 spring cloud gateway</description>
 
     <dependencies>
+        <!--thymeleaf-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
         <!--配置中心客户端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -35,11 +40,11 @@
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
         <!--验证码-->
-        <dependency>
-            <groupId>com.github.axet</groupId>
-            <artifactId>kaptcha</artifactId>
-            <version>${kaptcha.version}</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.github.axet</groupId>-->
+        <!--<artifactId>kaptcha</artifactId>-->
+        <!--<version>${kaptcha.version}</version>-->
+        <!--</dependency>-->
         <!--swagger文档-->
         <dependency>
             <groupId>io.springfox</groupId>

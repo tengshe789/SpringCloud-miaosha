@@ -47,6 +47,14 @@ public interface SysUserService extends IService<SysUser> {
 	UserVO selectUserVoById(Long id);
 
 	/**
+	 * 通过username查询用户信息
+	 *
+	 * @param username
+	 * @return 用户信息
+	 */
+	UserVO selectUserVoByUsername(String username);
+
+	/**
 	 * 保存用户信息
 	 *
 	 * @param userDto DTO 对象

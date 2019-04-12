@@ -1,6 +1,7 @@
 package tech.tengshe789.miaosha.sys.api.dto;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 import tech.tengshe789.miaosha.sys.api.entity.SysUser;
 
 import java.io.Serializable;
@@ -15,6 +16,7 @@ import java.io.Serializable;
  * commit('SET_PERMISSIONS', data)
  */
 @Data
+@Accessors(chain = true)
 public class UserInfo implements Serializable {
 	/**
 	 * 用户基本信息

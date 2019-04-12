@@ -39,6 +39,7 @@ public class FeignClientInterceptor extends OAuth2FeignRequestInterceptor {
 
 
 	/**
+	 * fein 拦截器将本服务的token 通过copyToken的形式传递给下游服务
 	 * Create a template with the header of provided name and extracted extract
 	 * 1. 如果使用 非web 请求，header 区别
 	 * 2. 根据authentication 还原请求token

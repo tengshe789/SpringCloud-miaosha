@@ -1,5 +1,6 @@
 package tech.tengshe789.miaosha.sys.biz.controller;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -7,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.tengshe789.miaosha.common.core.constants.CodeMsgConstants;
@@ -16,9 +18,11 @@ import tech.tengshe789.miaosha.common.security.annotation.Inner;
 import tech.tengshe789.miaosha.common.security.utils.SecurityUtils;
 import tech.tengshe789.miaosha.sys.api.dto.UserDTO;
 import tech.tengshe789.miaosha.sys.api.entity.SysUser;
+import tech.tengshe789.miaosha.sys.api.vo.UserVO;
 import tech.tengshe789.miaosha.sys.biz.service.SysUserService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author lengleng
@@ -27,6 +31,7 @@ import javax.validation.Valid;
 @AllArgsConstructor
 @RequestMapping("/user")
 @Api(value = "user", description = "用户管理模块")
+@Slf4j
 public class UserController {
 	private final SysUserService userService;
 
@@ -54,9 +59,11 @@ public class UserController {
 	@Inner
 	@GetMapping("/info/{username}")
 	public Result info(@PathVariable String username) {
+		log.info(username);
 		SysUser user = userService.getOne(Wrappers.<SysUser>query()
 				.lambda().eq(SysUser::getUsername, username));
 		if (user == null) {
+			log.error("用户:{}不存在", username);
 			return Result.error(CodeMsgConstants.USER_INFORMATION_IS_EMPTY,username);
 		}
 		return Result.success(userService.findUserInfo(user));
@@ -112,6 +119,26 @@ public class UserController {
 	@PostMapping
 	@PreAuthorize("@pms.hasPermission('sys_user_add')")
 	public Result user(@RequestBody UserDTO userDto) {
+		return Result.success(userService.saveUser(userDto));
+	}
+
+	/**
+	 * 注册
+	 *
+	 * @param userDto
+	 * @return
+	 */
+	@ApiOperation(value = "注册", notes = "注册")
+	@ApiImplicitParam(name = "userDto", value = "用户实体user", required = true, dataType = "UserDto")
+	@PostMapping("register")
+	@SysLog("注册用户")
+	public Result<Boolean> register(@RequestBody UserDTO userDto) {
+		String username = userDto.getUsername();
+		UserVO userVO = userService.selectUserVoByUsername(username);
+		//判断是否有重名的
+		if (userVO.getUsername().equals(username)) {
+			return Result.error(CodeMsgConstants.REGISTRATION_ERROR);
+		}
 		return Result.success(userService.saveUser(userDto));
 	}
 

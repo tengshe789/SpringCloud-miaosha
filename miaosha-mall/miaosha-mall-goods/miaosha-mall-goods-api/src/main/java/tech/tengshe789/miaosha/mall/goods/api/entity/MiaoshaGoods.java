@@ -20,4 +20,5 @@ public class MiaoshaGoods extends Model<MiaoshaGoods> {
     private Integer stockCount;
     private Date startDate;
     private Date endDate;
+	private int version;
 }

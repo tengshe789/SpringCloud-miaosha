@@ -12,6 +12,11 @@
     <artifactId>miaosha-sys-biz</artifactId>
 
     <dependencies>
+        <!--freemarker-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
         <!--api-->
         <dependency>
             <groupId>tech.tengshe789</groupId>

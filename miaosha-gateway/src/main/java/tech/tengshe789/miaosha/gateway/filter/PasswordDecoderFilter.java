@@ -30,56 +30,56 @@ import java.util.Map;
  * @author: tEngSHe789
  * @create: 2019-03-25 18:47
  **/
-@Slf4j
-@Component
-public class PasswordDecoderFilter extends AbstractGatewayFilterFactory {
-	private static final String PASSWORD = "password";
-	private static final String KEY_ALGORITHM = "AES";
-	//16位
-	@Value("${security.encode.key:1234567812345678}")
-	private String encodeKey;
-
-	@Override
-	public GatewayFilter apply(Object config) {
-		return (exchange, chain) -> {
-			URI uri = exchange.getRequest().getURI();
-
-			// 不是登录请求,则走出这个过滤器
-			if (!StrUtil.containsAnyIgnoreCase(uri.getPath(), SecurityConstants.OAUTH_TOKEN_URL)) {
-				return chain.filter(exchange);
-			}
-
-			String queryParam = uri.getRawQuery();
-			Map<String, String> paramMap = HttpUtil.decodeParamMap(queryParam, CharsetUtil.UTF_8);
-
-			String password = paramMap.get(PASSWORD);
-			if (StrUtil.isNotBlank(password)) {
-				try {
-					password = decryptAES(password, encodeKey);
-				} catch (Exception e) {
-					log.error("密码解密失败:{}", password);
-					return Mono.error(e);
-				}
-				paramMap.put(PASSWORD, password.trim());
-			}
-
-			URI newUri = UriComponentsBuilder.fromUri(uri)
-				.replaceQuery(HttpUtil.toParams(paramMap))
-				.build(true)
-				.toUri();
-
-			ServerHttpRequest newRequest = exchange.getRequest().mutate().uri(newUri).build();
-			return chain.filter(exchange.mutate().request(newRequest).build());
-		};
-	}
-
-	@SneakyThrows
-	private static String decryptAES(String data, String pass) {
-		AES aes = new AES(Mode.CBC, Padding.NoPadding,
-			new SecretKeySpec(pass.getBytes(), KEY_ALGORITHM),
-			new IvParameterSpec(pass.getBytes()));
-		byte[] result = aes.decrypt(Base64.decode(data.getBytes(StandardCharsets.UTF_8)));
-		return new String(result, StandardCharsets.UTF_8);
-	}
-
-}
+//@Slf4j
+//@Component
+//public class PasswordDecoderFilter extends AbstractGatewayFilterFactory {
+//	private static final String PASSWORD = "password";
+//	private static final String KEY_ALGORITHM = "AES";
+//	//16位
+//	@Value("${security.encode.key:1234567812345678}")
+//	private String encodeKey;
+//
+//	@Override
+//	public GatewayFilter apply(Object config) {
+//		return (exchange, chain) -> {
+//			URI uri = exchange.getRequest().getURI();
+//
+//			// 不是登录请求,则走出这个过滤器
+//			if (!StrUtil.containsAnyIgnoreCase(uri.getPath(), SecurityConstants.OAUTH_TOKEN_URL)) {
+//				return chain.filter(exchange);
+//			}
+//
+//			String queryParam = uri.getRawQuery();
+//			Map<String, String> paramMap = HttpUtil.decodeParamMap(queryParam, CharsetUtil.UTF_8);
+//
+//			String password = paramMap.get(PASSWORD);
+//			if (StrUtil.isNotBlank(password)) {
+//				try {
+//					password = decryptAES(password, encodeKey);
+//				} catch (Exception e) {
+//					log.error("密码解密失败:{}", password);
+//					return Mono.error(e);
+//				}
+//				paramMap.put(PASSWORD, password.trim());
+//			}
+//
+//			URI newUri = UriComponentsBuilder.fromUri(uri)
+//				.replaceQuery(HttpUtil.toParams(paramMap))
+//				.build(true)
+//				.toUri();
+//
+//			ServerHttpRequest newRequest = exchange.getRequest().mutate().uri(newUri).build();
+//			return chain.filter(exchange.mutate().request(newRequest).build());
+//		};
+//	}
+//
+//	@SneakyThrows
+//	private static String decryptAES(String data, String pass) {
+//		AES aes = new AES(Mode.CBC, Padding.NoPadding,
+//			new SecretKeySpec(pass.getBytes(), KEY_ALGORITHM),
+//			new IvParameterSpec(pass.getBytes()));
+//		byte[] result = aes.decrypt(Base64.decode(data.getBytes(StandardCharsets.UTF_8)));
+//		return new String(result, StandardCharsets.UTF_8);
+//	}
+//
+//}

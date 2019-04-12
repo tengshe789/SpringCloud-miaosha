@@ -18,7 +18,6 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.G
 
 /**
  * @program: -miaosha
- * @description:
  * @author: tEngSHe789
  * @create: 2019-03-25 10:02
  **/

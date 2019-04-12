@@ -45,6 +45,9 @@ public class CodeMsgConstants {
 	public static CodeMsgConstants EXIT_FAILED_TOKEN_EMPTY = new CodeMsgConstants(500117, "退出失败，token 为空");
 	public static CodeMsgConstants EXIT_FAILED_TOKEN_INVALID = new CodeMsgConstants(500118, "退出失败，token 无效");
 	public static CodeMsgConstants MIAOSHA_USERNAME_NOT_FOUND = new CodeMsgConstants(500119, "用户不存在");
+	public static CodeMsgConstants REGISTRATION_ERROR = new CodeMsgConstants(500120, "注册失败");
+	public static CodeMsgConstants DEN_AUTH = new CodeMsgConstants(500121, "拒绝授权异常信息");
+	public static CodeMsgConstants ARGS_ERROR = new CodeMsgConstants(500122, "参数绑定异常");
 
 	//商品模块 5002XX
 

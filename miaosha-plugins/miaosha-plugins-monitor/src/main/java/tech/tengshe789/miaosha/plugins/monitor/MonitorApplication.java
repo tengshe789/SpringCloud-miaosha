@@ -30,4 +30,3 @@ public class MonitorApplication extends ContainerStartupNotification {
 		SpringApplication.run(MonitorApplication.class, args);
 	}
 }
-

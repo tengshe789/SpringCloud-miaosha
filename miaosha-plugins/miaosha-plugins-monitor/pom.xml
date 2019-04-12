@@ -12,10 +12,10 @@
     <artifactId>miaosha-plugins-monitor</artifactId>
 
     <dependencies>
+        <!--核心依赖-->
         <dependency>
-            <groupId>com.pig4cloud</groupId>
-            <artifactId>pigx-common-core</artifactId>
-            <version>2.6.0</version>
+            <groupId>tech.tengshe789</groupId>
+            <artifactId>miaosha-common-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -51,6 +51,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <!--排除tomcat依赖-->
+                <exclusion>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!--undertow容器-->
         <dependency>

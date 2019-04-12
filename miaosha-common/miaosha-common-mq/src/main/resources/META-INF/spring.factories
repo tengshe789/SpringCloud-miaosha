@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  tech.tengshe789.miaosha.common.mq.function.RabbitSender

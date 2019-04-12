@@ -12,6 +12,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import tech.tengshe789.miaosha.common.core.constants.CommonConstants;
 import tech.tengshe789.miaosha.common.core.constants.SecurityConstants;
 import tech.tengshe789.miaosha.common.core.result.Result;
@@ -28,13 +29,13 @@ import java.util.Set;
 
 /**
  * @program: -miaosha
- * @description:
  * @author: tEngSHe789
  * @create: 2019-03-21 15:32
  **/
 @Slf4j
 @Service
 @AllArgsConstructor
+@CrossOrigin
 public class MiaoshaUserDetailsServiceImpl implements MiaoshaUserDetailsService{
 	private final RemoteUserService remoteUserService;
 	private final CacheManager cacheManager;
@@ -51,13 +52,13 @@ public class MiaoshaUserDetailsServiceImpl implements MiaoshaUserDetailsService{
 	public UserDetails loadUserByUsername(String username) {
 		Cache cache = cacheManager.getCache("user_details");
 		//从缓存中取
-		if (cache != null && cache.get(username) != null) {
-			return (MiaoshaUser) cache.get(username).get();
-		}
+//		if (cache != null && cache.get(username) != null) {
+//			return (MiaoshaUser) cache.get(username).get();
+//		}
 		//调用远程服务从数据库查
 		Result<UserInfo> result = remoteUserService.info(username, SecurityConstants.FROM_IN);
 		UserDetails userDetails = getUserDetails(result);
-		cache.put(username, userDetails);
+//		cache.put(username, userDetails);
 		return userDetails;
 	}
 

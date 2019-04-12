@@ -1,4 +1,1 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  tech.tengshe789.miaosha.mall.goods.biz.service.GoodsService,\
-  tech.tengshe789.miaosha.mall.goods.biz.dao.GoodsDao
-

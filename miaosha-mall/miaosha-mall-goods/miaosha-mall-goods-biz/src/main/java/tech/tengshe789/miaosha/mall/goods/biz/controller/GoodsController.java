@@ -3,6 +3,7 @@ package tech.tengshe789.miaosha.mall.goods.biz.controller;
 import cn.hutool.core.util.StrUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.context.IWebContext;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/goods")
 @AllArgsConstructor
 public class GoodsController {
@@ -34,12 +35,10 @@ public class GoodsController {
 	 * @param response
 	 * @param model
 	 * @param user
-	 * @param page
 	 * @return
 	 */
 	@RequestMapping(value="/to_list", produces="text/html")
-	public String list(HttpServletRequest request, HttpServletResponse response, Model model, SysUser user
-		, @RequestParam(required = false,defaultValue = "1",value = "page") Integer page) {
+	public String list(HttpServletRequest request, HttpServletResponse response, Model model, SysUser user) {
 		model.addAttribute("user", user);
 		//从redis找已经渲染出来的商品list
 		String html = (String) redisTemplate.opsForValue().get(CommonConstants.GOODS_LIST_KEY + "*");

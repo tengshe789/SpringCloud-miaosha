@@ -8,7 +8,6 @@
     <artifactId>SpringCloud-miaosha</artifactId>
     <version>2.0-SNAPSHOT</version>
     <modules>
-        <module>miaosha-discovery</module>
         <module>miaosha-common</module>
         <module>miaosha-gateway</module>
         <module>miaosha-sys</module>
@@ -16,6 +15,7 @@
         <module>miaosha-plugins</module>
         <module>miaosha-mall</module>
         <module>miaosha-auth</module>
+        <module>miaosha-original</module>
     </modules>
     <name>${project.artifactId}</name>
 	<packaging>pom</packaging>
@@ -43,10 +43,10 @@
 		<kaptcha.version>0.0.9</kaptcha.version>
 		<swagger.version>2.9.2</swagger.version>
 		<curator.version>2.10.0</curator.version>
+        <openfeign.version>2.2.0</openfeign.version>
 		<lcn.version>4.1.0</lcn.version>
 		<jasypt.version>2.1.0</jasypt.version>
 		<ttl.version>2.10.1</ttl.version>
-		<elastic-job-lite.version>2.1.5</elastic-job-lite.version>
 		<security.oauth.version>2.3.3.RELEASE</security.oauth.version>
 		<docker.url>http://192.168.190.137:2375</docker.url>
 		<registry.url>192.168.190.137:5000</registry.url>
@@ -88,11 +88,15 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
 		</dependency>
+        <!--消息总线-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
 		<!--Lombok-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<!--测试依赖-->
 		<dependency>
@@ -100,6 +104,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <!--测试依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
 	</dependencies>
 
 	<dependencyManagement>

@@ -12,17 +12,16 @@ import tech.tengshe789.miaosha.sys.biz.MiaoshaSysBootstap;
  * @author: tEngSHe789
  * @create: 2019-03-26 10:58
  **/
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = MiaoshaSysBootstap.class)
 public class SpringCryptoApplicationTest {
-	@RunWith(SpringJUnit4ClassRunner.class)
-	@SpringBootTest(classes = MiaoshaSysBootstap.class)
-	public class PigAdminApplicationTest {
-		@Autowired
-		private StringEncryptor stringEncryptor;
+	@Autowired
+	private StringEncryptor stringEncryptor;
 
-		@Test
-		public void testEnvironmentProperties() {
-			System.out.println(stringEncryptor.encrypt("app"));
-		}
-
+	@Test
+	public void testEnvironmentProperties() {
+		System.out.println(stringEncryptor.encrypt("app"));
 	}
+
 }
+

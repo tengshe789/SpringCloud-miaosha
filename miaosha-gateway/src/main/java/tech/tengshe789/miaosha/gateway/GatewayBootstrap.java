@@ -1,8 +1,10 @@
 package tech.tengshe789.miaosha.gateway;
 
+import cn.hutool.extra.template.engine.thymeleaf.ThymeleafEngine;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.context.annotation.Bean;
 import tech.tengshe789.miaosha.common.core.notice.ContainerStartupNotification;
 
 /**
@@ -22,4 +24,5 @@ public class GatewayBootstrap extends ContainerStartupNotification {
 	public void run(String... args) throws Exception {
 		log.info(">>>>>>>>>>>>>>> miaosha 平台 服务网关 组件 启动完成<<<<<<<<<<<<<");
 	}
+
 }
