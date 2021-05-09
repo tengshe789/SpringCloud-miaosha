@@ -28,7 +28,7 @@
     "d3-time": "^1.0.10",
     "element-ui": "^2.4.10",
     "event-source-polyfill": "^1.0.3",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "moment": "^2.22.2",
     "moment-shortformat": "^2.1.0",
     "popper.js": "^1.14.4",
